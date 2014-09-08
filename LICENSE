@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2014 rreichel86
+Copyright (c) 2013-2014 Rainer Ernst Reichel (rreichel86@gmail.com). All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -9,13 +9,33 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+RHS TO RHS DIRECT WELDED CONNECTIONS  BETA VERSION v0.5.0.0
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Calculations are in conformance with the Load and Resistance Factor Design method (LRFD) of the ANSI/AISC 360-10: Specification for Structural Steel Buildings - Chapter K. 
+
+And the design recommendations of the following CIDECT DESIGN GUIDES, published under the general series heading "Construction with Hollow Steel Sections, have been used 
+as Guidelines for conditions outside the scope of the AISC Specification:
+ 3. DESIGN GUIDE FOR RECTANGULAR HOLLOW SECTION (RHS) JOINTS UNDER PREDOMINANTLY STATIC LOADING (2nd edition 2008)
+ 7. DESIGN GUIDE FOR FABRICATION, ASSEMBLY AND ERECTION OF HOLLOW SECTION STRUCTURES (1998)
+ 
+DISCLAIMER:
+This software is a beta version. It may contain errors and it should not be used for connection design.
+This tool is intended for use by qualified engineers.
+Although every effort has been made to ensure the accuracy of this software and its documentation, 
+the user of this program assumes full responsibility for any and all output produced by the software, and agrees not to hold the
+producers and distributors of the software responsible for any and all actions resulting from the use of this software. 
+The results obtained from the use of""this program should not be subsitituted for sound engineering judgement
+
+Design and Developed by Rainer Ernst Reichel (rreichel86@gmail.com) 
