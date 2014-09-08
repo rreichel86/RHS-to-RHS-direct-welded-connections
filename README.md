@@ -8,3 +8,4 @@ Esta aplicacion diseña (revisa) las siguientes conexiones soldadas directamente
 
 ![conexiones](/capturas/conexiones.png)
 
+
