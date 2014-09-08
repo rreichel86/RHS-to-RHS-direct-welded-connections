@@ -8,11 +8,11 @@ Esta aplicacion diseña (revisa) las siguientes conexiones soldadas directamente
 2. **Conexiones en T** 
 3. **Conexiones en X** 
 4. **Conexiones en K balanceadas** 
-	a. *con espacieminto* 
-	b. *con traslape*  
+	- *con espacieminto* 
+	- *con traslape*  
 5. **Conexiones en N balanceadas** 
-    	a. *con espacieminto* 
-	b. *con traslape* 
+	- *con espacieminto* 
+	- *con traslape* 
 
 
 
