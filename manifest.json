@@ -5,7 +5,7 @@
   "author": "Rainer Ernst Reichel",
   "manifest_version": 2,
   "minimum_chrome_version": "23",
-  "version": "0.5.0.0",
+  "version": "0.6.0.0",
   "offline_enabled": true,
   "app": {
     "background": {
