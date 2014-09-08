@@ -10,7 +10,7 @@ Esta aplicacion diseña (revisa) las siguientes conexiones soldadas directamente
 2. **Conexiones en T** 
 3. **Conexiones en X** 
 4. **Conexiones en K balanceadas** 
-	-*con espaciamiento* 
+	- *con espaciamiento* 
 	- *con traslape*  
 5. **Conexiones en N balanceadas** 
 	- *con espaciamiento* 
@@ -70,7 +70,7 @@ Esta aplicacion diseña (revisa) las siguientes conexiones soldadas directamente
 		<td> X </td>
 	</tr>
 	<tr>
-		<td>Conexion en N con espaciamiento</td>
+		<td>Conexion en K con traslape</td>
 		<td> X </td>
 		<td> - </td>
 		<td> - </td>
@@ -78,7 +78,7 @@ Esta aplicacion diseña (revisa) las siguientes conexiones soldadas directamente
 		<td> X </td>
 	</tr>
 	<tr>
-		<td>Conexion en K con traslape</td>
+		<td>Conexion en N con espaciamiento</td>
 		<td> X </td>
 		<td> - </td>
 		<td> - </td>
