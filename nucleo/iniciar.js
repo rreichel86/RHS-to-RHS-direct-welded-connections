@@ -1,0 +1,2 @@
+Control.configuracion();
+Control.iniciar();
