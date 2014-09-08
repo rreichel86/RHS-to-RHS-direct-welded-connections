@@ -16,5 +16,5 @@ Esta aplicacion diseña (revisa) las siguientes conexiones soldadas directamente
 	- *con espaciamiento* 
 	- *con traslape* 
 
-
+[conexiones](/capturas/conexiones.png)
 
