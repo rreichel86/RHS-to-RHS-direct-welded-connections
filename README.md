@@ -4,8 +4,19 @@
 RHS-to-RHS-direct-welded-connections
 ----------------------------------------
 Aplicacion web para el diseño de conexiones soldadas entre miembros con perfiles tubulares rectangualres (**RHS**).
-Esta aplicacion diseña (revisa) las siguientes conexiones soldadas directamente entre miembros con perfiles tubulares rectangulares, planas, no reforzadas, solicitadas a cargas predominantemente estaticas y sometidas a fuerzas axiales, a momentos de flexión en el plano y de flexión fuera del plano de la conexión.
+Esta aplicacion web diseña (revisa) los  siguientes tipos de conexiones planas, no reforzadas, soldadas directamente entre miembros de perfiles tubulares rectangulares solicitadas a cargas predominantemente estaticas y sometidas a fuerzas axiales, a momentos de flexión en el plano y flexión fuera del plano de la conexión. 
+
+1. Conexiones en Y
+1. Conexiones en X
+1. Conexiones en K balancedas
+  1. con espaciamiento
+  2. con traslape
+1. Conexiones en N balancedas
+  1. con especiamiento
+  2. con traslape
+
 
 ![conexiones](/capturas/conexiones.png)
 
 
+La aplicacion web esta basada en el metodo *LRFD* del **capitulo K** de la especificacion [**ANSI/AISC 360-10:** *Specification for Structural Steel Buildings*](https://www.aisc.org/WorkArea/showcontent.aspx?id=26516)
