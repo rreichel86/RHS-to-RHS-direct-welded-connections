@@ -126,16 +126,15 @@ var toRad = function (deg) {
       -> ERROR: RAZON DE ANCHO EFECTIVO: Betha_eff es < 0.35   !
       -> ERROR: RAZON DE ANCHO DE LAS RAMAS: Bbi/Bbj es < 0.75 !
                                             Bmin/Bmax es < 0.63 (Si ambas son cuadradas) !
-
       -> ERROR: RAZON DE ESPESOR DE LAS RAMAS: tbi/tbj es > 1 !
 
       -> ERROR: EXCENTRICIDAD: e esta fuera de los limites permitidos  -0.55*H  <= e <= 0.25*H  !
 
       -> ERROR: ESPACIAMIENTO: g es < tb1 + tb2 = __ !
 
-      -> ERROR: RAZON DE ESPACIAMIENTO: g es <  0.5*(1-Betha_eff)* B = __
-      -> ERROR: RAZON DE ESPACIAMIENTO: g es >  1.5*(1-Betha_eff) * B = __ 
-      -> ERROR: TRASLAPE:  Ov es < 25% o es > 100% !
+      -> ERROR: RAZON DE ESPACIAMIENTO: g = __ es <  0.5*(1-Betha_eff)* B = __
+      -> ERROR: RAZON DE ESPACIAMIENTO: g = __ es >  1.5*(1-Betha_eff) * B = __ 
+      -> ERROR: TRASLAPE:  Ov = __ es < 25% o es > 100% !
       
 */
 var limites = {
