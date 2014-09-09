@@ -42,7 +42,7 @@
  *      }
  *      Angulo:
  *      Cargas: {
- *            A:
+ *            P:
  *            Mip:
  *            Mop:
  *      }
@@ -59,7 +59,87 @@ var toRad = function (deg) {
   return rad;
 };
 // Limites de aplicacion //
-// Conexiones en T, Y, X //
+// Conexiones en T, Y, X, K y N //
+/*  LIMTES 
+    
+        CORDON:
+      ----------
+      -> RESISTENCIA DEL MATERIAL: Fy = __ ksi <= 52 ksi 
+      -> DUCTILIDAD: Fy/Fu = __ <= 0.8 ó ASTM 500 GR. C
+      -> RAZON DE ASPECTO:  0.5 <= H/B = __ <= 2
+      -> ESBELTEZ DE LA PAREDES: B/t = __ <= 35  ó 30
+                                 H/t = __ <= 35 
+
+        RAMA-1:
+      ----------    
+      -> RESISTENCIA DEL MATERIAL: Fyb = __ ksi <= 52 ksi 
+      -> DUCTILIDAD: Fyb/Fub = __ <= 0.8 ó ASTM 500 GR. C
+      -> RAZON DE ASPECTO:  0.5 <= Hb/Bb = __ <= 2
+      -> ESBELTEZ DE LA PAREDES: Bb/tb = __ <= 35 
+                                 Bb/tb = __ <= 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __
+                                 Hb/tb = __ <= 35                               
+                                 Hb/tb = __ <= 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __
+      -> ANGULO: theta = __ >= 30 deg
+      -> RAZON DE ANCHOS: Bb/B = __ >= 0.25 ó  0.1 + gamma/50 = __
+                          Hb/b = __ >= 0.25 ó  0.1 + gamma/50 = __
+
+
+        CONEXION: 
+      ------------
+
+      -> RAZON DE ANCHO EFECTIVO: Betha_eff = __ >= 0.35
+      -> RAZON DE ANCHO DE LAS RAMAS: Bbi/Bbj = __ >= 0.75
+                                     Bmin/Bmax = __ >= 0.63 (Si ambas son cuadradas)
+
+      -> RAZON DE ESPESOR DE LAS RAMAS: tbi/tbj = __ <= 1
+
+
+      -> EXCENTRICIDAD: -0.55 <= e/H = __ <= 0.25
+
+      -> ESPACIAMIENTO: g = __ >= tb1 + tb2 = __
+
+      -> RAZON DE ESPACIAMIENTO: 0.5*(1-Betha_eff) = __ <= g/B = __ <= 1.5*(1-Betha_eff) = __
+      -> TRASLAPE: 25% <= Ov = __ <= 100%
+  
+*/
+/*  ERRORES
+    
+      -> ERROR: CORDON - SECCION TRANSVERSAL NO DEFINIDA !
+      -> ERROR: CORDON - RESISTENCIA DEL MATERIAL: Fy es > 52 ksi ! 
+      -> ERROR: CORDON - DUCTILIDAD: Fy/Fu es >  0.8 ó ASTM 500 GR. C !
+      -> ERROR: CORDON - RAZON DE ASPECTO:  H/B  debe de ser < 0.5 ó es > 2 !
+      -> ERROR: CORDON - ESBELTEZ DE LA PAREDES: B/t es > 35  ó 30 !
+                                                 H/t es > 35 ! 
+                             
+      -> ERROR: RAMA-# - SECCION TRANSVERSAL NO DEFINIDA !
+      -> ERROR: RAMA-# - RESISTENCIA DEL MATERIAL: Fyb es > 52 ksi !
+      -> ERROR: RAMA-# - DUCTILIDAD: Fyb/Fub es >  0.8 ó ASTM 500 GR. C !
+      -> ERROR: RAMA-# - RAZON DE ASPECTO:  Hb/Bb  debe de ser < 0.5 ó > 2 !
+      -> ERROR: RAMA-# - ESBELTEZ DE LA PAREDES: Bb/tb es > 35 ! 
+                                                 Bb/tb es > 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __ !
+                                                 Hb/tb es > 35                               
+                                                 Hb/tb es > 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __ !
+      -> ERROR: RAMA-# - ANGULO: theta es < 30 deg ó > 90 deg  !  
+      -> ERROR: RAMA-# - RAZON DE ANCHOS: Bb/B es < 0.25 ó  0.1 + gamma/50 = __ !
+                                          Hb/B es < 0.25 ó  0.1 + gamma/50 = __ !  
+
+      -> ERROR: RAZON DE ANCHO EFECTIVO: Betha_eff es < 0.35   !
+      -> ERROR: RAZON DE ANCHO DE LAS RAMAS: Bbi/Bbj es < 0.75 !
+                                            Bmin/Bmax es < 0.63 (Si ambas son cuadradas) !
+
+      -> ERROR: RAZON DE ESPESOR DE LAS RAMAS: tbi/tbj es > 1 !
+
+      -> ERROR: EXCENTRICIDAD: e esta fuera de los limites permitidos  -0.55*H  <= e <= 0.25*H  !
+
+      -> ERROR: ESPACIAMIENTO: g es < tb1 + tb2 = __ !
+
+      -> ERROR: RAZON DE ESPACIAMIENTO: g es <  0.5*(1-Betha_eff)* B = __
+         COMENTARIO: RAZON DE ESPACIAMIENTO: g es >  1.5*(1-Betha_eff) * B = __ y e esta dentro de los limites permitidos, 
+                     la conexion en K se tratara como dos conexiones en Y o T 
+
+      -> ERROR: TRASLAPE:  Ov es < 25% o es > 100% !
+      
+*/
 var limites = {
   rama: function (miembro_b, miembro) {
     var raiz = Math.sqrt,
@@ -3268,48 +3348,46 @@ var Formulas = {
 
 };
 
-
-var Calcular = function () {}
-
 /*  LIMTES 
     
-    CORDON:
-  ----------
-  -> RESISTENCIA DEL MATERIAL: Fy = __ ksi <= 52 ksi 
-  -> DUCTILIDAD: Fy/Fu = __ <= 0.8 ó ASTM 500 GR. C
-  -> RAZON DE ASPECTO:  0.5 <= H/B = __ <= 2
-  -> ESBELTEZ DE LA PAREDES: B/t = __ <= 35  ó 30
-                             H/t = __ <= 35 
-    
-    RAMA-1:
-  ----------    
-  -> RESISTENCIA DEL MATERIAL: Fyb = __ ksi <= 52 ksi 
-  -> DUCTILIDAD: Fyb/Fub = __ <= 0.8 ó ASTM 500 GR. C
-  -> RAZON DE ASPECTO:  0.5 <= Hb/Bb = __ <= 2
-  -> ESBELTEZ DE LA PAREDES: Bb/tb = __ <= 35 
-                             Bb/tb = __ <= 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __
-                             Hb/tb = __ <= 35                               
-                             Hb/tb = __ <= 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __
-  -> ANGULO: theta = __ >= 30 deg
-  -> RAZON DE ANCHOS: Bb/B = __ >= 0.25 ó  0.1 + gamma/50 = __
-                      Hb/b = __ >= 0.25 ó  0.1 + gamma/50 = __
-  
-  
-  
-  
-  -> RAZON DE ANCHO EFECTIVO: Betha_eff = __ >= 0.35
-  -> RAZON DE ANCHO DE LAS RAMAS: Bbi/Bbj = __ >= 0.75
-                                 Bmin/Bmax = __ >= 0.63 (Si ambas son cuadradas)
-                                 
-  -> RAZON DE ESPESOR DE LAS RAMAS: tbi/tbj = __ <= 1
-  
-  
-  -> EXCENTRICIDAD: -0.55 <= e/H = __ <= 0.25
-  
-  -> ESPACIAMIENTO: g = __ >= tb1 + tb2 = __
-  
-  -> RAZON DE ESPACIAMIENTO: 0.5*(1-Betha_eff) = __ <= g/B = __ <= 1.5*(1-Betha_eff) = __
-  -> TRASLAPE: 25% <= Ov = __ <= 100%
+        CORDON:
+      ----------
+      -> RESISTENCIA DEL MATERIAL: Fy = __ ksi <= 52 ksi 
+      -> DUCTILIDAD: Fy/Fu = __ <= 0.8 ó ASTM 500 GR. C
+      -> RAZON DE ASPECTO:  0.5 <= H/B = __ <= 2
+      -> ESBELTEZ DE LA PAREDES: B/t = __ <= 35  ó 30
+                                 H/t = __ <= 35 
+
+        RAMA-1:
+      ----------    
+      -> RESISTENCIA DEL MATERIAL: Fyb = __ ksi <= 52 ksi 
+      -> DUCTILIDAD: Fyb/Fub = __ <= 0.8 ó ASTM 500 GR. C
+      -> RAZON DE ASPECTO:  0.5 <= Hb/Bb = __ <= 2
+      -> ESBELTEZ DE LA PAREDES: Bb/tb = __ <= 35 
+                                 Bb/tb = __ <= 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __
+                                 Hb/tb = __ <= 35                               
+                                 Hb/tb = __ <= 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __
+      -> ANGULO: theta = __ >= 30 deg
+      -> RAZON DE ANCHOS: Bb/B = __ >= 0.25 ó  0.1 + gamma/50 = __
+                          Hb/b = __ >= 0.25 ó  0.1 + gamma/50 = __
+
+
+        CONEXION: 
+      ------------
+
+      -> RAZON DE ANCHO EFECTIVO: Betha_eff = __ >= 0.35
+      -> RAZON DE ANCHO DE LAS RAMAS: Bbi/Bbj = __ >= 0.75
+                                     Bmin/Bmax = __ >= 0.63 (Si ambas son cuadradas)
+
+      -> RAZON DE ESPESOR DE LAS RAMAS: tbi/tbj = __ <= 1
+
+
+      -> EXCENTRICIDAD: -0.55 <= e/H = __ <= 0.25
+
+      -> ESPACIAMIENTO: g = __ >= tb1 + tb2 = __
+
+      -> RAZON DE ESPACIAMIENTO: 0.5*(1-Betha_eff) = __ <= g/B = __ <= 1.5*(1-Betha_eff) = __
+      -> TRASLAPE: 25% <= Ov = __ <= 100%
   
  */
 
