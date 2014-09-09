@@ -17,6 +17,16 @@ Esta aplicacion web diseña (revisa) los  siguientes tipos de conexiones planas,
 
 La aplicacion web esta basada en el metodo *LRFD* (Load and Resistance Factor Design) de la especificacion [**ANSI/AISC 360-10:** *Specification for Structural Steel Buildings*](https://www.aisc.org/WorkArea/showcontent.aspx?id=26516) - **CAPITULO K** 
 
-![conexiones](/capturas/conexiones.png)
+![conexiones](/capturas/conexiones.png "Figura 1")
 
 
+ALCANCES Y LIMITACIONES
+----------------------------------------
+Diseña (revisa) las conexiones soldadas que se muentran en la *Figura 1* con las caracteristicas siguientes:
+
+- [x] conexiones son planas 
+- [x] conexiones no reforzadas
+- [x] conexiones estaran  solicitadas a cargas predominantemente estaticas
+- [x] y sometidas a fuerzas axiales, momentos de flexion en el plano y fuera del plano de la conexion
+
+ 
