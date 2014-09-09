@@ -134,9 +134,7 @@ var toRad = function (deg) {
       -> ERROR: ESPACIAMIENTO: g es < tb1 + tb2 = __ !
 
       -> ERROR: RAZON DE ESPACIAMIENTO: g es <  0.5*(1-Betha_eff)* B = __
-         COMENTARIO: RAZON DE ESPACIAMIENTO: g es >  1.5*(1-Betha_eff) * B = __ y e esta dentro de los limites permitidos, 
-                     la conexion en K se tratara como dos conexiones en Y o T 
-
+      -> ERROR: RAZON DE ESPACIAMIENTO: g es >  1.5*(1-Betha_eff) * B = __ 
       -> ERROR: TRASLAPE:  Ov es < 25% o es > 100% !
       
 */
@@ -1909,7 +1907,7 @@ var soldadura = {
       } else if (theta_i < 60) {
         mensaje.push("PARA EL PIE DE LA RAMA: ")
         mensaje.push("Usar Soldadura de Ranura")
-        temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+        temp = tw / 1.1 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
         mensaje.push("con t<sub>w</sub> = " + temp + "/16 in")
       }
       mensaje.push("PARA EL TALON DE LA RAMA: ")
