@@ -43,6 +43,8 @@ Miembro.prototype = {
         }
 
     }
+    
+    
    
 };
 
@@ -291,7 +293,7 @@ var Control = {
                     var nombre = $(this).prop("id").split("_")[0],
                         indice = Control.indice(nombre);
                    
-                     
+                    console.log("AQUI?") 
                     Control.seccion.actualizar(indice);
                     Control.seccion.resetear(indice);
                     Control.tipo.extraer(indice);
@@ -316,11 +318,12 @@ var Control = {
         actualizar: function (i) {
             var miembros = Control.miembros[i],
                 material = miembros.material,
-                norma = Perfiles.norma[material.nombre],
-                HSS = Perfiles.HSS[norma],
+                norma, HSS,
                 tipo, contenido;
                 
             if(material.nombre !== "Designacion") {
+                norma = Perfiles.norma[material.nombre],
+                HSS = Perfiles.HSS[norma],
                 Ordenar.mergeSort(HSS.cuadrado,Ordenar.mHss);
                 Ordenar.mergeSort(HSS.rectangular,Ordenar.mHss);
 
