@@ -1,13 +1,8 @@
 function estaVacio(objeto) {
-
     for (var key in objeto) {
-
         if (objeto.hasOwnProperty(key)) {
-
             return false;
-
         }
-
     }
     return true;
 };
@@ -54,9 +49,7 @@ Miembro.prototype = {
 var Control = {
     miembros: [new Miembro("Cordon", "CORDON"),
                 new Miembro("Rama", "RAMA-1"),
-                new Miembro("Rama", "RAMA-2"),
-                new Miembro("Rama", "RAMA-3"),
-                new Miembro("Rama", "RAMA-4")],
+                new Miembro("Rama", "RAMA-2")],
     conexion: {
         tipo: ""
     },
@@ -114,7 +107,7 @@ var Control = {
         $("#REPORTE").html("");
     },
     reporte_encabezado: ["----------------------------------------------------------------------------------------------------------------------------------",
-                         "RHS TO RHS DIRECT WELDED CONNECTIONS -- Beta version  v0.5.0.0",
+                         "RHS TO RHS DIRECT WELDED CONNECTIONS -- Beta version  v0.6.0.0",
                          "----------------------------------------------------------------------------------------------------------------------------------",
                          "Calculations are in conformance with the Load and Resistance Factor Design method (LRFD)", 
                          "of the ANSI/AISC 360-10: Specification for Structural Steel Buildings - Chapter K.", 
@@ -320,23 +313,6 @@ var Control = {
                          "<option>{{Size}}</option>", 
                          "{{/cuadrado}}"].join("")
         },
-        /*poner: function () {
-            var i, miembros = Control.miembros,
-                nro = miembros.length,
-                tipo, contenido;
-            
-                Ordenar.mergeSort(Perfiles.HSS.cuadrado,Ordenar.mHss);
-                Ordenar.mergeSort(Perfiles.HSS.rectangular,Ordenar.mHss);
-                
-
-            for (i = 0; i < nro; i += 1) {
-                tipo = $("#" + miembros[i].nombre + "_TIPO input:checked").prop("value");
-                contenido = Mustache.to_html(this.plantilla[tipo], Perfiles.HSS);
-                $("#" + miembros[i].nombre + "_TAMAÑO").append(contenido);
-                this.desactivar(i);
-            }
-
-        },*/
         actualizar: function (i) {
             var miembros = Control.miembros[i],
                 material = miembros.material,
@@ -821,15 +797,7 @@ var Control = {
         }
     },
     iniciar: function () {
-
-     /*   $("#over").click(function () {
-
-            $("#over").hide();
-            $("#fade").hide();
-            $("#all").show();
-        })*/
-
-      
+ 
         $("#CORDON").change(function () {
 
             limites.cordon.apply(Control, [0]);
