@@ -8,10 +8,10 @@ Esta aplicacion web diseña (revisa) los  siguientes tipos de conexiones planas,
 
 1. **Conexiones en Y**
 1. **Conexiones en X**
-1. **Conexiones en K** (balancedas)
+1. **Conexiones en K** (balanceadas)
   1. *con espaciamiento*
   2. *con traslape*
-1. **Conexiones en N** (balancedas)
+1. **Conexiones en N** (balanceadas)
   1. *con especiamiento*
   2. *con traslape*
 
@@ -22,11 +22,11 @@ La aplicacion web esta basada en el metodo *LRFD* (Load and Resistance Factor De
 
 ALCANCES Y LIMITACIONES
 ----------------------------------------
-Diseña (revisa) las conexiones soldadas que se muentran en la *Figura 1* con las caracteristicas siguientes:
+Diseña (revisa) las conexiones soldadas que se muestran en la *Figura 1* con las caracteristicas siguientes:
 
 - [x] conexiones son planas 
 - [x] conexiones no reforzadas
-- [x] conexiones estaran  solicitadas a cargas predominantemente estaticas
-- [x] y sometidas a fuerzas axiales, momentos de flexion en el plano y fuera del plano de la conexion
+- [x] conexiones solicitadas a cargas predominantemente estaticas
+- [x] conexiones sometidas a fuerzas axiales, momentos de flexion en el plano y fuera del plano de la conexion
 
  
