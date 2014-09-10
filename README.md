@@ -20,7 +20,7 @@ La aplicacion web esta basada en el metodo *LRFD* (Load and Resistance Factor De
 ![conexiones](/capturas/conexiones.png "Figura 1")
 
 
-##ALCANCES Y LIMITACIONES
+##Alcances y Limitaciones
 
 Diseña (revisa) las conexiones soldadas que se muestran en la *Figura 1* con las caracteristicas siguientes:
 
