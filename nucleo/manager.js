@@ -154,6 +154,20 @@ var Control = {
 
             return material;
         },
+        definido: function (i) {
+            var miembros = Control.miembros[i],
+                nombre = miembros.nombre,
+                material = miembros.material;
+            
+            if (material.nombre === "Designacion" || estaVacio(material)){
+    
+                return false;
+                
+            } else {
+                
+                return true;
+            }    
+        },
         propiedades_a: function (i) {
             var miembros = Control.miembros[i];
             
@@ -193,7 +207,7 @@ var Control = {
             Control.tipo.extraer(i);
             Control.seccion.activar(i);
            
-            if (material.nombre !== "Designacion" || material.nombre === undefined){
+            if (material.nombre !== "Designacion"){
             
                 Control.seccion.resetear(i);
                 Control.tipo.extraer(i);
@@ -284,7 +298,7 @@ var Control = {
                 this.extraer(i);
             }
         },
-         evento: function () {
+        evento: function () {
             var i, miembros = Control.miembros,
                 nro = miembros.length;
 
@@ -292,12 +306,14 @@ var Control = {
                 $("#" + miembros[i].nombre + "_TIPO").change(function () {
                     var nombre = $(this).prop("id").split("_")[0],
                         indice = Control.indice(nombre);
-                   
-                    console.log("AQUI?") 
-                    Control.seccion.actualizar(indice);
-                    Control.seccion.resetear(indice);
-                    Control.tipo.extraer(indice);
-                    Control.seccion.proceso(indice);
+                      
+                    console.log(Control.material.definido(indice))
+                    if (Control.material.definido(indice)){
+                        Control.seccion.actualizar(indice);
+                        Control.seccion.resetear(indice);
+                        Control.tipo.extraer(indice);
+                        Control.seccion.proceso(indice);   
+                    }
 
                 });
             }
@@ -321,6 +337,7 @@ var Control = {
                 norma, HSS,
                 tipo, contenido;
                 
+ 
             if(material.nombre !== "Designacion") {
                 norma = Perfiles.norma[material.nombre],
                 HSS = Perfiles.HSS[norma],
@@ -468,7 +485,7 @@ var Control = {
         resetear: function (i) {
             var miembro = Control.miembros[i],
                 nombre = miembro.nombre;
-            console.log("Donde esta el error?");
+            
             miembro.seccion = {};
             $("#" + nombre + "_H").val("");
             $("#" + nombre + "_B").val("");
