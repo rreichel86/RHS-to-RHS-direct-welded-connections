@@ -223,6 +223,7 @@ var Control = {
             var material = Control.miembros[i].material;
             this.extraer(i);
             this.propiedades(i);
+            this.vista(i);
             Control.tipo.extraer(i);
             Control.seccion.activar(i);
 
@@ -232,7 +233,7 @@ var Control = {
                 Control.tipo.extraer(i);
             }
             Control.seccion.actualizar(i);
-            this.vista(i);
+            //this.vista(i);
         },
         evento: function () {
             "use strict";
@@ -368,8 +369,8 @@ var Control = {
             if (material.nombre !== "Designacion") {
                 norma = Perfiles.norma[material.nombre];
                 HSS = Perfiles.HSS[norma];
-                Ordenar.mergeSort(HSS.cuadrado, Ordenar.mHss);
-                Ordenar.mergeSort(HSS.rectangular, Ordenar.mHss);
+                //Ordenar.mergeSort(HSS.cuadrado, Ordenar.mHss);
+                //Ordenar.mergeSort(HSS.rectangular, Ordenar.mHss);
 
                 tipo = $("#" + miembros.nombre + "_TIPO input:checked").prop("value");
                 contenido = Mustache.to_html(this.plantilla[tipo], HSS);
@@ -413,7 +414,7 @@ var Control = {
                 posicion;
 
 
-            Ordenar.mergeSort(Perfiles.HSS[norma][seccion.tipo], Ordenar.MHss);
+            //Ordenar.mergeSort(Perfiles.HSS[norma][seccion.tipo], Ordenar.MHss);
 
 
 
