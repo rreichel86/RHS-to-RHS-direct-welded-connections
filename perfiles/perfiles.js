@@ -9729,7 +9729,7 @@ Perfiles.norma = {
     "ASTM A1085": "ASTM A1085"
 };
 
-Perfiles.plantilla =[ 
+Perfiles.plantilla = [ 
     "{{#HSS}}",
     "{",
     "Size: \"{{Size}}\",",
