@@ -19,6 +19,8 @@ var Ordenar = {
             tnom: temporal[0] / temporal[1]
         };
     },
+    
+    
     /*
      * Binary search implementation in JavaScript
      * Copyright (c) 2009 Nicholas C. Zakas
@@ -41,7 +43,6 @@ var Ordenar = {
      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
      * THE SOFTWARE.
      */
-
 
     /*
      * Uses a binary search algorithm to locate a value in the specified array.
@@ -96,7 +97,7 @@ var Ordenar = {
      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
      * THE SOFTWARE.
      */
-    
+
     /**
      * Merge to arrays in order based on the given condition.
      * @param {Array} left - The first array to merge
@@ -120,6 +121,7 @@ var Ordenar = {
 
         return result.concat(left.slice(il)).concat(right.slice(ir));
     },
+    
     /**
      * Sorts an array using merge sort and the given condition
      * @param {Array} items - The array to sort
@@ -192,6 +194,7 @@ var Ordenar = {
         }
         return (a.H > b.H) ? false : true;
     },
+    
     /**
      * Compara dos Perfiles HSS rectangulares
      * Sus dimensiones son igules?
@@ -208,5 +211,5 @@ var Ordenar = {
         }
         return false;
     },
-    
+
 };
