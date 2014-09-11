@@ -233,7 +233,7 @@ var Control = {
                 Control.tipo.extraer(i);
             }
             Control.seccion.actualizar(i);
-            //this.vista(i);
+            
         },
         evento: function () {
             "use strict";
@@ -348,13 +348,13 @@ var Control = {
     seccion: {
         plantilla: {
             rectangular: ["<option>Designacion</option>",
-                         "{{#rectangular}}",
-                         "<option>{{Size}}</option>",
-                         "{{/rectangular}}"].join(""),
+                          "{{#rectangular}}",
+                          "<option>{{Size}}</option>",
+                          "{{/rectangular}}"].join(""),
             cuadrado: ["<option>Designacion</option>",
-                      "{{#cuadrado}}",
-                      "<option>{{Size}}</option>",
-                      "{{/cuadrado}}"].join("")
+                       "{{#cuadrado}}",
+                       "<option>{{Size}}</option>",
+                       "{{/cuadrado}}"].join("")
         },
         actualizar: function (i) {
             "use strict";
@@ -365,14 +365,12 @@ var Control = {
                 tipo,
                 contenido;
 
-
             if (material.nombre !== "Designacion") {
                 norma = Perfiles.norma[material.nombre];
                 HSS = Perfiles.HSS[norma];
-                //Ordenar.mergeSort(HSS.cuadrado, Ordenar.mHss);
-                //Ordenar.mergeSort(HSS.rectangular, Ordenar.mHss);
-
+                
                 tipo = $("#" + miembros.nombre + "_TIPO input:checked").prop("value");
+                HSS[tipo].sort(Ordenar.deMenor_aMayor);
                 contenido = Mustache.to_html(this.plantilla[tipo], HSS);
                 $("#" + miembros.nombre + "_TAMAÑO").html(contenido);
             }
@@ -413,10 +411,7 @@ var Control = {
                 valor,
                 posicion;
 
-
-            //Ordenar.mergeSort(Perfiles.HSS[norma][seccion.tipo], Ordenar.MHss);
-
-
+            HSS.sort(Ordenar.deMayor_aMenor);
 
             if (seccion.nombre !== "Designacion") {
                 valor = Ordenar.toSearchObj(seccion.nombre);
@@ -589,9 +584,9 @@ var Control = {
                 tipo = miembros.tipo;
 
             if (miembros.tipo === "Rama") {
-                
+
                 $("#" + miembros.nombre + "_theta").prop("disabled", true);
-                
+
             }
         },
         bloqueado: function (n) {
