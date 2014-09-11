@@ -1,4 +1,4 @@
-Materiales = {
+var Materiales = {
     "ASTM A500 Gr. B": {
         Fy: 46,
         Fu: 58
@@ -15,8 +15,8 @@ Materiales = {
         Fy: 50,
         Fu: 70
     },
-	"ASTM A1085": {
-		Fy: 50,
-		Fu: 65
-	}
+    "ASTM A1085": {
+        Fy: 50,
+        Fu: 65
+    }
 };
