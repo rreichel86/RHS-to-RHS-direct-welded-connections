@@ -1,6 +1,6 @@
 var Perfiles = {
     HSS: {
-        "ASTM A500" : {
+        "ASTM A500": {
             cuadrado: [
                 {
                     Size: "HSS16X16X5/8",
@@ -5466,8 +5466,8 @@ var Perfiles = {
                 }
             ]
         },
-        "ASTM A1085" : {
-            cuadrado : [
+        "ASTM A1085": {
+            cuadrado: [
                 {
                     Size: "HSS22X22X7/8",
                     W: 244.88,
@@ -7207,7 +7207,7 @@ var Perfiles = {
                     As: 0.613
                 }
             ],
-            rectangular : [
+            rectangular: [
                 {
                     Size: "HSS24X12X3/4",
                     W: 171.16,
@@ -9729,7 +9729,7 @@ Perfiles.norma = {
     "ASTM A1085": "ASTM A1085"
 };
 
-Perfiles.plantilla = [ 
+Perfiles.plantilla = [
     "{{#HSS}}",
     "{",
     "Size: \"{{Size}}\",",
@@ -9810,31 +9810,25 @@ Perfiles.HSS_plantilla = ["<table>",
                           "{{#HSS}}",
                           "<tr>",
                           "<td>{{Size}}</td>",
-                          "<td>{{W}}</td>", 
+                          "<td>{{W}}</td>",
                           "<td>{{As}}</td>",
-                          "<td>{{A}}</td>", 
-                          "<td>{{H}}</td>", 
-                          "<td>{{B}}</td>", 
-                          "<td>{{tnom}}</td>", 
-                          "<td>{{tdes}}</td>", 
-                          "<td>{{h/t}}</td>", 
-                          "<td>{{b/t}}</td>", 
-                          "<td>{{Ix}}</td>", 
-                          "<td>{{Sx}}</td>", 
-                          "<td>{{rx}}</td>", 
-                          "<td>{{Zx}}</td>", 
-                          "<td>{{Iy}}</td>", 
-                          "<td>{{Sy}}</td>", 
-                          "<td>{{ry}}</td>", 
-                          "<td>{{Zy}}</td>", 
-                          "<td>{{J}}</td>", 
+                          "<td>{{A}}</td>",
+                          "<td>{{H}}</td>",
+                          "<td>{{B}}</td>",
+                          "<td>{{tnom}}</td>",
+                          "<td>{{tdes}}</td>",
+                          "<td>{{h/t}}</td>",
+                          "<td>{{b/t}}</td>",
+                          "<td>{{Ix}}</td>",
+                          "<td>{{Sx}}</td>",
+                          "<td>{{rx}}</td>",
+                          "<td>{{Zx}}</td>",
+                          "<td>{{Iy}}</td>",
+                          "<td>{{Sy}}</td>",
+                          "<td>{{ry}}</td>",
+                          "<td>{{Zy}}</td>",
+                          "<td>{{J}}</td>",
                           "<td>{{C}}</td>",
                           "</tr>",
                           "{{/HSS}}",
                           "</table>"];
-
-
-
-
-
-
