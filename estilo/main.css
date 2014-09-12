@@ -3,7 +3,7 @@
      font-family: Helvetica, Arial, Sans-Serif;
  }
  html {
-     max-width: 1050px;
+     max-width: 1065px;
      min-width: 600px;
      height: auto;
      margin: 0px;
@@ -581,7 +581,7 @@
          width: 138px;
      }
  }
- @media screen and (min-width: 1060px) {
+ @media screen and (min-width: 1065px) {
      #ENTRADA {
          margin: 5px;
          float: left;

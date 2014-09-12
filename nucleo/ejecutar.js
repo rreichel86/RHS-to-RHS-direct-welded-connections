@@ -6,7 +6,7 @@ window.onclick = function () {
             'width': 624,
             'height': 735,
         },
-        maxWidth: 1064,
+        maxWidth: 1070,
         minWidth: 624
     });
 
