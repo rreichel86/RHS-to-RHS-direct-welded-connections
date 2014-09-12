@@ -12,7 +12,7 @@ Esta aplicacion web diseña (revisa) los  siguientes tipos de conexiones planas,
   1. *con espaciamiento*
   2. *con traslape*
 1. **Conexiones en N** (balanceadas)
-  1. *con especiamiento*
+  1. *con espaciamiento*
   2. *con traslape*
 
 La aplicacion web esta basada en el metodo *LRFD* (Load and Resistance Factor Design) de la especificacion [**ANSI/AISC 360-10:** *Specification for Structural Steel Buildings*](https://www.aisc.org/WorkArea/showcontent.aspx?id=26516) - **CAPITULO K** 
