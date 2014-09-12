@@ -1,7 +1,7 @@
 
-<a target="_blank" href="https://chrome.google.com/webstore/detail/rhs-to-rhs-direct-welded/ckefmoilgkjmgmecdekedggknlocldlg">![Try it now in the Chrome web store](capturas/ChromeWebStore_340x96.png)</a>
+| ![logo](/icono-128.png)  | <a target="_blank" href="https://chrome.google.com/webstore/detail/rhs-to-rhs-direct-welded/ckefmoilgkjmgmecdekedggknlocldlg">![Try it now in the Chrome web store](capturas/ChromeWebStore_340x96.png)</a> |
+|--------------------------|-------------------------------------|
 
-![logo](/icono-128.png)  
 ##RHS-to-RHS-direct-welded-connections
 
 Aplicacion web para el diseño de conexiones soldadas entre miembros con perfiles tubulares rectangualres (**RHS**).
