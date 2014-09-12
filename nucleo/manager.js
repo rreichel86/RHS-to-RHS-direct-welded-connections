@@ -233,7 +233,7 @@ var Control = {
                 Control.tipo.extraer(i);
             }
             Control.seccion.actualizar(i);
-            
+
         },
         evento: function () {
             "use strict";
@@ -368,7 +368,7 @@ var Control = {
             if (material.nombre !== "Designacion") {
                 norma = Perfiles.norma[material.nombre];
                 HSS = Perfiles.HSS[norma];
-                
+
                 tipo = $("#" + miembros.nombre + "_TIPO input:checked").prop("value");
                 HSS[tipo].sort(Ordenar.deMenor_aMayor);
                 contenido = Mustache.to_html(this.plantilla[tipo], HSS);
