@@ -127,9 +127,9 @@ var Control = {
                          "<u>DISCLAIMER:</u>",
                          "This software is a beta version. It may contain errors and it should not be used for connection design. This tool is intended for use by qualified engineers.",
                          "Although every effort has been made to ensure the accuracy of this software and its documentation, the user of this program assumes full responsibility for any and all output produced by the software, and agrees not to hold the producers and distributors of the software responsible for any and all actions resulting from the use of this software.",
-                         "The results obtained from the use of this program should not be subsitituted for sound engineering judgement",
+                         "The results obtained from the use of this program should not be substituted for sound engineering judgment",
                          " ",
-                         "Design and Developed by Rainer Ernst Reichel (rreichel86@gmail.com)"].join("<br>"),
+                         "Designed and Developed by Rainer Ernst Reichel (rreichel86@gmail.com)"].join("<br>"),
 
     material: {
         plantilla: ["<option>Designacion</option>",
@@ -288,7 +288,7 @@ var Control = {
 
                     } else if (forma > 1 && tipo === "Rama") {
                         miembro.orientacion = "transversal";
-                        $("#" + nombre + "_ST").removeClass().addClass(tipo + "-rectangular-transveral");
+                        $("#" + nombre + "_ST").removeClass().addClass(tipo + "-rectangular-transversal");
                         Control.seccion.propiedades(indice);
                         Control.seccion.vista(indice);
 

@@ -5,7 +5,7 @@ var Ordenar = {
      * "20 x 12 x 5/8".split(" x " )   ---> dimensions = ["20","12","5/8"]
      *      {   H: Number(dimensions[0]),
      *          B: Number(dimensions[1]),
-     *       tnom: Numero(dimensions[2])    }
+     *       tnom: Number(dimensions[2])    }
      */
     toSearchObj: function (nominal) {
         "use strict";
@@ -31,7 +31,7 @@ var Ordenar = {
      * Permission is hereby granted, free of charge, to any person obtaining a copy
      * of this software and associated documentation files (the "Software"), to deal
      * in the Software without restriction, including without limitation the rights
-     * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+     * to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
      * copies of the Software, and to permit persons to whom the Software is
      * furnished to do so, subject to the following conditions:
      *
@@ -130,7 +130,7 @@ var Ordenar = {
     },
     /**
      * Compara dos Perfiles HSS rectangulares
-     * Cual Perfil es mayor?
+     * Cu?l Perfil es mayor?
      *
      * @param {Perfil} a - Primer Perfil HSS
      * @param {Perfil} b - Segundo Perfil HSS
@@ -167,7 +167,7 @@ var Ordenar = {
 
     /**
      * Compara dos Perfiles HSS rectangulares
-     * Cual Perfil es menor?
+     * Cu?l Perfil es menor?
      *
      * @param {Perfil} a - Primer Perfil HSS
      * @param {Perfil} b - Segundo Perfil HSS
@@ -206,12 +206,12 @@ var Ordenar = {
 
     /**
      * Compara dos Perfiles HSS rectangulares
-     * Sus dimensiones son igules?
+     * Son sus dimensiones iguales?
      *
      * @param {Perfil} a - Primer Perfil HSS
      * @param {Perfil} b - Segundo Perfil HSS
      * @return {Boolean} - true:  Las dimensiones de los  perfiles son iguales
-     * que el segundo   ó false: las dimensiones de los perfiles no son igules
+     * que el segundo   ó false: las dimensiones de los perfiles no son iguales
      */
     iHss: function (a, b) {
         "use strict";

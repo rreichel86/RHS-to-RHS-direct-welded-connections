@@ -3,13 +3,13 @@
 
 /* Estructura de los datos de entrada
  *
- * Cordon = {
+ * Cordón = {
  *      Material:{
  *             nombre:
  *               Fy:
  *               Fu:
  *      }
- *      Seccion:{
+ *      Sección:{
  *              nombre:
  *                 H:
  *                 B:
@@ -33,7 +33,7 @@
  *               fy:
  *               fu:
  *      }
- *      Seccion:{
+ *      Sección:{
  *              size:
  *                 H:
  *                 B:
@@ -43,7 +43,7 @@
  *                Zx:
  *                Zy:
  *      }
- *      Angulo:
+ *      Ángulo:
  *      Cargas: {
  *            P:
  *            Mip:
@@ -62,15 +62,15 @@ var toRad = function (deg) {
     rad = (deg * PI) / 180;
     return rad;
 };
-// Limites de aplicacion //
+// Limites de aplicación //
 // Conexiones en T, Y, X, K y N //
-/*  LIMTES 
+/*  LÍMITES 
 
-        CORDON:
+        CORDÓN:
       ----------
       -> RESISTENCIA DEL MATERIAL: Fy = __ ksi <= 52 ksi 
       -> DUCTILIDAD: Fy/Fu = __ <= 0.8 ó ASTM 500 GR. C
-      -> RAZON DE ASPECTO:  0.5 <= H/B = __ <= 2
+      -> RAZÓN DE ASPECTO:  0.5 <= H/B = __ <= 2
       -> ESBELTEZ DE LA PAREDES: B/t = __ <= 35  ó 30
                                  H/t = __ <= 35 
 
@@ -78,66 +78,66 @@ var toRad = function (deg) {
       ----------    
       -> RESISTENCIA DEL MATERIAL: Fyb = __ ksi <= 52 ksi 
       -> DUCTILIDAD: Fyb/Fub = __ <= 0.8 ó ASTM 500 GR. C
-      -> RAZON DE ASPECTO:  0.5 <= Hb/Bb = __ <= 2
+      -> RAZÓN DE ASPECTO:  0.5 <= Hb/Bb = __ <= 2
       -> ESBELTEZ DE LA PAREDES: Bb/tb = __ <= 35 
                                  Bb/tb = __ <= 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __
                                  Hb/tb = __ <= 35                               
                                  Hb/tb = __ <= 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __
       -> ANGULO: theta = __ >= 30 deg
-      -> RAZON DE ANCHOS: Bb/B = __ >= 0.25 ó  0.1 + gamma/50 = __
-                          Hb/b = __ >= 0.25 ó  0.1 + gamma/50 = __
+      -> RAZÓN DE ANCHOS: Bb/B = __ >= 0.25 ó  0.1 + gamma/50 = __
+                          Hb/B = __ >= 0.25 ó  0.1 + gamma/50 = __
 
 
-        CONEXION: 
+        CONEXIÓN: 
       ------------
 
-      -> RAZON DE ANCHO EFECTIVO: Betha_eff = __ >= 0.35
-      -> RAZON DE ANCHO DE LAS RAMAS: Bbi/Bbj = __ >= 0.75
+      -> RAZÓN DE ANCHO EFECTIVO: Betha_eff = __ >= 0.35
+      -> RAZÓN DE ANCHO DE LAS RAMAS: Bbi/Bbj = __ >= 0.75
                                      Bmin/Bmax = __ >= 0.63 (Si ambas son cuadradas)
 
-      -> RAZON DE ESPESOR DE LAS RAMAS: tbi/tbj = __ <= 1
+      -> RAZÓN DE ESPESOR DE LAS RAMAS: tbi/tbj = __ <= 1
 
 
       -> EXCENTRICIDAD: -0.55 <= e/H = __ <= 0.25
 
       -> ESPACIAMIENTO: g = __ >= tb1 + tb2 = __
 
-      -> RAZON DE ESPACIAMIENTO: 0.5*(1-Betha_eff) = __ <= g/B = __ <= 1.5*(1-Betha_eff) = __
+      -> RAZÓN DE ESPACIAMIENTO: 0.5*(1-Betha_eff) = __ <= g/B = __ <= 1.5*(1-Betha_eff) = __
       -> TRASLAPE: 25% <= Ov = __ <= 100%
 
 */
 /*  ERRORES
 
-      -> ERROR: CORDON - SECCION TRANSVERSAL NO DEFINIDA !
-      -> ERROR: CORDON - RESISTENCIA DEL MATERIAL: Fy es > 52 ksi ! 
-      -> ERROR: CORDON - DUCTILIDAD: Fy/Fu es >  0.8 ó ASTM 500 GR. C !
-      -> ERROR: CORDON - RAZON DE ASPECTO:  H/B  debe de ser < 0.5 ó es > 2 !
-      -> ERROR: CORDON - ESBELTEZ DE LA PAREDES: B/t es > 35  ó 30 !
+      -> ERROR: CORDÓN - SECCIÓN TRANSVERSAL NO DEFINIDA !
+      -> ERROR: CORDÓN - RESISTENCIA DEL MATERIAL: Fy es > 52 ksi ! 
+      -> ERROR: CORDÓN - DUCTILIDAD: Fy/Fu es >  0.8 ó ASTM 500 GR. C !
+      -> ERROR: CORDÓN - RAZÓN DE ASPECTO:  H/B  debe de ser < 0.5 ó es > 2 !
+      -> ERROR: CORDÓN - ESBELTEZ DE LA PAREDES: B/t es > 35  ó 30 !
                                                  H/t es > 35 ! 
 
-      -> ERROR: RAMA-# - SECCION TRANSVERSAL NO DEFINIDA !
+      -> ERROR: RAMA-# - SECCIÓN TRANSVERSAL NO DEFINIDA !
       -> ERROR: RAMA-# - RESISTENCIA DEL MATERIAL: Fyb es > 52 ksi !
       -> ERROR: RAMA-# - DUCTILIDAD: Fyb/Fub es >  0.8 ó ASTM 500 GR. C !
-      -> ERROR: RAMA-# - RAZON DE ASPECTO:  Hb/Bb  debe de ser < 0.5 ó > 2 !
+      -> ERROR: RAMA-# - RAZÓN DE ASPECTO:  Hb/Bb  debe de ser < 0.5 ó > 2 !
       -> ERROR: RAMA-# - ESBELTEZ DE LA PAREDES: Bb/tb es > 35 ! 
                                                  Bb/tb es > 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __ !
                                                  Hb/tb es > 35                               
                                                  Hb/tb es > 1.25*(E/Fyb)^0.5 = __  ó  1.10*(E/Fyb)^0.5 = __ !
       -> ERROR: RAMA-# - ANGULO: theta es < 30 deg ó > 90 deg  !  
-      -> ERROR: RAMA-# - RAZON DE ANCHOS: Bb/B es < 0.25 ó  0.1 + gamma/50 = __ !
+      -> ERROR: RAMA-# - RAZÓN DE ANCHOS: Bb/B es < 0.25 ó  0.1 + gamma/50 = __ !
                                           Hb/B es < 0.25 ó  0.1 + gamma/50 = __ !  
 
-      -> ERROR: RAZON DE ANCHO EFECTIVO: Betha_eff es < 0.35   !
-      -> ERROR: RAZON DE ANCHO DE LAS RAMAS: Bbi/Bbj es < 0.75 !
+      -> ERROR: RAZÓN DE ANCHO EFECTIVO: Betha_eff es < 0.35   !
+      -> ERROR: RAZÓN DE ANCHO DE LAS RAMAS: Bbi/Bbj es < 0.75 !
                                             Bmin/Bmax es < 0.63 (Si ambas son cuadradas) !
-      -> ERROR: RAZON DE ESPESOR DE LAS RAMAS: tbi/tbj es > 1 !
+      -> ERROR: RAZÓN DE ESPESOR DE LAS RAMAS: tbi/tbj es > 1 !
 
       -> ERROR: EXCENTRICIDAD: e esta fuera de los limites permitidos  -0.55*H  <= e <= 0.25*H  !
 
       -> ERROR: ESPACIAMIENTO: g es < tb1 + tb2 = __ !
 
-      -> ERROR: RAZON DE ESPACIAMIENTO: g = __ es <  0.5*(1-Betha_eff)* B = __
-      -> ERROR: RAZON DE ESPACIAMIENTO: g = __ es >  1.5*(1-Betha_eff) * B = __ 
+      -> ERROR: RAZÓN DE ESPACIAMIENTO: g = __ es <  0.5*(1-Betha_eff)* B = __
+      -> ERROR: RAZÓN DE ESPACIAMIENTO: g = __ es >  1.5*(1-Betha_eff) * B = __ 
       -> ERROR: TRASLAPE:  Ov = __ es < 25% o es > 100% !
 
 */
@@ -166,18 +166,18 @@ var limites = {
 
         if (estaVacio(this.miembros[miembro].seccion) === true || this.miembros[miembro].seccion.nombre === undefined || this.miembros[miembro].seccion.nombre === "Designacion") {
 
-            mensaje = "ERROR: " + nombre0 + " - SECCION TRANSVERSAL NO DEFINIDA !";
+            mensaje = "ERROR: " + nombre0 + " - SECCIÓN TRANSVERSAL NO DEFINIDA !";
             return this.Error_set(mensaje);
 
         } else if (estaVacio(this.miembros[miembro_b].seccion) === true || this.miembros[miembro_b].seccion.nombre === undefined || this.miembros[miembro_b].seccion.nombre === "Designacion") {
 
-            mensaje = "ERROR: " + nombre + " - SECCION TRANSVERSAL NO DEFINIDA !";
+            mensaje = "ERROR: " + nombre + " - SECCIÓN TRANSVERSAL NO DEFINIDA !";
             return this.Error_set(mensaje);
 
         } else {
 
 
-            mensaje = "<h3>-- LIMITES DE APLICACION - " + nombre + "</h3>";
+            mensaje = "<h3>-- LÍMITES DE APLICACIÓN - " + nombre + "</h3>";
 
             if (Fy <= 52) {
                 mensaje += "<p>";
@@ -210,12 +210,12 @@ var limites = {
 
             if (H / B >= 0.5 && H / B <= 2.0) {
 
-                mensaje = "RAZON DE ASPECTO:  0.5 <= H<sub>b</sub>/B<sub>b</sub> = " + (H / B).toFixed(2) + " <= 2";
+                mensaje = "RAZÓN DE ASPECTO:  0.5 <= H<sub>b</sub>/B<sub>b</sub> = " + (H / B).toFixed(2) + " <= 2";
                 mensajes.push(mensaje);
 
             } else {
 
-                mensaje = "ERROR: " + nombre + " - RAZON DE ASPECTO: H<sub>b</sub>/B<sub>b</sub> debe ser >= 0.5 y <= 2.0 !";
+                mensaje = "ERROR: " + nombre + " - RAZÓN DE ASPECTO: H<sub>b</sub>/B<sub>b</sub> debe ser >= 0.5 y <= 2.0 !";
                 return this.Error_set(mensaje);
 
             }
@@ -320,17 +320,17 @@ var limites = {
 
                 if (B / B0 >= 0.25 && B / B0 <= 1.00) {
 
-                    mensaje = "RAZON DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " >= 0.25";
+                    mensaje = "RAZÓN DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " >= 0.25";
                     mensajes.push(mensaje);
 
                 } else if (B / B0 < 0.25) {
 
-                    mensaje = "ERROR: " + nombre + " - RAZON DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " es < 0.25 !";
+                    mensaje = "ERROR: " + nombre + " - RAZÓN DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " es < 0.25 !";
                     return this.Error_set(mensaje);
 
                 } else if (B / B0 > 1.00) {
 
-                    mensaje = "ERROR: " + nombre + " - RAZON DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " es > 1.00 !";
+                    mensaje = "ERROR: " + nombre + " - RAZÓN DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " es > 1.00 !";
                     return this.Error_set(mensaje);
 
                 }
@@ -339,17 +339,17 @@ var limites = {
 
                 if (B / B0 >= (0.1 + gamma / 50) && B / B0 <= 1.00) {
 
-                    mensaje = "RAZON DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " >= 0.1 + gamma/50 = " + (0.1 + gamma / 50).toFixed(3);
+                    mensaje = "RAZÓN DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " >= 0.1 + gamma/50 = " + (0.1 + gamma / 50).toFixed(3);
                     mensajes.push(mensaje);
 
                 } else if (B / B0 < (0.1 + gamma / 50)) {
 
-                    mensaje = "ERROR: " + nombre + " - RAZON DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " es < 0.1 + gamma/50 = " + (0.1 + gamma / 50).toFixed(3) + " !";
+                    mensaje = "ERROR: " + nombre + " - RAZÓN DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " es < 0.1 + gamma/50 = " + (0.1 + gamma / 50).toFixed(3) + " !";
                     return this.Error_set(mensaje);
 
                 } else if (B / B0 > 1.00) {
 
-                    mensaje = "ERROR: " + nombre + " - RAZON DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " es > 1.00 !";
+                    mensaje = "ERROR: " + nombre + " - RAZÓN DE ANCHOS: B<sub>b</sub>/B = " + (B / B0).toFixed(3) + " es > 1.00 !";
                     return this.Error_set(mensaje);
 
                 }
@@ -360,13 +360,13 @@ var limites = {
 
                 if (H / B0 >= 0.25) {
 
-                    mensaje = "RAZON DE ANCHOS: H<sub>b</sub>/B = " + (H / B0).toFixed(3) + " >= 0.25";
+                    mensaje = "RAZÓN DE ANCHOS: H<sub>b</sub>/B = " + (H / B0).toFixed(3) + " >= 0.25";
                     mensaje += "</p>";
                     mensajes.push(mensaje);
 
                 } else {
 
-                    mensaje = "ERROR: " + nombre + " - RAZON DE ANCHOS: H<sub>b</sub>/B = " + (H / B0).toFixed(3) + " es < 0.25 !";
+                    mensaje = "ERROR: " + nombre + " - RAZÓN DE ANCHOS: H<sub>b</sub>/B = " + (H / B0).toFixed(3) + " es < 0.25 !";
                     return this.Error_set(mensaje);
 
                 }
@@ -375,13 +375,13 @@ var limites = {
 
                 if (H / B0 >= (0.1 + gamma / 50)) {
 
-                    mensaje = "RAZON DE ANCHOS: H<sub>b</sub>/B = " + (H / B0).toFixed(3) + " >= 0.1 + gamma/50 = " + (0.1 + gamma / 50).toFixed(3);
+                    mensaje = "RAZÓN DE ANCHOS: H<sub>b</sub>/B = " + (H / B0).toFixed(3) + " >= 0.1 + gamma/50 = " + (0.1 + gamma / 50).toFixed(3);
                     mensaje += "</p>";
                     mensajes.push(mensaje);
 
                 } else {
 
-                    mensaje = "ERROR: " + nombre + " - RAZON DE ANCHOS: H<sub>b</sub>/B = " + (H / B0).toFixed(3) + " es < 0.1 + gamma/50 = " + (0.1 + gamma / 50).toFixed(3) + " !";
+                    mensaje = "ERROR: " + nombre + " - RAZÓN DE ANCHOS: H<sub>b</sub>/B = " + (H / B0).toFixed(3) + " es < 0.1 + gamma/50 = " + (0.1 + gamma / 50).toFixed(3) + " !";
                     return this.Error_set(mensaje);
 
                 }
@@ -408,12 +408,12 @@ var limites = {
 
         if (estaVacio(this.miembros[miembro].seccion) === true || this.miembros[miembro].seccion.nombre === undefined || this.miembros[miembro].seccion.nombre === "Designacion") {
 
-            mensaje = "ERROR: " + nombre + " - SECCION TRANSVERSAL NO DEFINIDA !";
+            mensaje = "ERROR: " + nombre + " - SECCIÓN TRANSVERSAL NO DEFINIDA !";
             return this.Error_set(mensaje);
 
         } else {
 
-            mensaje = "<h3>-- LIMITES DE APLICACION - " + nombre + "</h3>";
+            mensaje = "<h3>-- LÍMITES DE APLICACIÓN - " + nombre + "</h3>";
 
 
 
@@ -447,12 +447,12 @@ var limites = {
 
             if (H / B >= 0.5 && H / B <= 2.0) {
 
-                mensaje = "RAZON DE ASPECTO:  0.5 <= H/B = " + (H / B).toFixed(2) + " <= 2";
+                mensaje = "RAZÓN DE ASPECTO:  0.5 <= H/B = " + (H / B).toFixed(2) + " <= 2";
                 mensajes.push(mensaje);
 
             } else {
 
-                mensaje = "ERROR: " + nombre + " - RAZON DE ASPECTO: H/B debe ser >= 0.5 y <= 2.0 !";
+                mensaje = "ERROR: " + nombre + " - RAZÓN DE ASPECTO: H/B debe ser >= 0.5 y <= 2.0 !";
                 return this.Error_set(mensaje);
 
             }
@@ -524,7 +524,7 @@ var limites = {
             nombre = this.miembros[miembro].nombre.replace(/_|-/g, " "),
             B = this.miembros[miembro].seccion.B,
             H = this.miembros[miembro].seccion.H,
-            betha_eff,
+            beta_eff,
             Bb_min,
             Bb_max,
             mensaje,
@@ -532,17 +532,17 @@ var limites = {
 
         if (estaVacio(this.miembros[miembro].seccion) === true || this.miembros[miembro].seccion.nombre === undefined || this.miembros[miembro].seccion.nombre === "Designacion") {
 
-            mensaje = "ERROR: " + nombre + " - SECCION TRANSVERSAL NO DEFINIDA !";
+            mensaje = "ERROR: " + nombre + " - SECCIÓN TRANSVERSAL NO DEFINIDA !";
             return this.Error_set(mensaje);
 
         } else if (estaVacio(this.miembros[miembro_b1].seccion) === true || this.miembros[miembro_b1].seccion.nombre === undefined || this.miembros[miembro_b1].seccion.nombre === "Designacion") {
 
-            mensaje = "ERROR: " + nombre_1 + " - SECCION TRANSVERSAL NO DEFINIDA !";
+            mensaje = "ERROR: " + nombre_1 + " - SECCIÓN TRANSVERSAL NO DEFINIDA !";
             return this.Error_set(mensaje);
 
         } else if (estaVacio(this.miembros[miembro_b2].seccion) === true || this.miembros[miembro_b2].seccion.nombre === undefined || this.miembros[miembro_b2].seccion.nombre === "Designacion") {
 
-            mensaje = "ERROR: " + nombre_2 + " - SECCION TRANSVERSAL NO DEFINIDA !";
+            mensaje = "ERROR: " + nombre_2 + " - SECCIÓN TRANSVERSAL NO DEFINIDA !";
             return this.Error_set(mensaje);
 
         } else if (e === undefined) {
@@ -552,24 +552,24 @@ var limites = {
 
         } else {
 
-            mensaje = "<h3>-- LIMITES DE APLICACION - " + tipo.replace(/_|-/g, " ") + "</h3>";
+            mensaje = "<h3>-- LÍMITES DE APLICACIÓN - " + tipo.replace(/_|-/g, " ") + "</h3>";
 
 
             if (tipo === "CONEXION_EN_K-ESPACIAMIENTO" || tipo === "CONEXION_EN_N-ESPACIAMIENTO") {
 
-                //betha_eff = (Bb_1 + Hb_1 + Bb_2 + Hb_2) / (4 * B);
-                betha_eff = Formulas.betha_eff.apply(this, [miembro_b1, miembro_b2, miembro]);
+                //beta_eff = (Bb_1 + Hb_1 + Bb_2 + Hb_2) / (4 * B);
+                beta_eff = Formulas.beta_eff.apply(this, [miembro_b1, miembro_b2, miembro]);
 
-                if (betha_eff >= 0.35) {
+                if (beta_eff >= 0.35) {
 
-                    this.conexion.betha_eff = betha_eff;
+                    this.conexion.beta_eff = beta_eff;
                     mensaje += "<p>";
-                    mensaje += "RAZON DE ANCHO EFECTIVO: &#946;<sub>eff</sub> = " + (betha_eff).toFixed(3) + " >= 0.35";
+                    mensaje += "RAZÓN DE ANCHO EFECTIVO: &#946;<sub>eff</sub> = " + (beta_eff).toFixed(3) + " >= 0.35";
                     mensajes.push(mensaje);
 
                 } else {
 
-                    mensaje = "ERROR: RAZON DE ANCHO EFECTIVO: &#946;<sub>eff</sub> = " + (betha_eff).toFixed(3) + " < 0.35 !";
+                    mensaje = "ERROR: RAZÓN DE ANCHO EFECTIVO: &#946;<sub>eff</sub> = " + (beta_eff).toFixed(3) + " < 0.35 !";
                     return this.Error_set(mensaje);
 
                 }
@@ -583,12 +583,12 @@ var limites = {
 
                     if (Bb_min / Bb_max >= 0.63) {
 
-                        mensaje = "RAZON DE ANCHO DE LAS RAMAS: B<sub>b, min</sub>/B<sub>b, max</sub> =" + (Bb_min / Bb_max).toFixed(3) + " >= 0.63";
+                        mensaje = "RAZÓN DE ANCHO DE LAS RAMAS: B<sub>b, min</sub>/B<sub>b, max</sub> =" + (Bb_min / Bb_max).toFixed(3) + " >= 0.63";
                         mensajes.push(mensaje);
 
                     } else {
 
-                        mensaje = "ERROR: RAZON DE ANCHO DE LAS RAMAS: B<sub>b, min</sub>/B<sub>b, max</sub> = " + (Bb_min / Bb_max).toFixed(3) + " < 0.63 !";
+                        mensaje = "ERROR: RAZÓN DE ANCHO DE LAS RAMAS: B<sub>b, min</sub>/B<sub>b, max</sub> = " + (Bb_min / Bb_max).toFixed(3) + " < 0.63 !";
                         return this.Error_set(mensaje);
 
                     }
@@ -601,7 +601,7 @@ var limites = {
 
                 } else {
 
-                    mensaje = "ERROR: EXCENTRICIDAS: e =" + e.toFixed(3) + " debe ser >= -0.55*H = " + (-0.55 * H).toFixed(3) + " y <= 0.25*H = " + (0.25 * H).toFixed(3) + " !";
+                    mensaje = "ERROR: EXCENTRICIDAD: e =" + e.toFixed(3) + " debe ser >= -0.55*H = " + (-0.55 * H).toFixed(3) + " y <= 0.25*H = " + (0.25 * H).toFixed(3) + " !";
                     return this.Error_set(mensaje);
                 }
 
@@ -619,19 +619,19 @@ var limites = {
                 }
 
 
-                if (g / B >= 0.5 * (1 - betha_eff) && g / B <= 1.5 * (1 - betha_eff)) {
+                if (g / B >= 0.5 * (1 - beta_eff) && g / B <= 1.5 * (1 - beta_eff)) {
 
-                    mensaje = "RAZON DE ESPACIAMIENTO: 0.5*(1-&#946;<sub>eff</sub>) = " + (0.5 * (1 - betha_eff)).toFixed(3) + " <= g/B = " + (g / B).toFixed(3) + " <= 1.5*(1-&#946;<sub>eff</sub>) = " + (1.5 * (1 - betha_eff)).toFixed(3);
+                    mensaje = "RAZÓN DE ESPACIAMIENTO: 0.5*(1-&#946;<sub>eff</sub>) = " + (0.5 * (1 - beta_eff)).toFixed(3) + " <= g/B = " + (g / B).toFixed(3) + " <= 1.5*(1-&#946;<sub>eff</sub>) = " + (1.5 * (1 - beta_eff)).toFixed(3);
                     mensaje += "</p>";
                     mensajes.push(mensaje);
 
                 } else {
 
-                    if (g / B < 0.5 * (1 - betha_eff)) {
-                        mensaje = "ERROR: RAZON DE ESPACIAMIENTO: g/B = " + (g / B).toFixed(3) + " es < 0.5*(1-&#946;<sub>eff</sub>) = " + (0.5 * (1 - betha_eff)).toFixed(3) + " !";
+                    if (g / B < 0.5 * (1 - beta_eff)) {
+                        mensaje = "ERROR: RAZÓN DE ESPACIAMIENTO: g/B = " + (g / B).toFixed(3) + " es < 0.5*(1-&#946;<sub>eff</sub>) = " + (0.5 * (1 - beta_eff)).toFixed(3) + " !";
                         return this.Error_set(mensaje);
-                    } else if (g / B > 1.5 * (1 - betha_eff)) {
-                        mensaje = "ERROR: RAZON DE ESPACIAMIENTO: g/B = " + (g / B).toFixed(3) + " es > 1.5*(1-&#946;<sub>eff</sub>) = " + (1.5 * (1 - betha_eff)).toFixed(3) + " !";
+                    } else if (g / B > 1.5 * (1 - beta_eff)) {
+                        mensaje = "ERROR: RAZÓN DE ESPACIAMIENTO: g/B = " + (g / B).toFixed(3) + " es > 1.5*(1-&#946;<sub>eff</sub>) = " + (1.5 * (1 - beta_eff)).toFixed(3) + " !";
                         return this.Error_set(mensaje);
 
                     }
@@ -643,12 +643,12 @@ var limites = {
 
                 if (Bb_2 / Bb_1 >= 0.75) {
                     mensaje += "<p>";
-                    mensaje += "RAZON DE ANCHO DE LAS RAMAS: B<sub>b, 2</sub>/B<sub>b, 1</sub> = " + (Bb_2 / Bb_1).toFixed(3) + " >= 0.75";
+                    mensaje += "RAZÓN DE ANCHO DE LAS RAMAS: B<sub>b, 2</sub>/B<sub>b, 1</sub> = " + (Bb_2 / Bb_1).toFixed(3) + " >= 0.75";
                     mensajes.push(mensaje);
 
                 } else {
 
-                    mensaje = "ERROR: RAZON DE ANCHO DE LAS RAMAS: B<sub>b, 2</sub>/B<sub>b, 1</sub> = " + (Bb_2 / Bb_1).toFixed(3) + " < 0.75 !";
+                    mensaje = "ERROR: RAZÓN DE ANCHO DE LAS RAMAS: B<sub>b, 2</sub>/B<sub>b, 1</sub> = " + (Bb_2 / Bb_1).toFixed(3) + " < 0.75 !";
                     return this.Error_set(mensaje);
 
                 }
@@ -656,12 +656,12 @@ var limites = {
 
                 if (tb_2 / tb_1 <= 1.0) {
 
-                    mensaje = "RAZON DE ESPESOR DE LAS RAMAS: t<sub>b, 2</sub>/t<sub>b, 1</sub> = " + (tb_2 / tb_1).toFixed(3) + " &#8804 1.0";
+                    mensaje = "RAZÓN DE ESPESOR DE LAS RAMAS: t<sub>b, 2</sub>/t<sub>b, 1</sub> = " + (tb_2 / tb_1).toFixed(3) + " &#8804 1.0";
                     mensajes.push(mensaje);
 
                 } else {
 
-                    mensaje = "ERROR: RAZON DE ESPESOR DE LAS RAMAS: t<sub>b, 2</sub>/t<sub>b, 1</sub> = " + (tb_2 / tb_1).toFixed(3) + " > 1.0 !";
+                    mensaje = "ERROR: RAZÓN DE ESPESOR DE LAS RAMAS: t<sub>b, 2</sub>/t<sub>b, 1</sub> = " + (tb_2 / tb_1).toFixed(3) + " > 1.0 !";
                     return this.Error_set(mensaje);
 
                 }
@@ -672,7 +672,7 @@ var limites = {
 
                 } else {
 
-                    mensaje = "ERROR: EXCENTRICIDAS: e =" + e.toFixed(3) + " debe ser >= -0.55*H = " + (-0.55 * H).toFixed(3) + " y <= 0.25*H = " + (0.25 * H).toFixed(3) + " !";
+                    mensaje = "ERROR: EXCENTRICIDAD: e =" + e.toFixed(3) + " debe ser >= -0.55*H = " + (-0.55 * H).toFixed(3) + " y <= 0.25*H = " + (0.25 * H).toFixed(3) + " !";
                     return this.Error_set(mensaje);
 
                 }
@@ -725,7 +725,7 @@ var resistencia = {
                  "{{/axial}}",
                  "{{#flexion_ip}}",
                  "<h4>",
-                 "RESISTENCIA DE DISEÑO A FLEXION EN EL PLANO:",
+                 "RESISTENCIA DE DISEÑO A FLEXIÓN EN EL PLANO:",
                  "</h4>",
                  "<table class =\"flexion\">",
                  "{{#resistencias}}",
@@ -745,7 +745,7 @@ var resistencia = {
                  "{{/flexion_ip}}",
                  "{{#flexion_op}}",
                  "<h4>",
-                 "RESISTENCIA DE DISEÑO A FLEXION FUERA DEL PLANO:",
+                 "RESISTENCIA DE DISEÑO A FLEXIÓN FUERA DEL PLANO:",
                  "</h4>",
                  "<table class =\"flexion\">",
                  "{{#resistencias}}",
@@ -805,7 +805,7 @@ var resistencia = {
                  "{{#flexion_ip}}",
                  "{{#mostrar}}",
                  "<h4>",
-                 "SOLICITADA A FLEXION EN EL PLANO",
+                 "SOLICITADA A FLEXIÓN EN EL PLANO",
                  "</h4>",
                  "<p>",
                  "GOBIERNA:",
@@ -833,7 +833,7 @@ var resistencia = {
                  "{{#flexion_op}}",
                  "{{#mostrar}}",
                  "<h4>",
-                 "SOLICITADA A FLEXION FUERA DEL PLANO",
+                 "SOLICITADA A FLEXIÓN FUERA DEL PLANO",
                  "</h4>",
                  "<p>",
                  "GOBIERNA:",
@@ -859,7 +859,7 @@ var resistencia = {
                  "{{/flexion_op}}",
                  "{{#interaccion}}",
                  "<h4>",
-                 "EFECTOS DE INTERACCION",
+                 "EFECTOS DE INTERACCIÓN",
                  "</h4>",
                  "<p>",
                  "{{#estado}}",
@@ -982,7 +982,7 @@ var resistencia = {
             H = this.miembros[miembro].seccion.H,
             B = this.miembros[miembro].seccion.B,
             t = this.miembros[miembro].seccion.tdes,
-            betha_eff = this.conexion.betha_eff,
+            beta_eff = this.conexion.beta_eff,
             Qf_1,
             b_eop,
             b_eoi,
@@ -994,9 +994,9 @@ var resistencia = {
             verificar;
 
         Qf_1 = Formulas.Qf_1.apply(this, [miembro]);
-        parametros.beta_eff = betha_eff;
+        parametros.beta_eff = beta_eff;
         parametros.Qf = Qf_1;
-        axial.resistencias.push(Formulas.Pn_1.apply(this, [miembro_b, miembro, betha_eff, Qf_1]));
+        axial.resistencias.push(Formulas.Pn_1.apply(this, [miembro_b, miembro, beta_eff, Qf_1]));
 
         if (Hb / Bb !== 1 && Bb <= B - 2 * t) {
             b_eop = Formulas.b_eop.apply(this, [miembro_b, miembro]);
@@ -1031,7 +1031,7 @@ var resistencia = {
             } else {
 
                 axial.estado = false;
-                this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
 
 
             }
@@ -1082,7 +1082,7 @@ var resistencia = {
             } else {
 
                 axial.estado = false;
-                this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
 
 
             }
@@ -1129,7 +1129,7 @@ var resistencia = {
             } else {
 
                 axial.estado = false;
-                this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
 
             }
         }
@@ -1213,7 +1213,7 @@ var resistencia = {
                 } else {
 
                     axial.estado = false;
-                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
 
                 }
             }
@@ -1254,7 +1254,7 @@ var resistencia = {
                     } else {
 
                         flexion_ip.estado = false;
-                        this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                        this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
 
                     }
                 }
@@ -1294,7 +1294,7 @@ var resistencia = {
                     } else {
 
                         flexion_op.estado = false;
-                        this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                        this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
 
                     }
                 }
@@ -1312,7 +1312,7 @@ var resistencia = {
                 } else {
 
                     interaccion.estado = false;
-                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
                 }
 
             } else if (Pr !== 0 && Mr_ip !== 0 && axial.razon !== undefined && flexion_ip.razon !== undefined) {
@@ -1327,7 +1327,7 @@ var resistencia = {
                 } else {
 
                     interaccion.estado = false;
-                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
                 }
 
             } else if (Pr !== 0 && Mr_op !== 0 && axial.razon !== undefined && flexion_op.razon !== undefined) {
@@ -1343,7 +1343,7 @@ var resistencia = {
                 } else {
 
                     interaccion.estado = false;
-                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
                 }
 
             } else if (Mr_ip !== 0 && Mr_op !== 0 && flexion_ip.razon !== undefined && flexion_op.razon !== undefined) {
@@ -1359,7 +1359,7 @@ var resistencia = {
                 } else {
 
                     interaccion.estado = false;
-                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
                 }
 
             }
@@ -1460,7 +1460,7 @@ var resistencia = {
                 } else {
 
                     axial.estado = false;
-                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
 
                 }
             }
@@ -1502,7 +1502,7 @@ var resistencia = {
                     } else {
 
                         flexion_ip.estado = false;
-                        this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                        this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
 
                     }
                 }
@@ -1543,7 +1543,7 @@ var resistencia = {
                     } else {
 
                         flexion_op.estado = false;
-                        this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                        this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
 
                     }
                 }
@@ -1561,7 +1561,7 @@ var resistencia = {
                 } else {
 
                     interaccion.estado = false;
-                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
                 }
 
             } else if (Pr !== 0 && Mr_ip !== 0 && axial.razon !== undefined && flexion_ip.razon !== undefined) {
@@ -1576,7 +1576,7 @@ var resistencia = {
                 } else {
 
                     interaccion.estado = false;
-                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
                 }
 
             } else if (Pr !== 0 && Mr_op !== 0 && axial.razon !== undefined && flexion_op.razon !== undefined) {
@@ -1592,7 +1592,7 @@ var resistencia = {
                 } else {
 
                     interaccion.estado = false;
-                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
                 }
 
             } else if (Mr_ip !== 0 && Mr_op !== 0 && flexion_ip.razon !== undefined && flexion_op.razon !== undefined) {
@@ -1608,7 +1608,7 @@ var resistencia = {
                 } else {
 
                     interaccion.estado = false;
-                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXION INSUFICIENTE !");
+                    this.Error_set("ERROR: " + nombre + " - RESISTENCIA DE LA CONEXIÓN INSUFICIENTE !");
                 }
 
             }
@@ -1733,7 +1733,7 @@ var soldadura = {
                 temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             }
-            mensaje.push("PARA EL TALON DE LA RAMA: ");
+            mensaje.push("PARA EL TALÓN DE LA RAMA: ");
             mensaje.push("Usar Soldadura de filete");
             temp = Math.ceil(tw * 16);
             mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
@@ -1778,7 +1778,7 @@ var soldadura = {
                 temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             }
-            mensaje.push("PARA EL TALON DE LA RAMA: ");
+            mensaje.push("PARA EL TALÓN DE LA RAMA: ");
             mensaje.push("Usar Soldadura de filete");
             temp = Math.ceil(tw * 16);
             mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
@@ -1853,7 +1853,7 @@ var soldadura = {
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             }
 
-            mensaje.push("PARA EL TALON DE LA RAMA: ");
+            mensaje.push("PARA EL TALÓN DE LA RAMA: ");
             mensaje.push("Usar Soldadura de filete");
             temp = Math.ceil(tw * 16);
             mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
@@ -1898,7 +1898,7 @@ var soldadura = {
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             }
 
-            mensaje.push("PARA EL TALON DE LA RAMA: ");
+            mensaje.push("PARA EL TALÓN DE LA RAMA: ");
             mensaje.push("Usar Soldadura de filete");
             temp = Math.ceil(tw * 16);
             mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
@@ -1974,28 +1974,28 @@ var soldadura = {
                 temp = tw / 1.1 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             }
-            mensaje.push("PARA EL TALON DE LA RAMA: ");
+            mensaje.push("PARA EL TALÓN DE LA RAMA: ");
             mensaje.push("Usar Soldadura de filete");
             temp = Math.ceil(tw * 16);
             mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             if (B - 4 * t >= Bb_i + Math.ceil(2 * 1.41 * tw * 16) / 16 && Ov < 100) {
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
-                mensaje.push("Para unir la Rama que traslapa al Cordon");
+                mensaje.push("Para unir la Rama que traslapa al Cordón");
                 mensaje.push("Usar Soldadura de filete");
                 temp = Math.ceil(tw * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else if (B - 4 * t < Bb_i + Math.ceil(2 * 1.41 * tw * 16) / 16 && B > Bb_i && Ov < 100) {
                 mensaje.push("PARA LOS LADOS DE LAS RAMAS:");
-                mensaje.push("Para unir la Rama que traslapa al Cordon");
+                mensaje.push("Para unir la Rama que traslapa al Cordón");
                 mensaje.push("Usar Soldadura de ranura");
                 temp = tw / 1.1 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else if (B === Bb_i && Ov < 100) {
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
-                mensaje.push("Para unir la Rama que traslapa al Cordon");
+                mensaje.push("Para unir la Rama que traslapa al Cordón");
                 mensaje.push("Usar Soldadura de ranura");
                 temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
@@ -2044,28 +2044,28 @@ var soldadura = {
                 temp = tw / 1.1 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             }
-            mensaje.push("PARA EL TALON DE LA RAMA: ");
+            mensaje.push("PARA EL TALÓN DE LA RAMA: ");
             mensaje.push("Usar Soldadura de filete");
             temp = Math.ceil(tw * 16);
             mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             if (B - 4 * t >= Bb_i + Math.ceil(2 * 1.41 * tw * 16) / 16 && Ov < 100) {
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
-                mensaje.push("Para unir la Rama que traslapa al Cordon");
+                mensaje.push("Para unir la Rama que traslapa al Cordón");
                 mensaje.push("Usar Soldadura de filete");
                 temp = Math.ceil(tw * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else if (B - 4 * t < Bb_i + Math.ceil(2 * 1.41 * tw * 16) / 16 && B > Bb_i && Ov < 100) {
                 mensaje.push("PARA LOS LADOS DE LAS RAMAS:");
-                mensaje.push("Para unir la Rama que traslapa al Cordon");
+                mensaje.push("Para unir la Rama que traslapa al Cordón");
                 mensaje.push("Usar Soldadura de ranura");
                 temp = tw / 1.1 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else if (B === Bb_i && Ov < 100) {
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
-                mensaje.push("Para unir la Rama que traslapa al Cordon");
+                mensaje.push("Para unir la Rama que traslapa al Cordón");
                 mensaje.push("Usar Soldadura de ranura");
                 temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
@@ -2150,7 +2150,7 @@ var soldadura = {
                 temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             }
-            mensaje.push("PARA EL TALON DE LA RAMA: ");
+            mensaje.push("PARA EL TALÓN DE LA RAMA: ");
             mensaje.push("Usar Soldadura de filete");
             temp = Math.ceil(tw * 16);
             mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
@@ -2193,7 +2193,7 @@ var soldadura = {
                 temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             }
-            mensaje.push("PARA EL TALON DE LA RAMA: ");
+            mensaje.push("PARA EL TALÓN DE LA RAMA: ");
             mensaje.push("Usar Soldadura de filete");
             temp = Math.ceil(tw * 16);
             mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
@@ -2284,7 +2284,7 @@ var Conexion_K = function (miembro_b1, miembro_b2, miembro) {
                     this.reporte_reset();
 
                     this.reporte_add(this.reporte_encabezado, "p");
-                    this.reporte_add("1.- COMPROBAR LIMITES DE APLICACION", "h2");
+                    this.reporte_add("1.- COMPROBAR LÍMITES DE APLICACIÓN", "h2");
                     this.reporte_add(limites.cordon.apply(this, [miembro]).join("<br>"));
                     this.reporte_add(limites.rama.apply(this, [miembro_b1, miembro]).join("<br>"));
                     this.reporte_add(limites.rama.apply(this, [miembro_b2, miembro]).join("<br>"));
@@ -2317,7 +2317,7 @@ var Conexion_K = function (miembro_b1, miembro_b2, miembro) {
                     this.reporte_reset();
 
                     this.reporte_add(this.reporte_encabezado, "p");
-                    this.reporte_add("1.- COMPROBAR LIMITES DE APLICACION", "h2");
+                    this.reporte_add("1.- COMPROBAR LÍMITES DE APLICACIÓN", "h2");
                     this.reporte_add(limites.cordon.apply(this, [miembro]).join("<br>"));
                     this.reporte_add(limites.rama.apply(this, [miembro_b1, miembro]).join("<br>"));
                     this.reporte_add(limites.rama.apply(this, [miembro_b2, miembro]).join("<br>"));
@@ -2363,7 +2363,7 @@ var Conexion_Y = function (miembro_b1, miembro) {
         this.reporte_reset();
 
         this.reporte_add(this.reporte_encabezado, "p");
-        this.reporte_add("1.- COMPROBAR LIMITES DE APLICACION", "h2");
+        this.reporte_add("1.- COMPROBAR LÍMITES DE APLICACIÓN", "h2");
         this.reporte_add(limites.cordon.apply(this, [miembro]).join("<br>"), "section");
         this.reporte_add(limites.rama.apply(this, [miembro_b1, miembro]).join("<br>"), "section");
 
@@ -2397,7 +2397,7 @@ var Conexion_X = function (miembro_b1, miembro_b2, miembro) {
             this.reporte_reset();
 
             this.reporte_add(this.reporte_encabezado, "p");
-            this.reporte_add("1.- COMPROBAR LIMITES DE APLICACION", "h2");
+            this.reporte_add("1.- COMPROBAR LÍMITES DE APLICACIÓN", "h2");
             this.reporte_add(limites.cordon.apply(this, [miembro]).join("<br>"));
             this.reporte_add(limites.rama.apply(this, [miembro_b1, miembro]).join("<br>"));
             this.reporte_add(limites.rama.apply(this, [miembro_b2, miembro]).join("<br>"));
@@ -2423,14 +2423,14 @@ var Formulas = {
     // Conexiones en K con espaciamiento//
     /**
      * Excentricidad en las conexiones en K
-     * @param {Number}       H - Altura total del cordon 
+     * @param {Number}       H - Altura total del cordón 
      * @param {Number}    Hb_1 - Altura total de la rama 1
-     * @param {Number} theta_1 - Angulo entre la rama 1 y el cordon 
+     * @param {Number} theta_1 - Angulo entre la rama 1 y el cordón 
      * @param {Number}    Hb_2 - Altura total de la rama 2
-     * @param {Number} theta_2 - Angulo entre la rama 2 y el cordon
-     * @param {Number}      g  - (+) Espaciamiento entre los pies de la ramas de una conexion en K  o
+     * @param {Number} theta_2 - Angulo entre la rama 2 y el cordón
+     * @param {Number}      g  - (+) Espaciamiento entre los pies de la ramas de una conexión en K  o
                                - (-) = l_ov Traslape entre las ramas de una conexione en K 
-     * @return {Number} Excentricidad de la conexion en K, (+) cuando se aleja de la rama, (-) cuando se acerca a las ramas 
+     * @return {Number} Excentricidad de la conexión en K, (+) cuando se aleja de la rama, (-) cuando se acerca a las ramas 
      */
     e: function (miembro, miembro_b1, miembro_b2, g) {
         "use strict";
@@ -2444,15 +2444,15 @@ var Formulas = {
         return (Hb_1 / (2 * sin(theta_1)) + Hb_2 / (2 * sin(theta_2)) + g) * (sin(theta_1) * sin(theta_2)) / (sin(theta_1 + theta_2)) - H / 2;
     },
     /**
-   * Espaciamiento o long de traslape en las conexiones en K
-   * @param {Number}       H - Altura total del cordon
+   * Espaciamiento o longitud de traslape en las conexiones en K
+   * @param {Number}       H - Altura total del cordón
    * @param {Number}    Hb_1 - Altura total de la rama 1
-   * @param {Number} theta_1 - Angulo entre la rama 1 y el cordon
+   * @param {Number} theta_1 - Angulo entre la rama 1 y el cordón
    * @param {Number}    Hb_2 - Altura total de la rama 2
-   * @param {Number} theta_2 - Angulo entre la rama 2 y el cordon
-   * @param {Number}      e  - Excentricidad de la conexion en K, (+) cuando se aleja de la rama, (-) cuando se acerca a las ramas
-   * @return {Number} (+) Espaciamiento entre los pies de la ramas de una conexion en K  o
-   *                  (-) l_ov long de traslape entre las ramas de una conexione en K
+   * @param {Number} theta_2 - Angulo entre la rama 2 y el cordón
+   * @param {Number}      e  - Excentricidad de la conexión en K, (+) cuando se aleja de la rama, (-) cuando se acerca a las ramas
+   * @return {Number} (+) Espaciamiento entre los pies de la ramas de una conexión en K  o
+   *                  (-) l_ov longitud de traslape entre las ramas de una conexione en K
    */
     g: function (miembro, miembro_b1, miembro_b2, e) {
         "use strict";
@@ -2466,9 +2466,9 @@ var Formulas = {
         return (e + H / 2) * (sin(theta_1 + theta_2)) / (sin(theta_1) * sin(theta_2)) - Hb_1 / (2 * sin(theta_1)) - Hb_2 / (2 * sin(theta_2));
     },
     /**
-   * Razon de ancho efectivo betha_eff
+   * Razón de ancho efectivo beta_eff
    */
-    betha_eff: function (miembro_b1, miembro_b2, miembro) {
+    beta_eff: function (miembro_b1, miembro_b2, miembro) {
         "use strict";
         var Bb_1 = this.miembros[miembro_b1].seccion.B,
             Hb_1 = this.miembros[miembro_b1].seccion.H,
@@ -2491,7 +2491,7 @@ var Formulas = {
             Pd = this.miembros[miembro].cargas.Pd,
             Mi = this.miembros[miembro].cargas.Mi,
             Md = this.miembros[miembro].cargas.Md,
-            betha_eff = this.conexion.betha_eff,
+            beta_eff = this.conexion.beta_eff,
             Mro,
             Pro,
             U,
@@ -2507,21 +2507,21 @@ var Formulas = {
 
             U = min(Pi / (Fy * A) + (-Mi) / (Fy * S), Pd / (Fy * A) + Md / (Fy * S));
 
-            Qf = 1.3 - 0.4 * (abs(U) / betha_eff);
+            Qf = 1.3 - 0.4 * (abs(U) / beta_eff);
             return Qf <= 1 ? Qf : 1;
         }
     },
     /**
-   * Para conexiones en K con espaciamiento. Estado limite a: Plastificacion de la cara del cordon, para todo Betha (Razon de ancho)
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
-   * @param {Number}     gamma - Razon de esbeltez del cordon
-   * @param {Number} betha_eff - Razon de ancho efectivo
-   * @param {Number}     theta - Angulo entre la rama y el cordon, en radianes
-   * @param {Number}        Qf - Parametro de interaccion de esfuerzos en el cordon
+   * Para conexiones en K con espaciamiento. Estado limite a: Plastificación de la cara del cordón, para todo Beta (Razón de ancho)
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
+   * @param {Number}     gamma - Razón de esbeltez del cordón
+   * @param {Number} beta_eff - Razón de ancho efectivo
+   * @param {Number}     theta - Angulo entre la rama y el cordón, en radianes
+   * @param {Number}        Qf - Parámetro de interacción de esfuerzos en el cordón
    * @return {Number} Resistencia Nominal expresada como fuerza en la Rama
    */
-    Pn_1: function (miembro_b, miembro, betha_eff, Qf_1) {
+    Pn_1: function (miembro_b, miembro, beta_eff, Qf_1) {
         "use strict";
         var sin = Math.sin,
             raiz = Math.sqrt,
@@ -2534,9 +2534,9 @@ var Formulas = {
             o = {};
 
         o = {
-            name: "Estado limite: Plastificacion de la cara del cordon",
+            name: "Estado limite: Plastificación de la cara del cordón",
             phi: 0.90,
-            Pn: 9.8 * Fy * potencia(t, 2) * raiz(gamma) * betha_eff * Qf_1 / sin(theta)
+            Pn: 9.8 * Fy * potencia(t, 2) * raiz(gamma) * beta_eff * Qf_1 / sin(theta)
         };
         o.Pd = o.phi * o.Pn;
         o.fixPn = o.Pn.toFixed(2);
@@ -2557,13 +2557,13 @@ var Formulas = {
         return (b_eop <= Bb) ? b_eop : Bb;
     },
     /**
-   * Para conexiones en K con espaciamiento. Estado limite b: Punzonamiento, Fluencia por corte de la cara del cordon, cuando Bb < B - 2t.
+   * Para conexiones en K con espaciamiento. Estado limite b: Punzonamiento, Fluencia por corte de la cara del cordón, cuando Bb < B - 2t.
    * NO VERIFICAR EN RAMAS CUADRADAS
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
    * @param {Number}        Hb - Altura total de la rama
    * @param {Number}        Bb - Ancho total de la rama
-   * @param {Number}     theta - Angulo entre la rama y el cordon, en radianes
+   * @param {Number}     theta - Angulo entre la rama y el cordón, en radianes
    * @param {Number} b_eop - Anchura eficaz a punzonamiento
    * @return {Number} Resistencia Nominal expresada como fuerza en la Rama
    */
@@ -2578,7 +2578,7 @@ var Formulas = {
             o = {};
 
         o = {
-            name: "Estado limite: Punzonamiento, Fluencia por corte de la cara del cordon",
+            name: "Estado limite: Punzonamiento, Fluencia por corte de la cara del cordón",
             phi: 0.95,
             Pn: (0.6 * Fy * t) / sin(theta) * (2 * Hb / sin(theta) + Bb + b_eop)
         };
@@ -2606,9 +2606,9 @@ var Formulas = {
     },
     /**
    * Para conexiones en K con espaciamiento. Estado limite c,d: Fluencia local de la rama o las ramas debido a
-   * la distribucion de esfuerzos desiguales.
+   * la distribución de esfuerzos desiguales.
    * NO VERIFICAR EN RAMAS CUADRADAS o si B/t >= 15
-   * @param {Number}        Fyb - Esfuerzo de fluencia minimo especificado del material de la rama
+   * @param {Number}        Fyb - Esfuerzo de fluencia mínimo especificado del material de la rama
    * @param {Number}         tb - Espesor de diseño de las paredes de la rama
    * @param {Number}         Hb - Altura total de la rama
    * @param {Number}         Bb - Ancho total de la rama
@@ -2624,7 +2624,7 @@ var Formulas = {
             o = {};
 
         o = {
-            name: "Estado limite: Fluencia local de la rama debido a la distribucion de esfuerzos desiguales",
+            name: "Estado limite: Fluencia local de la rama debido a la distribución de esfuerzos desiguales",
             phi: 0.95,
             Pn: Fyb * tb * (2 * Hb + Bb + b_eoi - 4 * tb)
         };
@@ -2661,7 +2661,7 @@ var Formulas = {
         }
     },
     /**
-   *Estado limite e: Corte de las paredes del cordon en la region del espaciamiento. NO VERIFICAR PARA CORDONES CUADRADOS
+   *Estado limite e: Corte de las paredes del cordón en la región del espaciamiento. NO VERIFICAR PARA CORDONES CUADRADOS
    */
     Pn_4: function (miembro_b, miembro, Cv) {
         "use strict";
@@ -2675,7 +2675,7 @@ var Formulas = {
             o = {};
 
         o = {
-            name: "Estado limite: Corte de las paredes del cordon en la region del espaciamiento",
+            name: "Estado limite: Corte de las paredes del cordón en la región del espaciamiento",
             phi: 0.90,
             Pn: (0.6 * Fy * Aw * Cv) / sin(theta)
         };
@@ -2719,7 +2719,7 @@ var Formulas = {
 
 
         mensaje.push("<h2>VERIFICAR:--" + nombre + "</h2>");
-        mensaje.push("RESISTENCIA A AXIAL DEL CORDON EN EL ESPACIAMIENTO");
+        mensaje.push("RESISTENCIA A AXIAL DEL CORDÓN EN EL ESPACIAMIENTO");
         mensaje.push("P<sub>d,g<sub> =" + Pd_g.toFixed(2) + "kips > P<sub>r,g<sub> =" + Pr_g.toFixed(2) + "kips");
 
         return mensaje.join("<br>");
@@ -2727,13 +2727,13 @@ var Formulas = {
     //Conexiones en T,Y o X//
 
     /**
-   * Para conexiones en T,Y,X. Estado limite a: Plastificacion de la cara del cordon, para Betha (Razon de ancho) <= 0.85
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
-   * @param {Number}       eta - Parametro de longitud de carga
-   * @param {Number}     betha - Razon de ancho
-   * @param {Number}     theta - Angulo entre la rama y el cordon, en radianes
-   * @param {Number}        Qf - Parametro de interaccion de esfuerzos en el cordon
+   * Para conexiones en T,Y,X. Estado limite a: Plastificación de la cara del cordón, para Beta (Razón de ancho) <= 0.85
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
+   * @param {Number}       eta - Parámetro de longitud de carga
+   * @param {Number}     beta - Razón de ancho
+   * @param {Number}     theta - Angulo entre la rama y el cordón, en radianes
+   * @param {Number}        Qf - Parámetro de interacción de esfuerzos en el cordón
    * @return {Number} Resistencia Nominal expresada como fuerza en la Rama
    */
     Qf_2: function (miembro_b, miembro) {
@@ -2750,7 +2750,7 @@ var Formulas = {
             Mi = this.miembros[miembro].cargas.Mi,
             Md = this.miembros[miembro].cargas.Md,
             Bb = this.miembros[miembro_b].seccion.B,
-            betha,
+            beta,
             Mro,
             Pro,
             U,
@@ -2764,8 +2764,8 @@ var Formulas = {
         } else {
 
             U = min(Pi / (Fy * A) + (-Mi) / (Fy * S), Pd / (Fy * A) + Md / (Fy * S));
-            betha = Bb / B;
-            Qf = 1.3 - 0.4 * (abs(U) / betha);
+            beta = Bb / B;
+            Qf = 1.3 - 0.4 * (abs(U) / beta);
             
             return Qf <= 1 ? Qf : 1;
 
@@ -2783,14 +2783,14 @@ var Formulas = {
             Bb = this.miembros[miembro_b].seccion.B,
             theta = toRad(this.miembros[miembro_b].theta),
             eta = Hb / (B * sin(theta)),
-            betha = Bb / B,
+            beta = Bb / B,
             o = {};
 
 
         o = {
-            name: "Estado limite: Plastificacion de la cara del cordon",
+            name: "Estado limite: Plastificación de la cara del cordón",
             phi: 1.00,
-            Pn: Fy * potencia(t, 2) / sin(theta) * ((2 * eta / (1 - betha)) + (4 / raiz(1 - betha))) * Qf_2
+            Pn: Fy * potencia(t, 2) / sin(theta) * ((2 * eta / (1 - beta)) + (4 / raiz(1 - beta))) * Qf_2
         };
 
         o.Pd = o.phi * o.Pn;
@@ -2800,12 +2800,12 @@ var Formulas = {
         return o;
     },
     /**
-   * Para conexiones en T,Y,X. Estado limite b: Punzonamiento, Fluencia por corte de la cara del cordon,
-   * cuando 0.85 <= betha <= 1-1/gamma o B/t < 10
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
+   * Para conexiones en T,Y,X. Estado limite b: Punzonamiento, Fluencia por corte de la cara del cordón,
+   * cuando 0.85 <= beta <= 1-1/gamma o B/t < 10
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
    * @param {Number}        Hb - Altura total de la rama
-   * @param {Number}     theta - Angulo entre la rama y el cordon, en radianes
+   * @param {Number}     theta - Angulo entre la rama y el cordón, en radianes
    * @param {Number} b_eop - Anchura eficaz a punzonamiento
    * @return {Number} Resistencia Nominal expresada como fuerza en la Rama
    */
@@ -2819,7 +2819,7 @@ var Formulas = {
             o = {};
 
         o = {
-            name: "Estado limite: Punzonamiento, Fluencia por corte de la cara del cordon",
+            name: "Estado limite: Punzonamiento, Fluencia por corte de la cara del cordón",
             phi: 0.95,
             Pn: (0.6 * Fy * t) / sin(theta) * (2 * Hb / sin(theta) + 2 * b_eop)
         };
@@ -2833,8 +2833,8 @@ var Formulas = {
     },
     /**
    * Para conexiones en T,Y,X. Estado limite c,d: Fluencia local de la rama o las ramas debido a
-   * la disbribucion de esfuerzos desiguales, cuando betha > 0.85
-   * @param {Number}        Fyb - Esfuerzo de fluencia minimo especificado del material de la rama
+   * la distribución de esfuerzos desiguales, cuando beta > 0.85
+   * @param {Number}        Fyb - Esfuerzo de fluencia mínimo especificado del material de la rama
    * @param {Number}         tb - Espesor de diseño de las paredes de la rama
    * @param {Number}         Hb - Altura total de la rama
    * @param {Number}      b_eoi - Anchura eficaz de la rama
@@ -2849,7 +2849,7 @@ var Formulas = {
 
 
         o = {
-            name: "Estado limite: Fluencia local de la rama debido a la disbribucion de esfuerzos desiguales",
+            name: "Estado limite: Fluencia local de la rama debido a la distribución de esfuerzos desiguales",
             phi: 0.95,
             Pn: Fyb * tb * (2 * Hb + 2 * b_eoi - 4 * tb)
         };
@@ -2862,13 +2862,13 @@ var Formulas = {
 
     },
     /**
-   * Para conexiones en T,Y,X. Estado limite f: Fluencia local de las paredes laterales del cordon,
-   * cuando betha = 1
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
-   * @param {Number}     theta - Angulo entre la rama y el cordon, en radianes
-   * @param {Number}       l_b - longitud de apoyo de la carga, medido paralelo al eje del cordon
-   * @param {Number}         k - radio externo de la esquina del cordon, si k se desconoce tomar k = 1.5*t
+   * Para conexiones en T,Y,X. Estado límite f: Fluencia local de las paredes laterales del cordón,
+   * cuando beta = 1
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
+   * @param {Number}     theta - Angulo entre la rama y el cordón, en radianes
+   * @param {Number}       l_b - longitud de apoyo de la carga, medido paralelo al eje del cordón
+   * @param {Number}         k - radio externo de la esquina del cordón, si k se desconoce tomar k = 1.5*t
    * @return {Number} Resistencia Nominal expresada como fuerza en la Rama
    */
     Pn_8: function (miembro_b, miembro, l_b) {
@@ -2881,7 +2881,7 @@ var Formulas = {
             o = {};
 
         o = {
-            name: "Estado limite: Fluencia local de las paredes laterales del cordon",
+            name: "Estado limite: Fluencia local de las paredes laterales del cordón",
             phi: 1.00,
             Pn: (2 * Fy * t) / sin(theta) * (5 * K + l_b)
         };
@@ -2894,15 +2894,15 @@ var Formulas = {
 
     },
     /**
-   * Para conexiones en T,Y. Estado limite f: Pandeo local de las paredes laterales del cordon,
-   * cuando betha = 1 y la rama esta en compresion.
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
+   * Para conexiones en T,Y. Estado limite f: Pandeo local de las paredes laterales del cordón,
+   * cuando beta = 1 y la rama esta en compresión.
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
    * @param {Number}         E - Modulo de elasticidad del acero
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
-   * @param {Number}         H - Altura total del cordon
-   * @param {Number}     theta - Angulo entre la rama y el cordon, en radianes
-   * @param {Number}       l_b - longitud de apoyo de la carga, medido paralelo al eje del cordon
-   * @param {Number}        Qf - Parametro de interaccion de esfuerzos en el cordon
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
+   * @param {Number}         H - Altura total del cordón
+   * @param {Number}     theta - Angulo entre la rama y el cordón, en radianes
+   * @param {Number}       l_b - longitud de apoyo de la carga, medido paralelo al eje del cordón
+   * @param {Number}        Qf - Parámetro de interacción de esfuerzos en el cordón
    * @return {Number} Resistencia Nominal expresada como fuerza en la Rama
    */
     Pn_9: function (miembro_b, miembro, Qf_2, l_b) {
@@ -2918,7 +2918,7 @@ var Formulas = {
             o = {};
 
         o = {
-            name: "Estado limite: Pandeo local de las paredes laterales del cordon",
+            name: "Estado limite: Pandeo local de las paredes laterales del cordón",
             phi: 0.75,
             Pn: (1.6 * potencia(t, 2)) / sin(theta) * (1 + (3 * l_b) / (H - 3 * t)) * raiz(E * Fy) * Qf_2
         };
@@ -2931,14 +2931,14 @@ var Formulas = {
 
     },
     /**
-   * Para conexiones en X. Estado limite f: Pandeo local de las paredes laterales del cordon,
-   * cuando betha = 1 y la rama esta en compresion.
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
+   * Para conexiones en X. Estado limite f: Pandeo local de las paredes laterales del cordón,
+   * cuando beta = 1 y la rama esta en compresión.
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
    * @param {Number}         E - Modulo de elasticidad del acero
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
-   * @param {Number}         H - Altura total del cordon
-   * @param {Number}     theta - Angulo entre la rama y el cordon, en radianes
-   * @param {Number}        Qf - Parametro de interaccion de esfuerzos en el cordon
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
+   * @param {Number}         H - Altura total del cordón
+   * @param {Number}     theta - Angulo entre la rama y el cordón, en radianes
+   * @param {Number}        Qf - Parámetro de interacción de esfuerzos en el cordón
    * @return {Number} Resistencia Nominal expresada como fuerza en la Rama
    */
     Pn_10: function (miembro_b, miembro, Qf_2) {
@@ -2955,7 +2955,7 @@ var Formulas = {
 
 
         o = {
-            name: "Estado limite: Fluencia local de las paredes laterales del cordon",
+            name: "Estado limite: Fluencia local de las paredes laterales del cordón",
             phi: 0.90,
             Pn: ((48 * potencia(t, 3)) / (H - 3 * t)) * raiz(E * Fy) * Qf_2 / sin(theta)
         };
@@ -2968,12 +2968,12 @@ var Formulas = {
 
     },
     /**
-   *Para conexiones en X. Estado limite e: Corte de las paredes del cordon en la region del espaciamiento, cuando cos(theta) > Hb/H */
+   *Para conexiones en X. Estado limite e: Corte de las paredes del cordón en la región del espaciamiento, cuando cos(theta) > Hb/H */
     // Conexiones en K o N con traslape //
     /**
    * Coeficiente de traslape en las conexiones en K con traslape
    * @param {Number}    Hb_i - Altura total de la rama 2 (rama que traslapa)
-   * @param {Number} theta_i - Angulo entre la rama 2 y el cordon
+   * @param {Number} theta_i - Angulo entre la rama 2 y el cordón
    * @return {Number} Coeficiente de traslape entre las ramas de una conexione en K con traslape
    */
     Ov: function (miembro_bi, l_ov) {
@@ -3015,8 +3015,8 @@ var Formulas = {
     },
     /**
    * Para conexiones en K con traslape. Estado limite c,d: Fluencia local de la rama o las ramas debido a
-   * la disbribucion de esfuerzos desiguales.
-   * @param {Number}        Fyb_i - Esfuerzo de fluencia minimo especificado del material de la rama
+   * la distribución de esfuerzos desiguales.
+   * @param {Number}        Fyb_i - Esfuerzo de fluencia mínimo especificado del material de la rama
    * @param {Number}         tb_i - Espesor de diseño de las paredes de la rama
    * @param {Number}         Hb_i - Altura total de la rama
    * @param {Number}         Bb_i - Ancho total de la rama
@@ -3048,7 +3048,7 @@ var Formulas = {
         }
 
         o = {
-            name: "Estado limite: Fluencia local de la rama debido a distribucion de esfuerzos desiguales",
+            name: "Estado limite: Fluencia local de la rama debido a distribución de esfuerzos desiguales",
             phi: 0.95,
             Pn: Pn
         };
@@ -3069,7 +3069,7 @@ var Formulas = {
             o;
 
         o = {
-            name: "Estado limite: Fluencia local de la rama debido a distribucion de esfuerzos desiguales",
+            name: "Estado limite: Fluencia local de la rama debido a distribución de esfuerzos desiguales",
             phi: 0.95,
             Pn: Pn_i * (Fyb_j * Ab_j / (Fyb_i * Ab_i))
         };
@@ -3221,14 +3221,14 @@ var Formulas = {
     },
 
 
-    //Resistencia disponible de las conexiones entre perfiles tubulares rectangules sometidos a momento flexionante//
+    //Resistencia disponible de las conexiones entre perfiles tubulares rectangulares sometidos a momento flexionante//
 
     /**
-   * Para conexiones en T,X. Estado limite a: Plastificacion de la cara del cordon, para Betha (Razon de ancho) <= 0.85
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
-   * @param {Number}       eta - Parametro de longitud de carga
-   * @param {Number}     betha - Razon de ancho
+   * Para conexiones en T,X. Estado limite a: Plastificación de la cara del cordón, para Beta (Razón de ancho) <= 0.85
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
+   * @param {Number}       eta - Parámetro de longitud de carga
+   * @param {Number}     beta - Razón de ancho
    * @return {Number} Resistencia Nominal expresada como Momento en la Rama
    */
 
@@ -3242,13 +3242,13 @@ var Formulas = {
             Hb = this.miembros[miembro_b].seccion.H,
             Bb = this.miembros[miembro_b].seccion.B,
             eta = Hb / B,
-            betha = Bb / B,
+            beta = Bb / B,
             o = {};
 
 
         o = {
-            name: "Estado limite: Plastificacion de la cara del cordon",
-            Mn: Fy * potencia(t, 2) * ((1 / (2 * eta)) + (2 / raiz(1 - betha)) + (eta / (1 - betha))) * Qf_2,
+            name: "Estado limite: Plastificación de la cara del cordón",
+            Mn: Fy * potencia(t, 2) * ((1 / (2 * eta)) + (2 / raiz(1 - beta)) + (eta / (1 - beta))) * Qf_2,
             phi: 1.00
         };
 
@@ -3259,10 +3259,10 @@ var Formulas = {
         return o;
     },
     /**
-   * Para conexiones en T,X. Estado limite f: Fluencia local de las paredes laterales del cordon,
-   * cuando betha > 0.85;
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
+   * Para conexiones en T,X. Estado limite f: Fluencia local de las paredes laterales del cordón,
+   * cuando beta > 0.85;
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
    * @param {Number}         Hb - Altura total de la rama
    * @return {Number}  Resistencia Nominal expresada como Momento en la Rama
    */
@@ -3279,7 +3279,7 @@ var Formulas = {
         Fy_prima = tipo === "CONEXION_EN_T" ? Fy : 0.8 * Fy;
 
         o = {
-            name: "Estado limite: Fluencia local de las paredes laterales del cordon",
+            name: "Estado limite: Fluencia local de las paredes laterales del cordón",
             Mn: 0.5 * Fy_prima * t * potencia((5 * t + Hb), 2),
             phi: 1.00
         };
@@ -3293,12 +3293,12 @@ var Formulas = {
     },
     /**
    * Para conexiones en T,X. Estado limite c,d: Fluencia local de la rama o las ramas debido a
-   * la disbribucion de esfuerzos desiguales, cuando betha > 0.85
-   * @param {Number}        Fyb - Esfuerzo de fluencia minimo especificado del material de la rama
+   * la distribución de esfuerzos desiguales, cuando beta > 0.85
+   * @param {Number}        Fyb - Esfuerzo de fluencia mínimo especificado del material de la rama
    * @param {Number}         tb - Espesor de diseño de las paredes de la rama
    * @param {Number}         Hb - Altura total de la rama
    * @param {Number}         Bb - Ancho  total de la rama
-   * @param {Number}         Zb - Módulo plastico de seccion de la rama alrededor del eje de flexion
+   * @param {Number}         Zb - Módulo plástico de sección de la rama alrededor del eje de flexion
    * @param {Number}      b_eoi - Anchura eficaz de la rama
    * @return {Number} Resistencia Nominal expresada como fuerza en la Rama
    */
@@ -3314,7 +3314,7 @@ var Formulas = {
 
 
         o = {
-            name: "Estado limite: Fluencia local de la rama debido a la disbribucion de esfuerzos desiguales",
+            name: "Estado limite: Fluencia local de la rama debido a la distribución de esfuerzos desiguales",
             Mn: Fyb * (Zb - (1 - (b_eoi / Bb)) * Bb * Hb * tb),
             phi: 0.95
         };
@@ -3328,13 +3328,13 @@ var Formulas = {
     },
 
     /**
-   * Para conexiones en T,X. Estado limite a: Plastificacion de la cara del cordon, para Betha (Razon de ancho) <= 0.85
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
-   * @param {Number}         B - Ancho total del cordon
+   * Para conexiones en T,X. Estado limite a: Plastificación de la cara del cordón, para Beta (Razón de ancho) <= 0.85
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
+   * @param {Number}         B - Ancho total del cordón
    * @param {Number}         Hb - alto total de la rama
    * @param {Number}         Bb - Ancho total de la rama
-   * @param {Number}     betha - Razon de ancho
+   * @param {Number}     beta - Razón de ancho
    * @return {Number} Resistencia Nominal expresada como Momento en la Rama
    */
 
@@ -3348,13 +3348,13 @@ var Formulas = {
             Hb = this.miembros[miembro_b].seccion.H,
             Bb = this.miembros[miembro_b].seccion.B,
             eta = Hb / B,
-            betha = Bb / B,
+            beta = Bb / B,
             o = {};
 
 
         o = {
-            name: "Estado limite: Plastificacion de la cara del cordon",
-            Mn: Fy * potencia(t, 2) * (((0.5 * Hb * (1 + betha)) / (1 - betha)) + raiz((2 * B * Bb * (1 + betha)) / (1 - betha))) * Qf_2,
+            name: "Estado limite: Plastificación de la cara del cordón",
+            Mn: Fy * potencia(t, 2) * (((0.5 * Hb * (1 + beta)) / (1 - beta)) + raiz((2 * B * Bb * (1 + beta)) / (1 - beta))) * Qf_2,
             phi: 1.00
         };
 
@@ -3365,11 +3365,11 @@ var Formulas = {
         return o;
     },
     /**
-   * Para conexiones en T,X. Estado limite f: Fluencia local de las paredes laterales del cordon,
-   * cuando betha > 0.85;
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
-   * @param {Number}         B - Ancho total del cordon
+   * Para conexiones en T,X. Estado limite f: Fluencia local de las paredes laterales del cordón,
+   * cuando beta > 0.85;
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
+   * @param {Number}         B - Ancho total del cordón
    * @param {Number}         Hb - Altura total de la rama
    * @return {Number}  Resistencia Nominal expresada como Momento en la Rama
    */
@@ -3386,7 +3386,7 @@ var Formulas = {
         Fy_prima = tipo === "CONEXION_EN_T" ? Fy : 0.8 * Fy;
 
         o = {
-            name: "Estado limite: Fluencia local de las paredes laterales del cordon",
+            name: "Estado limite: Fluencia local de las paredes laterales del cordón",
             Mn: Fy_prima * t * (B - t) * (5 * t + Hb),
             phi: 1.00
         };
@@ -3400,11 +3400,11 @@ var Formulas = {
     },
     /**
    * Para conexiones en T,X. Estado limite c,d: Fluencia local de la rama o las ramas debido a
-   * la disbribucion de esfuerzos desiguales, cuando betha > 0.85
-   * @param {Number}        Fyb - Esfuerzo de fluencia minimo especificado del material de la rama
+   * la distribución de esfuerzos desiguales, cuando beta > 0.85
+   * @param {Number}        Fyb - Esfuerzo de fluencia mínimo especificado del material de la rama
    * @param {Number}         tb - Espesor de diseño de las paredes de la rama
    * @param {Number}         Bb - Ancho  total de la rama
-   * @param {Number}         Zb - Módulo plastico de seccion de la rama alrededor del eje de flexion
+   * @param {Number}         Zb - Módulo plástico de sección de la rama alrededor del eje de flexión
    * @param {Number}      b_eoi - Anchura eficaz de la rama
    * @return {Number} Resistencia Nominal expresada como fuerza en la Rama
    */
@@ -3420,7 +3420,7 @@ var Formulas = {
 
 
         o = {
-            name: "Estado limite: Fluencia local de la rama debido a la disbribucion de esfuerzos desiguales",
+            name: "Estado limite: Fluencia local de la rama debido a la distribución de esfuerzos desiguales",
             Mn: Fyb * (Zb - (0.5 * potencia((1 - (b_eoi / Bb)), 2) * potencia(Bb, 2) * tb)),
             phi: 0.95
         };
@@ -3432,11 +3432,11 @@ var Formulas = {
 
     },
     /**
-   * Para conexiones en T,X. Estado limite g: Falla por distorsion del cordon, para conexiones en T y X desbalanceadas
-   * @param {Number}        Fy - Esfuerzo de fluencia minimo especificado del material del cordon
-   * @param {Number}         t - Espesor de diseño de las paredes del cordon
-   * @param {Number}         H - Ancho total del cordon
-   * @param {Number}         B - Altura total dela cordon
+   * Para conexiones en T,X. Estado limite g: Falla por distorsión del cordón, para conexiones en T y X desbalanceadas
+   * @param {Number}        Fy - Esfuerzo de fluencia mínimo especificado del material del cordón
+   * @param {Number}         t - Espesor de diseño de las paredes del cordón
+   * @param {Number}         H - Ancho total del cordón
+   * @param {Number}         B - Altura total dela cordón
    * @param {Number}         Hb - Ancho total de la rama
    * @return {Number} Resistencia Nominal expresada como Momento en la Rama
    */
@@ -3453,7 +3453,7 @@ var Formulas = {
 
 
         o = {
-            name: "Estado limite: Falla por distorsion del cordon",
+            name: "Estado limite: Falla por distorsión del cordón",
             Mn: 2 * Fy * t * (Hb * t + raiz((B * H * t * (B + H)))),
             phi: 1.00
         };
