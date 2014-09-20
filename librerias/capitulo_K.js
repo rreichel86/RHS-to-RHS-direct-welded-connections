@@ -1910,7 +1910,7 @@ var soldadura = {
             le = Formulas.le_1.apply(this, [miembro_b, miembro, b_eoi]);
 
             tw_min = soldadura.tw_min(tb);
-            tw_1 = (0.9 * Fyb * tb) / (0.75 * 0.6 * 80);
+            tw_1 = (0.9 * Fyb * tb) / (0.75 * 0.6 * 70);
             tw_2 = (abs(Pr) / (0.75 * 0.6 * 70 * le)) < tw_min ? tw_min : (abs(Pr) / (0.75 * 0.6 * 70 * le));
             tw = Math.min(tw_1, tw_2);
 
@@ -1927,7 +1927,7 @@ var soldadura = {
             
                 mensaje.push("PARA EL PIE DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -1948,14 +1948,14 @@ var soldadura = {
                 
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else {
                 
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             }
@@ -1968,7 +1968,7 @@ var soldadura = {
                                      (Pr === 0 && Mr_ip !== 0 && Mr_op !== 0)))) {
 
             tw_min = soldadura.tw_min(tb);
-            tw = (0.9 * Fyb * tb) / (0.75 * 0.6 * 80);
+            tw = (0.9 * Fyb * tb) / (0.75 * 0.6 * 70);
 
             mensaje.push("<h3>-- ESPESORES DE GARGANTA EFECTIVA, t<sub>w</sub> - " + nombre + "</h3>");
 
@@ -1983,7 +1983,7 @@ var soldadura = {
             
                 mensaje.push("PARA EL PIE DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -2004,14 +2004,14 @@ var soldadura = {
                 
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else {
                 
                 mensaje.push("PARA LOS LADOS DE LAS RAMAS: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -2047,7 +2047,7 @@ var soldadura = {
             le = Formulas.le_2.apply(this, [miembro_b]);
 
             tw_min = soldadura.tw_min(tb);
-            tw_1 = (0.9 * Fyb * tb) / (0.75 * 0.6 * 80);
+            tw_1 = (0.9 * Fyb * tb) / (0.75 * 0.6 * 70);
             tw_2 = (abs(Pr) / (0.75 * 0.6 * 70 * le)) < tw_min ? tw_min : (abs(Pr) / (0.75 * 0.6 * 70 * le));
             tw = Math.min(tw_1, tw_2);
 
@@ -2064,7 +2064,7 @@ var soldadura = {
             
                 mensaje.push("PARA EL PIE DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -2085,14 +2085,14 @@ var soldadura = {
                 
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else {
                 
                 mensaje.push("PARA LOS LADOS DE LAS RAMAS: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -2101,7 +2101,7 @@ var soldadura = {
         } else if (Pr === 0) {
 
             tw_min = soldadura.tw_min(tb);
-            tw = (0.9 * Fyb * tb) / (0.75 * 0.6 * 80);
+            tw = (0.9 * Fyb * tb) / (0.75 * 0.6 * 70);
 
             mensaje.push("<h3>-- ESPESORES DE GARGANTA EFECTIVA, t<sub>w</sub> - " + nombre + "</h3>");
 
@@ -2116,7 +2116,7 @@ var soldadura = {
             
                 mensaje.push("PARA EL PIE DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -2137,14 +2137,14 @@ var soldadura = {
                 
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else {
                 
                 mensaje.push("PARA LOS LADOS DE LAS RAMAS: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -2183,7 +2183,7 @@ var soldadura = {
             le = Formulas.le_3.apply(this, [miembro_bi, miembro_bj, miembro, b_eoi, b_eov, Ov]);
             tw_min = soldadura.tw_min(tb_i);
 
-            tw_1 = (0.9 * Fyb_i * tb_i) / (0.75 * 0.6 * 80);
+            tw_1 = (0.9 * Fyb_i * tb_i) / (0.75 * 0.6 * 70);
             tw_2 = (abs(Pr) / (0.75 * 0.6 * 70 * le)) < tw_min ? tw_min : (abs(Pr) / (0.75 * 0.6 * 70 * le));
             tw = Math.min(tw_1, tw_2);
 
@@ -2200,7 +2200,7 @@ var soldadura = {
             
                 mensaje.push("PARA EL PIE DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -2223,7 +2223,7 @@ var soldadura = {
                 mensaje.push("PARA LOS LADOS DE LAS RAMAS:");
                 mensaje.push("Para unir la Rama que traslapa al Cordón");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else if (B === Bb_i && Ov < 100) {
@@ -2231,7 +2231,7 @@ var soldadura = {
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
                 mensaje.push("Para unir la Rama que traslapa al Cordón");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             }
@@ -2249,7 +2249,7 @@ var soldadura = {
                 mensaje.push("PARA LOS LADOS DE LAS RAMAS:");
                 mensaje.push("Para unir la Rama que traslapa a la Rama traslapada");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else if (Bb_j === Bb_i) {
@@ -2257,7 +2257,7 @@ var soldadura = {
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
                 mensaje.push("Para unir la Rama que traslapa a la Rama traslapada");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             }
@@ -2266,7 +2266,7 @@ var soldadura = {
         } else if (Pr === 0) {
 
             tw_min = soldadura.tw_min(tb_i);
-            tw = (0.9 * Fyb_i * tb_i) / (0.75 * 0.6 * 80);
+            tw = (0.9 * Fyb_i * tb_i) / (0.75 * 0.6 * 70);
 
             mensaje.push("<h3>-- ESPESORES DE GARGANTA EFECTIVA, t<sub>w</sub> - " + nombre + " (Rama que traslapa)</h3>");
 
@@ -2281,7 +2281,7 @@ var soldadura = {
             
                 mensaje.push("PARA EL PIE DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -2304,7 +2304,7 @@ var soldadura = {
                 mensaje.push("PARA LOS LADOS DE LAS RAMAS:");
                 mensaje.push("Para unir la Rama que traslapa al Cordón");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else if (B === Bb_i && Ov < 100) {
@@ -2312,7 +2312,7 @@ var soldadura = {
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
                 mensaje.push("Para unir la Rama que traslapa al Cordón");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             }
@@ -2330,7 +2330,7 @@ var soldadura = {
                 mensaje.push("PARA LOS LADOS DE LAS RAMAS:");
                 mensaje.push("Para unir la Rama que traslapa a la Rama traslapada");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb_i, "Ranura") ? soldadura.tw_min(tb_i, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else if (Bb_j === Bb_i) {
@@ -2338,7 +2338,7 @@ var soldadura = {
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
                 mensaje.push("Para unir la Rama que traslapa a la Rama traslapada");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             }
@@ -2371,7 +2371,7 @@ var soldadura = {
         le = Formulas.le_4.apply(this, [miembro_bj, miembro, b_eoi]);
         tw_min = soldadura.tw_min(tb);
 
-        tw_1 = (0.9 * Fyb * tb) / (0.75 * 0.6 * 80);
+        tw_1 = (0.9 * Fyb * tb) / (0.75 * 0.6 * 70);
         tw_2 = (abs(Pr) / (0.75 * 0.6 * 70 * le)) < tw_min ? tw_min : (abs(Pr) / (0.75 * 0.6 * 70 * le));
         tw = Math.min(tw_1, tw_2);
 
@@ -2381,7 +2381,7 @@ var soldadura = {
             le = Formulas.le_4.apply(this, [miembro_bj, miembro, b_eoi]);
             tw_min = soldadura.tw_min(tb);
 
-            tw_1 = (0.9 * Fyb * tb) / (0.75 * 0.6 * 80);
+            tw_1 = (0.9 * Fyb * tb) / (0.75 * 0.6 * 70);
             tw_2 = (abs(Pr) / (0.75 * 0.6 * 70 * le)) < tw_min ? tw_min : (abs(Pr) / (0.75 * 0.6 * 70 * le));
             tw = Math.min(tw_1, tw_2);
 
@@ -2398,7 +2398,7 @@ var soldadura = {
             
                 mensaje.push("PARA EL PIE DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -2419,14 +2419,14 @@ var soldadura = {
             
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else {
             
                 mensaje.push("PARA LOS LADOS DE LAS RAMAS: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -2435,7 +2435,7 @@ var soldadura = {
         } else if (Pr === 0) {
 
             tw_min = soldadura.tw_min(tb);
-            tw = (0.9 * Fyb * tb) / (0.75 * 0.6 * 80);
+            tw = (0.9 * Fyb * tb) / (0.75 * 0.6 * 70);
 
             mensaje.push("<h3>-- ESPESORES DE GARGANTA EFECTIVA, t<sub>w</sub> - " + nombre + " (Rama traslapada)</h3>");
 
@@ -2450,7 +2450,7 @@ var soldadura = {
             
                 mensaje.push("PARA EL PIE DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -2471,14 +2471,14 @@ var soldadura = {
             
                 mensaje.push("PARA LOS LADOS DE LA RAMA: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < (5 / 8) * t ? Math.ceil((5 / 8) * t * 16) : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
 
             } else {
             
                 mensaje.push("PARA LOS LADOS DE LAS RAMAS: ");
                 mensaje.push("Usar Soldadura de ranura");
-                temp = tw / 1.1 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.1 * 16);
+                temp = tw / 1.067 < soldadura.tw_min(tb, "Ranura") ? soldadura.tw_min(tb, "Ranura") * 16 : Math.ceil(tw / 1.067 * 16);
                 mensaje.push("con t<sub>w</sub> = " + temp + "/16 in");
             
             }
@@ -3371,13 +3371,13 @@ var Formulas = {
     },
 
 
-    le_1: function (miembro_b, mienbro, beoi) {
+    le_1: function (miembro_b, miembro, beoi) {
         "use strict";
         var sin = Math.sin,
             Hb = this.miembros[miembro_b].seccion.H,
             Bb = this.miembros[miembro_b].seccion.B,
             tb = this.miembros[miembro_b].seccion.tdes,
-            B = this.miembros[miembro_b].seccion.B,
+            B = this.miembros[miembro].seccion.B,
             theta = this.miembros[miembro_b].theta,
             thetaRad = toRad(theta),
             b_eoi = beoi,
@@ -3451,16 +3451,16 @@ var Formulas = {
 
         if (Bb_i / Bb_j > 0.85 || theta_i > 50) {
 
-            if (b_eoi > 2 * t) {
-                b_eoi = 2 * t;
+            if (b_eoi > 4 * t) {
+                b_eoi = 4 * t;
             }
 
         }
 
         if (Bb_i / Bb_j > 0.85 || (180 - theta_i - theta_j) > 50) {
 
-            if (b_eov > 2 * tb_j) {
-                b_eov = 2 * tb_j;
+            if (b_eov > 4 * tb_j) {
+                b_eov = 4 * tb_j;
             }
 
         }

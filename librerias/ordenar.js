@@ -1,3 +1,4 @@
+/*jslint maxlen: 150*/
 var Ordenar = {
 
     /* Nominal Sizes of Rectangular HSS Shapes to Search-Object. Example "HSS 20 x 12 x 5/8" 
