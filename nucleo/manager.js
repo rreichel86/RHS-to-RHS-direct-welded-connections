@@ -1,4 +1,4 @@
-/*jslint browser: true*/
+/*jslint browser: true, maxlen: 150*/
 /*global $, jQuery, estaVacio, Formulas, Mustache, Control, Materiales, Perfiles, Ordenar, limites, Conexion_Y,
             Conexion_X, Conexion_K*/
 
@@ -8,6 +8,7 @@ function estaVacio(objeto) {
     var key;
 
     for (key in objeto) {
+
         if (objeto.hasOwnProperty(key)) {
             return false;
         }
@@ -30,6 +31,7 @@ Miembro.prototype = {
     otros: function () {
         "use strict";
         if (this.tipo === "Rama") {
+
             this.cargas = {
                 P: 0,
                 Mip: 0,
@@ -39,6 +41,7 @@ Miembro.prototype = {
             this.orientacion = "-";
 
         } else if (this.tipo === "Cordon") {
+
             this.cargas = {
                 Pi: 0,
                 Pd: 0,
@@ -46,13 +49,10 @@ Miembro.prototype = {
                 Md: 0,
                 P: 0
             };
+
             this.orientacion = "-";
         }
-
     }
-
-
-
 };
 
 var Control = {
@@ -69,6 +69,7 @@ var Control = {
             cantidad = miembros.length;
 
         for (i = 0; i < cantidad; i += 1) {
+
             if (miembros[i].nombre === nombre) {
                 return i;
             }
@@ -77,6 +78,7 @@ var Control = {
 
     configuracion: function () {
         "use strict";
+        
         Control.material.poner();
         Control.material.evento();
         Control.tipo.evento();
@@ -90,43 +92,57 @@ var Control = {
     },
     Error_set: function (mensaje) {
         "use strict";
-        var text = "<p>";
+        var text = "<p>",
+            $contenedor = $("#MENSAJE");
 
         text += mensaje;
         text += "</p>";
 
-        $("#MENSAJE").html(text);
+        $contenedor.html(text);
 
     },
     Error_reset: function () {
         "use strict";
-        $("#MENSAJE").html("");
+        var $contenedor = $("#MENSAJE");
+        
+        $contenedor.html("");
 
     },
     reporte_add: function (mensaje, etiquet) {
         "use strict";
         var etiqueta = etiquet || "p",
-            text = "<" + etiqueta + ">";
-
+            text = "<" + etiqueta + ">",
+            $contenedor = $("#REPORTE");
+ 
         text += mensaje;
         text += "</" + etiqueta + ">";
 
-        $("#REPORTE").append(text);
+        $contenedor.append(text);
 
     },
     reporte_reset: function () {
         "use strict";
-        $("#REPORTE").html("");
+        var $contenedor = $("#REPORTE");
+        
+        $contenedor.html("");
+        
     },
-    reporte_encabezado: ["----------------------------------------------------------------------------------------------------------------------------------",
+    reporte_encabezado: ["----------------------------------------------------------------" +
+                         "------------------------------------------------------------------",
                          "RHS TO RHS DIRECT WELDED CONNECTIONS -- Beta version  v0.6.0.0",
-                         "----------------------------------------------------------------------------------------------------------------------------------",
+                         "----------------------------------------------------------------" +
+                         "------------------------------------------------------------------",
                          "Calculations are in conformance with the Load and Resistance Factor Design method (LRFD)",
                          "of the ANSI/AISC 360-10: Specification for Structural Steel Buildings - Chapter K.",
                          " ",
                          "<u>DISCLAIMER:</u>",
-                         "This software is a beta version. It may contain errors and it should not be used for connection design. This tool is intended for use by qualified engineers.",
-                         "Although every effort has been made to ensure the accuracy of this software and its documentation, the user of this program assumes full responsibility for any and all output produced by the software, and agrees not to hold the producers and distributors of the software responsible for any and all actions resulting from the use of this software.",
+                         "This software is a beta version." +
+                         " It may contain errors and it should not be used for connection design." +
+                         "This tool is intended for use by qualified engineers.",
+                         "Although every effort has been made to ensure the accuracy of this software and its documentation," +
+                         " the user of this program assumes full responsibility for any and all output produced by the software," +
+                         " and agrees not to hold the producers and distributors of the software responsible for any and all actions" +
+                         " resulting from the use of this software.",
                          "The results obtained from the use of this program should not be substituted for sound engineering judgment",
                          " ",
                          "Designed and Developed by Rainer Ernst Reichel (rreichel86@gmail.com)"].join("<br>"),
@@ -164,7 +180,6 @@ var Control = {
                 material.Fu = Materiales[material.nombre].Fu;
 
             }
-
             return material;
         },
         definido: function (i) {
@@ -214,10 +229,9 @@ var Control = {
         },
         resetear: function (i) {
             "use strict";
-
-
-
+            
         },
+        
         proceso: function (i) {
             "use strict";
             var material = Control.miembros[i].material;
@@ -242,6 +256,7 @@ var Control = {
                 nro = miembros.length;
 
             for (i = 0; i < nro; i += 1) {
+                
                 $("#" + miembros[i].nombre + "_MATERIAL").change(function () {
                     var nombre = $(this).prop("id").split("_")[0],
                         indice = Control.indice(nombre);
@@ -269,36 +284,42 @@ var Control = {
 
 
                     if (forma > 1 && tipo === "Cordon") {
+                    
                         miembro.orientacion = "horizontal";
                         $("#" + nombre + "_ST").removeClass().addClass(tipo + "-rectangular-horizontal");
                         Control.seccion.propiedades(indice);
                         Control.seccion.vista(indice);
 
                     } else if (forma < 1 && tipo === "Cordon") {
+                        
                         miembro.orientacion = "vertical";
                         $("#" + nombre + "_ST").removeClass().addClass(tipo + "-rectangular-vertical");
                         Control.seccion.propiedades(indice);
                         Control.seccion.vista(indice);
 
                     } else if (forma === 1 && tipo === "Cordon") {
+                        
                         miembro.orientacion = "-";
                         $("#" + nombre + "_ST").removeClass().addClass(tipo + "-cuadrado");
                         Control.seccion.propiedades(indice);
                         Control.seccion.vista(indice);
 
                     } else if (forma > 1 && tipo === "Rama") {
+                        
                         miembro.orientacion = "transversal";
                         $("#" + nombre + "_ST").removeClass().addClass(tipo + "-rectangular-transversal");
                         Control.seccion.propiedades(indice);
                         Control.seccion.vista(indice);
 
                     } else if (forma < 1 && tipo === "Rama") {
+                        
                         miembro.orientacion = "paralelo";
                         $("#" + nombre + "_ST").removeClass().addClass(tipo + "-rectangular-paralelo");
                         Control.seccion.propiedades(indice);
                         Control.seccion.vista(indice);
 
                     } else if (forma === 1 && tipo === "Rama") {
+                        
                         miembro.orientacion = "-";
                         $("#" + nombre + "_ST").removeClass().addClass(tipo + "-cuadrado");
                         Control.seccion.propiedades(indice);
@@ -329,6 +350,7 @@ var Control = {
                 nro = miembros.length;
 
             for (i = 0; i < nro; i += 1) {
+                
                 $("#" + miembros[i].nombre + "_TIPO").change(function () {
                     var nombre = $(this).prop("id").split("_")[0],
                         indice = Control.indice(nombre);
@@ -366,6 +388,7 @@ var Control = {
                 contenido;
 
             if (material.nombre !== "Designacion") {
+                
                 norma = Perfiles.norma[material.nombre];
                 HSS = Perfiles.HSS[norma];
 
@@ -373,6 +396,7 @@ var Control = {
                 HSS[tipo].sort(Ordenar.deMenor_aMayor);
                 contenido = Mustache.to_html(this.plantilla[tipo], HSS);
                 $("#" + miembros.nombre + "_TAMAÑO").html(contenido);
+            
             }
         },
         desactivar: function (i) {
@@ -414,10 +438,14 @@ var Control = {
             HSS.sort(Ordenar.deMayor_aMenor);
 
             if (seccion.nombre !== "Designacion") {
+            
                 valor = Ordenar.toSearchObj(seccion.nombre);
                 posicion = Ordenar.Search(HSS, valor);
 
-                if ((tipo === "Cordon" && orientacion === "vertical") || (tipo === "Rama" && orientacion === "paralelo") || (tipo === "Cordon" && orientacion === "-") || (tipo === "Rama" && orientacion === "-")) {
+                if ((tipo === "Cordon" && orientacion === "vertical") ||
+                        (tipo === "Rama" && orientacion === "paralelo") ||
+                        (tipo === "Cordon" && orientacion === "-") ||
+                        (tipo === "Rama" && orientacion === "-")) {
 
                     seccion.H = HSS[posicion].H;
                     seccion.B = HSS[posicion].B;
@@ -433,11 +461,17 @@ var Control = {
                     seccion.Zy = HSS[posicion].Zy;
 
                     if (seccion["H/B"] === 1 && (tipo === "Rama" || tipo === "Cordon")) {
+                
                         miembro.orientacion = "-";
+                    
                     } else if (tipo === "Rama") {
+                    
                         miembro.orientacion = "paralelo";
+                    
                     } else if (tipo === "Cordon") {
+                    
                         miembro.orientacion = "vertical";
+                    
                     }
 
                 } else if ((tipo === "Cordon" && orientacion === "horizontal") || (tipo === "Rama" && orientacion === "transversal")) {
@@ -467,7 +501,6 @@ var Control = {
             $("#" + miembros.nombre + "_tdes").prop("disabled", false);
             $("#" + miembros.nombre + "_ro").prop("disabled", false);
             $("#" + miembros.nombre + "_ri").prop("disabled", false);
-
 
         },
         propiedades_des: function (i) {
@@ -506,9 +539,13 @@ var Control = {
                 $("#" + nombre + "_Zy").val(propiedades.Zy);
 
                 if (propiedades["H/B"] === 1) {
+
                     $("#" + nombre + "_ST").removeClass().addClass(tipo + "-cuadrado");
+                
                 } else {
+                
                     $("#" + nombre + "_ST").removeClass().addClass(tipo + "-rectangular-" + orientacion);
+                
                 }
             }
 
@@ -542,6 +579,7 @@ var Control = {
                 nro = miembros.length;
 
             for (i = 0; i < nro; i += 1) {
+                
                 $("#" + miembros[i].nombre + "_TAMAÑO").change(function () {
                     var nombre = $(this).prop("id").split("_")[0],
                         indice = Control.indice(nombre);
@@ -561,6 +599,7 @@ var Control = {
                 theta = miembros.theta;
 
             if (tipo1 === "Rama") {
+                
                 theta = valor;
                 $("#" + miembros.nombre + "_theta").val(valor);
                 Control.geometria.extraer(n);
@@ -573,7 +612,7 @@ var Control = {
                 tipo = miembros.tipo,
                 theta = miembros.theta;
 
-            if (miembros.tipo === "Rama") {
+            if (miembros.tipo === "Rama") {    
                 return valor === Number($("#" + miembros.nombre + "_theta").val());
             }
 
@@ -604,7 +643,9 @@ var Control = {
                 tipo = miembros.tipo;
 
             if (miembros.tipo === "Rama") {
+                
                 $("#" + miembros.nombre + "_theta").prop("disabled", false);
+            
             }
         },
         extraer: function (i) {
@@ -613,16 +654,17 @@ var Control = {
                 tipo = Control.conexion.tipo;
 
             if (miembros.tipo === "Rama") {
+            
                 miembros.theta = Number($("#" + miembros.nombre + "_theta").val());
 
                 $("#" + miembros.nombre + "_Mip").prop("disabled", true);
                 $("#" + miembros.nombre + "_Mop").prop("disabled", true);
 
                 if (miembros.theta === 90 && (tipo === "CONEXION_EN_T" || tipo === "CONEXION_EN_X2")) {
+                
                     $("#" + miembros.nombre + "_Mip").prop("disabled", false);
                     $("#" + miembros.nombre + "_Mop").prop("disabled", false);
                 }
-
             }
         },
         evento: function () {
@@ -632,7 +674,6 @@ var Control = {
 
             for (i = 1; i < nro; i += 1) {
 
-
                 $("#" + miembros[i].nombre + "_theta").change(function () {
                     var nombre = $(this).prop("id").split("_")[0],
                         indice = Control.indice(nombre);
@@ -640,7 +681,6 @@ var Control = {
                     Control.geometria.extraer(indice);
 
                 });
-
 
             }
         }
@@ -659,15 +699,13 @@ var Control = {
                 nro = miembros.length;
 
             for (i = 0; i < nro; i += 1) {
+
                 $("#" + miembros[i].nombre + "_CARGAS").change(function (event) {
                     var objetivo = $(event.target).prop("id"),
                         pos = objetivo.search("_"),
                         nombre = objetivo.slice(0, pos),
                         propiedades = objetivo.slice(pos + 1),
                         indice = Control.indice(nombre);
-
-
-
 
                     Control.cargas.extraer(indice, propiedades);
 
@@ -682,7 +720,6 @@ var Control = {
                 var e, g, Ov, tipo,
                     objetivo = $(event.target).prop("id"),
                     nombre = Control.conexion.tipo;
-
 
                 switch (objetivo) {
 
@@ -709,11 +746,14 @@ var Control = {
                 }
 
                 if (nombre === "CONEXION_EN_K" || nombre === "CONEXION_EN_K-ESPACIAMIENTO" || nombre === "CONEXION_EN_K-TRASLAPE") {
-                    tipo = (g >= 0) ? "CONEXION_EN_K-ESPACIAMIENTO" : "CONEXION_EN_K-TRASLAPE";
-                } else if (nombre === "CONEXION_EN_N" || nombre === "CONEXION_EN_N-ESPACIAMIENTO" || nombre === "CONEXION_EN_N-TRASLAPE") {
-                    tipo = (g >= 0) ? "CONEXION_EN_N-ESPACIAMIENTO" : "CONEXION_EN_N-TRASLAPE";
-                }
 
+                    tipo = (g >= 0) ? "CONEXION_EN_K-ESPACIAMIENTO" : "CONEXION_EN_K-TRASLAPE";
+                
+                } else if (nombre === "CONEXION_EN_N" || nombre === "CONEXION_EN_N-ESPACIAMIENTO" || nombre === "CONEXION_EN_N-TRASLAPE") {
+                
+                    tipo = (g >= 0) ? "CONEXION_EN_N-ESPACIAMIENTO" : "CONEXION_EN_N-TRASLAPE";
+                
+                }
 
                 $("#ESPACIAMIENTO").val(g);
                 $("#EXCENTRICIDAD").val(e);
@@ -746,6 +786,7 @@ var Control = {
 
 
                     if (!$("#" + nombre + " > p").hasClass("seleccionado")) {
+
                         $(".seleccionado").removeClass("seleccionado").addClass("normal");
                         $("#" + nombre + " > p").removeClass("normal").removeClass("opaco").addClass("seleccionado");
                         $(".normal").removeClass("normal").addClass("opaco");
@@ -757,27 +798,39 @@ var Control = {
                     }
 
                     switch (objetivo) {
+                    
                     case "CORDON":
+                    
                         resultado_1 = objetivo;
                         resultado_2 = "_" + resultado_1;
                         break;
+                    
                     case "RAMA 1":
+                    
                         resultado_1 = objetivo.replace(/\s/, "-");
                         resultado_2 = "_" + resultado_1;
                         break;
+                    
                     case "RAMA 2":
+                    
                         resultado_1 = objetivo.replace(/\s/, "-");
                         resultado_2 = "_" + resultado_1;
                         break;
+                            
                     case "RAMA 3":
+                            
                         resultado_1 = objetivo.replace(/\s/, "-");
                         resultado_2 = "";
                         break;
+                            
                     case "RAMA 4":
+                            
                         resultado_1 = objetivo.replace(/\s/, "-");
                         resultado_2 = "";
                         break;
+                            
                     case "ESPACIAMIENTO/TRASLAPE":
+                            
                         resultado_1 = objetivo.replace(/\//, "-");
                         resultado_2 = "";
                         break;
@@ -797,20 +850,22 @@ var Control = {
                         objetivo = $(event.target).text();
 
                     if ($("#" + nombre + " > p").hasClass("seleccionado") || $("#" + nombre + " > p").hasClass("normal")) {
+                        
                         $("#" + nombre + " ul").show();
+                    
                     }
 
                 }, function () {
                     var nombre = $(this).prop("id");
 
-
                     if ($("#" + nombre + " > p").hasClass("seleccionado") || $("#" + nombre + " > p").hasClass("normal")) {
+
                         $("#" + nombre + " ul").hide();
+                    
                     }
 
 
                 });
-
 
                 $("#" + parte[i] + " ul li p").bind("mouseout mouseover", function (event) {
                     var objetivo = $(event.target).text(),
@@ -820,40 +875,55 @@ var Control = {
 
                     switch (objetivo) {
                     case "CORDON":
+                            
                         resultado_1 = objetivo;
                         resultado_2 = "_" + resultado_1;
                         break;
+                            
                     case "RAMA 1":
+                            
                         resultado_1 = objetivo.replace(/\s/, "-");
                         resultado_2 = "_" + resultado_1;
                         break;
+                            
                     case "RAMA 2":
+                            
                         resultado_1 = objetivo.replace(/\s/, "-");
                         resultado_2 = "_" + resultado_1;
                         break;
+                            
                     case "RAMA 3":
+                            
                         resultado_1 = objetivo.replace(/\s/, "-");
                         resultado_2 = "";
                         break;
+                            
                     case "RAMA 4":
+                            
                         resultado_1 = objetivo.replace(/\s/, "-");
                         resultado_2 = "";
                         break;
+                            
                     case "ESPACIAMIENTO/TRASLAPE":
+                            
                         resultado_1 = objetivo.replace(/\//, "-");
                         resultado_2 = "";
                         break;
+                            
                     }
 
                     if (evento === "mouseover") {
+                        
                         $("div[id^=detalles]").hide();
                         $("#detalles" + resultado_2).show();
 
                     } else if (evento === "mouseout") {
 
                         if ($("#" + resultado_1).hasClass("novisible")) {
+                            
                             $("div[id^=detalles]").hide();
                             $("#detalles").show();
+                        
                         }
 
                     }
@@ -863,6 +933,7 @@ var Control = {
     },
     iniciar: function () {
         "use strict";
+        
         $("#CORDON").change(function () {
 
             limites.cordon.apply(Control, [0]);
@@ -894,6 +965,7 @@ var Control = {
                 conexiones;
 
             if (evento === "change" || (objetivo.split("_")[1] === "ST" && evento === "click")) {
+        
                 conexiones = {
                     "CONEXION_EN_K": function () {
 
@@ -1048,8 +1120,6 @@ var Control = {
                 objetivo = $(event.target).text(),
                 conexiones;
 
-
-
             conexiones = {
                 "CONEXION_EN_K": function () {
 
@@ -1198,7 +1268,9 @@ var Control = {
             $("#DIAGRAMA").show();
 
             if (objetivo !== "RAMA 1" && objetivo !== "RAMA 2" && objetivo !== "CORDON") {
+                
                 $("#detalles").show();
+            
             }
             conexiones[tipo]();
         });
