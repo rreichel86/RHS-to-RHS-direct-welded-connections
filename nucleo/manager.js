@@ -769,166 +769,81 @@ var Control = {
         }
     },
     menu: {
-        partes: ["CONEXION_EN_K", "CONEXION_EN_N", "CONEXION_EN_Y", "CONEXION_EN_T", "CONEXION_EN_X1", "CONEXION_EN_X2"],
         evento: function () {
             "use strict";
-            var i,
-                parte = Control.menu.partes,
-                nro = parte.length;
-
-            for (i = 0; i < nro; i += 1) {
-
-                $("#" + parte[i]).click(function (event) {
-                    var nombre = $(this).prop("id"),
-                        objetivo = $(event.target).text(),
-                        resultado_1,
-                        resultado_2;
-
-
-                    if (!$("#" + nombre + " > p").hasClass("seleccionado")) {
-
-                        $(".seleccionado").removeClass("seleccionado").addClass("normal");
-                        $("#" + nombre + " > p").removeClass("normal").removeClass("opaco").addClass("seleccionado");
-                        $(".normal").removeClass("normal").addClass("opaco");
-                        $("#" + nombre + " ul").show();
-
-                        Control.conexion = {};
-                        Control.conexion.tipo = nombre;
-
-                    }
-
-                    switch (objetivo) {
+            
+            $("[id^=CONEXION],[name^=CONEXION]").bind("click mouseenter mouseleave", function (event) {
+                var evento = event.type,
+                    nombre = $(this).prop("id");
                     
-                    case "CORDON":
+                if (evento === "click" && !($(this).children("p").hasClass("seleccionado"))) {
                     
-                        resultado_1 = objetivo;
-                        resultado_2 = "_" + resultado_1;
-                        break;
-                    
-                    case "RAMA 1":
-                    
-                        resultado_1 = objetivo.replace(/\s/, "-");
-                        resultado_2 = "_" + resultado_1;
-                        break;
-                    
-                    case "RAMA 2":
-                    
-                        resultado_1 = objetivo.replace(/\s/, "-");
-                        resultado_2 = "_" + resultado_1;
-                        break;
-                            
-                    case "RAMA 3":
-                            
-                        resultado_1 = objetivo.replace(/\s/, "-");
-                        resultado_2 = "";
-                        break;
-                            
-                    case "RAMA 4":
-                            
-                        resultado_1 = objetivo.replace(/\s/, "-");
-                        resultado_2 = "";
-                        break;
-                            
-                    case "ESPACIAMIENTO/TRASLAPE":
-                            
-                        resultado_1 = objetivo.replace(/\//, "-");
-                        resultado_2 = "";
-                        break;
-                    }
-
+                    $(".seleccionado").removeClass("seleccionado").addClass("normal");
+                    $(".opaco").removeClass("opaco").addClass("normal");
                     $(".visible").removeClass("visible").addClass("novisible");
-                    $("#" + resultado_1).removeClass("novisible").addClass("visible");
+                    $(this).children("p").removeClass("normal").addClass("seleccionado");
+                    $(".normal").removeClass("normal").addClass("opaco");
+                    
+                    Control.conexion = {};
+					Control.conexion.tipo = nombre;
+                    
+                    $(this).children("ul").show();
+                    
                     $("div[id^=detalles]").hide();
-                    $("#detalles" + resultado_2).show();
-                    $("#" + nombre + " ul").hide();
-
-
-                });
-
-                $("#" + parte[i]).hover(function () {
-                    var nombre = $(this).prop("id"),
-                        objetivo = $(event.target).text();
-
-                    if ($("#" + nombre + " > p").hasClass("seleccionado") || $("#" + nombre + " > p").hasClass("normal")) {
-                        
-                        $("#" + nombre + " ul").show();
+                    $("div[id^=detalles]").removeClass();
+                    $("div[id^=detalles]").addClass(nombre);
+                    $("#detalles").show();
+                    $("#DIAGRAMA").show();
                     
-                    }
-
-                }, function () {
-                    var nombre = $(this).prop("id");
-
-                    if ($("#" + nombre + " > p").hasClass("seleccionado") || $("#" + nombre + " > p").hasClass("normal")) {
-
-                        $("#" + nombre + " ul").hide();
                     
-                    }
-
-
-                });
-
-                $("#" + parte[i] + " ul li p").bind("mouseout mouseover", function (event) {
-                    var objetivo = $(event.target).text(),
-                        evento = event.type,
-                        resultado_1,
-                        resultado_2;
-
-                    switch (objetivo) {
-                    case "CORDON":
-                            
-                        resultado_1 = objetivo;
-                        resultado_2 = "_" + resultado_1;
-                        break;
-                            
-                    case "RAMA 1":
-                            
-                        resultado_1 = objetivo.replace(/\s/, "-");
-                        resultado_2 = "_" + resultado_1;
-                        break;
-                            
-                    case "RAMA 2":
-                            
-                        resultado_1 = objetivo.replace(/\s/, "-");
-                        resultado_2 = "_" + resultado_1;
-                        break;
-                            
-                    case "RAMA 3":
-                            
-                        resultado_1 = objetivo.replace(/\s/, "-");
-                        resultado_2 = "";
-                        break;
-                            
-                    case "RAMA 4":
-                            
-                        resultado_1 = objetivo.replace(/\s/, "-");
-                        resultado_2 = "";
-                        break;
-                            
-                    case "ESPACIAMIENTO/TRASLAPE":
-                            
-                        resultado_1 = objetivo.replace(/\//, "-");
-                        resultado_2 = "";
-                        break;
-                            
-                    }
-
-                    if (evento === "mouseover") {
+                    
+                } else if (evento === "mouseenter" &&
+                           ($(this).children("p").hasClass("seleccionado") || $(this).children("p").hasClass("normal"))) {
+                    
+                    $(this).children("ul").show();
+                    
+                } else if (evento === "mouseleave" &&
+                           ($(this).children("p").hasClass("seleccionado") || $(this).children("p").hasClass("normal"))) {
+                    
+                    $(this).children("ul").hide();
+                    
+                }
+                
+            });
+            
+            $("[id^=CONEXION] ul p").bind("click mouseenter mouseleave", function (event) {
+                var evento = event.type,
+                    nombre = $(event.currentTarget).attr("name"),
+                    conexion = $(this).parents("[id^=CONEXION]").prop("id");
+                    
+                    
+                    
+                
+                if (evento === "click") {
+                    
+                    $(".visible").removeClass("visible").addClass("novisible");
+                    $("#" + nombre).removeClass("novisible").addClass("visible");
+                    
+                    $(this).parents("ul:first").hide();
                         
-                        $("div[id^=detalles]").hide();
-                        $("#detalles" + resultado_2).show();
-
-                    } else if (evento === "mouseout") {
-
-                        if ($("#" + resultado_1).hasClass("novisible")) {
-                            
-                            $("div[id^=detalles]").hide();
-                            $("#detalles").show();
-                        
-                        }
-
-                    }
-                });
-            }
+                    $("div[id^=detalles]").hide();
+                    $("#detalles_" + nombre).show();
+                    
+                } else if (evento === "mouseenter") {
+                    
+                    $("div[id^=detalles]").hide();
+                    $("#detalles_" + nombre).show();
+                    
+                } else if (evento === "mouseleave" && $(this).parents("ul:first").is(":visible")) {
+                    
+                    $("div[id^=detalles]").hide();
+                    $("#detalles").show();
+                    
+                    
+                }
+                
+                
+            });
         }
     },
     iniciar: function () {
