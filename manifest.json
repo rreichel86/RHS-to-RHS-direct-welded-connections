@@ -1,7 +1,7 @@
 {
   "name": "RHS TO RHS DIRECT WELDED CONNECTIONS",
   "short_name":"RHS-RHS conexiones",  
-  "description": "Aplicacion para el diseño de conexiones directamente soldadas entre RHS, basda en el capitulo K del AISC360-10",
+  "description": "Aplicacion para el diseño de conexiones directamente soldadas entre RHS, basada en el capitulo K del AISC360-10",
   "author": "Rainer Ernst Reichel",
   "manifest_version": 2,
   "minimum_chrome_version": "23",
