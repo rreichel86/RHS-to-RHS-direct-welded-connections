@@ -1,5 +1,5 @@
 
-| ![logo](/icono-128.png)  | <a target="_blank" href="https://chrome.google.com/webstore/detail/rhs-to-rhs-direct-welded/ckefmoilgkjmgmecdekedggknlocldlg">![Try it now in the Chrome web store](capturas/ChromeWebStore_340x96.png)</a> |
+| ![logo](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/icono-128.png)  | <a target="_blank" href="https://chrome.google.com/webstore/detail/rhs-to-rhs-direct-welded/ckefmoilgkjmgmecdekedggknlocldlg">![Try it now in the Chrome web store](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/ChromeWebStore_340x96.png)</a> |
 |--------------------------|-------------------------------------|
 
 ##RHS-to-RHS-direct-welded-connections
@@ -18,7 +18,7 @@ Esta aplicación web diseña (revisa) los  siguientes tipos de conexiones planas
 
 La aplicación web esta basada en el método *LRFD* (Load and Resistance Factor Design) de la especificación [**ANSI/AISC 360-10:** *Specification for Structural Steel Buildings*](https://www.aisc.org/WorkArea/showcontent.aspx?id=26516) - **CAPITULO K** 
 
-![conexiones](/capturas/conexiones.png "Figura 1")
+![conexiones](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/conexiones.png "Figura 1")
 
 
 ##Alcances y Limitaciones
