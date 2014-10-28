@@ -521,7 +521,8 @@
      #detalles,
      #detalles_RAMA-1,
      #detalles_RAMA-2,
-     #detalles_CORDON {
+     #detalles_CORDON,
+     #detalles_ESPACIAMIENTO-TRASLAPE {
          display: none;
          position: relative;
          width: 495px;
@@ -532,7 +533,7 @@
          -webkit-transform: scale(0.55);
          background-color: snow;
      }
-     #detalles {
+     #detalles, #detalles_ESPACIAMIENTO-TRASLAPE {
          background-image: url(../imagenes/conexiones_detalles.png);
      }
      #detalles_RAMA-1 {

@@ -129,7 +129,7 @@ var Control = {
     },
     reporte_encabezado: ["----------------------------------------------------------------" +
                          "------------------------------------------------------------------",
-                         "RHS TO RHS DIRECT WELDED CONNECTIONS -- Beta version  v0.6.0.2",
+                         "RHS TO RHS DIRECT WELDED CONNECTIONS -- Beta version  v0.6.0.3",
                          "----------------------------------------------------------------" +
                          "------------------------------------------------------------------",
                          "Calculations are in conformance with the Load and Resistance Factor Design method (LRFD)",
