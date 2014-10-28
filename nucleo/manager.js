@@ -612,7 +612,7 @@ var Control = {
                 tipo = miembros.tipo,
                 theta = miembros.theta;
 
-            if (miembros.tipo === "Rama") {    
+            if (miembros.tipo === "Rama") {
                 return valor === Number($("#" + miembros.nombre + "_theta").val());
             }
 
