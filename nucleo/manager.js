@@ -129,7 +129,7 @@ var Control = {
     },
     reporte_encabezado: ["----------------------------------------------------------------" +
                          "------------------------------------------------------------------",
-                         "RHS TO RHS DIRECT WELDED CONNECTIONS -- Beta version  v0.6.0.3",
+                         "RHS TO RHS DIRECT WELDED CONNECTIONS -- Beta version  v0.6.0.4",
                          "----------------------------------------------------------------" +
                          "------------------------------------------------------------------",
                          "Calculations are in conformance with the Load and Resistance Factor Design method (LRFD)",
@@ -772,11 +772,11 @@ var Control = {
         evento: function () {
             "use strict";
             
-            $("[id^=CONEXION],[name^=CONEXION]").bind("click mouseenter mouseleave", function (event) {
+            $("[id^=CONEXION]").bind("click", function (event) {
                 var evento = event.type,
                     nombre = $(this).prop("id");
                     
-                if (evento === "click" && !($(this).children("p").hasClass("seleccionado"))) {
+                if (!($(this).children("p").hasClass("seleccionado"))) {
                     
                     $(".seleccionado").removeClass("seleccionado").addClass("normal");
                     $(".opaco").removeClass("opaco").addClass("normal");
@@ -784,6 +784,7 @@ var Control = {
                     $(this).children("p").removeClass("normal").addClass("seleccionado");
                     $(".normal").removeClass("normal").addClass("opaco");
                     
+                   
                     Control.conexion = {};
 					Control.conexion.tipo = nombre;
                     
@@ -794,19 +795,7 @@ var Control = {
                     $("div[id^=detalles]").addClass(nombre);
                     $("#detalles").show();
                     $("#DIAGRAMA").show();
-                    
-                    
-                    
-                } else if (evento === "mouseenter" &&
-                           ($(this).children("p").hasClass("seleccionado") || $(this).children("p").hasClass("normal"))) {
-                    
-                    $(this).children("ul").show();
-                    
-                } else if (evento === "mouseleave" &&
-                           ($(this).children("p").hasClass("seleccionado") || $(this).children("p").hasClass("normal"))) {
-                    
-                    $(this).children("ul").hide();
-                    
+                        
                 }
                 
             });
@@ -823,8 +812,7 @@ var Control = {
                     
                     $(".visible").removeClass("visible").addClass("novisible");
                     $("#" + nombre).removeClass("novisible").addClass("visible");
-                    
-                    $(this).parents("ul:first").hide();
+                
                         
                     $("div[id^=detalles]").hide();
                     $("#detalles_" + nombre).show();
@@ -1024,8 +1012,8 @@ var Control = {
                 $("div[id^=detalles]").addClass(tipo);
                 $("div[id^=detalles]").removeClass();
                 $("div[id^=detalles]").addClass(tipo);
-                //$("#DIAGRAMA").show();
-                //$("#detalles").show();
+                $("#DIAGRAMA").show();
+                $("#detalles").show();
                 conexiones[tipo]();
             }
         });
@@ -1176,17 +1164,18 @@ var Control = {
                     Conexion_X.apply(Control, [1, 2, 0]);
                 }
             };
-
+            console.log(objetivo)
+            console.log(tipo)
             $("div[id^=detalles]").addClass(tipo);
             $("div[id^=detalles]").removeClass();
             $("div[id^=detalles]").addClass(tipo);
             $("#DIAGRAMA").show();
 
-            if (objetivo !== "RAMA 1" && objetivo !== "RAMA 2" && objetivo !== "CORDON") {
+            /*if (objetivo !== "RAMA 1" && objetivo !== "RAMA 2" && objetivo !== "CORDON") {
                 
                 $("#detalles").show();
             
-            }
+            }*/
             conexiones[tipo]();
         });
 

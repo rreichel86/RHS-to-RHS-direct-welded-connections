@@ -99,8 +99,10 @@
          -webkit-box-sizing: border-box;
          box-sizing: border-box;
      }
-     #MENU li p:hover {
-         font-weight: bold;
+     
+    #MENU li:hover p.normal+ul,
+    #MENU li:hover p.seleccionado+ul {
+         display: block;
      }
      .normal {
          border: 1px solid #9FC4e7;
@@ -172,6 +174,7 @@
          -webkit-box-sizing: border-box;
          box-sizing: border-box;
      }
+    
      #MENU ul li p {
          display: block;
          width: 90px;
@@ -182,6 +185,10 @@
          cursor: default;
          -webkit-box-sizing: border-box;
          box-sizing: border-box;
+     }
+     #MENU ul li p:hover {
+        font-weight: bolder;
+         
      }
      #MENU ul li p.eot {
          height: 25px;
