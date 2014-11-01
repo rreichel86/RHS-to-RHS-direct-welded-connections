@@ -25,7 +25,7 @@ La aplicación web esta basada en el método *LRFD* (Load and Resistance Factor 
 
 Diseña (revisa) las conexiones soldadas que se muestran en la *Figura 1* con las características siguientes:
 
-- [x] conexiones son planas 
+- [x] conexiones planas 
 - [x] conexiones no reforzadas
 - [x] conexiones solicitadas a cargas predominantemente estáticas
 - [x] conexiones sometidas a fuerzas axiales, momentos de flexion en el plano y fuera del plano de la conexión
