@@ -1,6 +1,14 @@
 
 | ![logo](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/icono-128.png)  | <a target="_blank" href="https://chrome.google.com/webstore/detail/rhs-to-rhs-direct-welded/ckefmoilgkjmgmecdekedggknlocldlg">![Try it now in the Chrome web store](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/ChromeWebStore_340x96.png)</a> |
 |--------------------------|-------------------------------------|
+## TABLA DE CONTENIDO 
+1. [INTRODUCCION](#INTRODUCCION)
+2. [INSTALACION](#INSTALACION)
+3. [DESCRIPCION](#DESCRIPCION)
+4. [ALCANCES Y LIMITACIONES](#ALCANCES-LIMITACIONES)
+
+
+# <a name="INTRODUCCION"></a>INTRODUCCION
 
 ##RHS-to-RHS-direct-welded-connections
 
