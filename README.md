@@ -4,18 +4,18 @@
 
 
 ##RHS-to-RHS-direct-welded-connections
-
+APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembros con perfiles tubulares rectangulares, basada en el capitulo K del ANSI/AISC 360-10.
 
 ### TABLA DE CONTENIDO 
-2. [INSTALACION](#INSTALACION)
-3. [DESCRIPCION](#DESCRIPCION)
+2. [INSTALACIÓN](#INSTALACION)
+3. [DESCRIPCIÓN](#DESCRIPCION)
 4. [ALCANCES Y LIMITACIONES](#ALCANCES-LIMITACIONES)
 
 ### <a name="INSTALACION"></a>INSTALACION
 
 ### <a name="DESCRIPCION"></a>DESCRIPCION
-Aplicación web para el diseño de conexiones soldadas entre miembros con perfiles tubulares rectangulares (**RHS**).
-Esta aplicación web diseña (revisa) los  siguientes tipos de conexiones planas, no reforzadas, soldadas directamente entre miembros de perfiles tubulares rectangulares solicitadas a cargas predominantemente estáticas y sometidas a fuerzas axiales, a momentos de flexión en el plano y flexión fuera del plano de la conexión. 
+APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembros con perfiles tubulares rectangulares (**RHS**).
+Esta aplicación web diseña las siguientes tipos de conexiones planas, no reforzadas, soldadas directamente entre miembros de perfiles tubulares rectangulares, solicitadas a cargas estáticas de tensión, compresión, flexion en el plano y flexion fuera del plano. 
 
 1. **Conexiones en Y**
 1. **Conexiones en X**
@@ -33,10 +33,10 @@ La aplicación web esta basada en el método *LRFD* (Load and Resistance Factor 
 ### <a name="ALCANCES-LIMITACIONES"></a>ALCANCES Y LIMITACIONES
 Diseña (revisa) las conexiones soldadas que se muestran en la *Figura 1* con las características siguientes:
 
-- [x] conexiones planas 
-- [x] conexiones no reforzadas
-- [x] conexiones solicitadas a cargas predominantemente estáticas
-- [x] conexiones sometidas a fuerzas axiales, momentos de flexion en el plano y fuera del plano de la conexión
+- [x] Las conexiones son planas 
+- [x] Las conexiones no están reforzadas
+- [x] Las conexiones están solicitadas a cargas predominantemente estáticas
+- [x] Las conexiones están sometidas a fuerzas axiales, a momentos de flexion en el plano y fuera del plano de la conexión
 
 
 
