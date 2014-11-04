@@ -1,5 +1,5 @@
 
-| ![logo](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/icono-128.png)  | <a target="_blank" href="https://chrome.google.com/webstore/detail/rhs-to-rhs-direct-welded/ckefmoilgkjmgmecdekedggknlocldlg">![Try it now in the Chrome web store](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/ChromeWebStore_340x96.png)</a> |
+| ![logo](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/icono-128.png)  |  |
 |--------------------------|-------------------------------------|
 
 
@@ -12,6 +12,10 @@ APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembr
 4. [ALCANCES Y LIMITACIONES](#ALCANCES-LIMITACIONES)
 
 ### <a name="INSTALACION"></a>INSTALACION
+La APLICACIÓN WEB esta disponible en la **CHROME WEB STORE**. 
+Haz click sobre el siguiente logo para descargarla de la CHROME WEB STORE
+
+<a target="_blank" href="https://chrome.google.com/webstore/detail/rhs-to-rhs-direct-welded/ckefmoilgkjmgmecdekedggknlocldlg">![Try it now in the Chrome web store](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/ChromeWebStore_340x96.png "HAZ CLICK PARA DESCARGARLA")</a>
 
 ### <a name="DESCRIPCION"></a>DESCRIPCION
 APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembros con perfiles tubulares rectangulares (**RHS**).
