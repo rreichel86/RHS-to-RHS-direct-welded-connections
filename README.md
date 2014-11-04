@@ -14,7 +14,7 @@ La APLICACIÓN WEB esta disponible en la CHROME WEB STORE.</br>Haz click sobre e
 <a target="_blank" href="https://chrome.google.com/webstore/detail/rhs-to-rhs-direct-welded/ckefmoilgkjmgmecdekedggknlocldlg">![Try it now in the Chrome web store](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/ChromeWebStore_340x96.png "HAZ CLICK PARA DESCARGARLA")</a>
 
 ##<a name="DESCRIPCION"></a>DESCRIPCIÓN
-APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembros con perfiles tubulares rectangulares (**RHS**). Esta aplicación web diseña las siguientes tipos de conexiones planas, no reforzadas, soldadas directamente entre miembros de perfiles tubulares rectangulares, solicitadas a cargas estáticas de tensión, compresión, flexion en el plano y flexion fuera del plano. 
+APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembros con perfiles tubulares rectangulares (**RHS**). Esta aplicación web diseña las siguientes tipos de conexiones planas, no reforzadas, soldadas directamente entre miembros de perfiles tubulares rectangulares, solicitadas a cargas estáticas de tensión, compresión, flexión en el plano y flexión fuera del plano. 
 
 1. **Conexiones en Y**
 1. **Conexiones en X**
@@ -35,7 +35,7 @@ Diseña (revisa) las conexiones soldadas que se muestran en la *Figura 1* con la
 - [x] Las conexiones son planas 
 - [x] Las conexiones no están reforzadas
 - [x] Las conexiones están solicitadas a cargas predominantemente estáticas
-- [x] Las conexiones están sometidas a fuerzas axiales, a momentos de flexion en el plano y fuera del plano de la conexión
+- [x] Las conexiones están sometidas a fuerzas axiales, a momentos de flexión en el plano y fuera del plano de la conexión
 
 
 
