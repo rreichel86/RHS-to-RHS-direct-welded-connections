@@ -1,17 +1,19 @@
 
 | ![logo](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/icono-128.png)  | <a target="_blank" href="https://chrome.google.com/webstore/detail/rhs-to-rhs-direct-welded/ckefmoilgkjmgmecdekedggknlocldlg">![Try it now in the Chrome web store](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/ChromeWebStore_340x96.png)</a> |
 |--------------------------|-------------------------------------|
+
+
+##RHS-to-RHS-direct-welded-connections
+
+
 ## TABLA DE CONTENIDO 
-1. [INTRODUCCION](#INTRODUCCION)
 2. [INSTALACION](#INSTALACION)
 3. [DESCRIPCION](#DESCRIPCION)
 4. [ALCANCES Y LIMITACIONES](#ALCANCES-LIMITACIONES)
 
+### <a name="INSTALACION"></a>INSTALACION
 
-# <a name="INTRODUCCION"></a>INTRODUCCION
-
-##RHS-to-RHS-direct-welded-connections
-
+### <a name="DESCRIPCION"></a>DESCRIPCION
 Aplicación web para el diseño de conexiones soldadas entre miembros con perfiles tubulares rectangulares (**RHS**).
 Esta aplicación web diseña (revisa) los  siguientes tipos de conexiones planas, no reforzadas, soldadas directamente entre miembros de perfiles tubulares rectangulares solicitadas a cargas predominantemente estáticas y sometidas a fuerzas axiales, a momentos de flexión en el plano y flexión fuera del plano de la conexión. 
 
@@ -28,14 +30,19 @@ La aplicación web esta basada en el método *LRFD* (Load and Resistance Factor 
 
 ![conexiones](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/conexiones.png "Figura 1")
 
-
-##Alcances y Limitaciones
-
+### <a name="ALCANCES-LIMITACIONES"></a>ALCANCES Y LIMITACIONES
 Diseña (revisa) las conexiones soldadas que se muestran en la *Figura 1* con las características siguientes:
 
 - [x] conexiones planas 
 - [x] conexiones no reforzadas
 - [x] conexiones solicitadas a cargas predominantemente estáticas
 - [x] conexiones sometidas a fuerzas axiales, momentos de flexion en el plano y fuera del plano de la conexión
+
+
+
+
+
+
+
 
  
