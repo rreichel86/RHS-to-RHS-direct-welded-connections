@@ -29,7 +29,7 @@ La aplicación web esta basada en el método *LRFD* (Load and Resistance Factor 
 
 ![conexiones](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/conexiones.png "Figura 1")
 
-## <a name="ALCANCES-LIMITACIONES"></a>ALCANCES Y LIMITACIONES
+##<a name="ALCANCES-LIMITACIONES"></a>ALCANCES Y LIMITACIONES
 Diseña (revisa) las conexiones soldadas que se muestran en la *Figura 1* con las características siguientes:
 
 - [x] Las conexiones son planas 
