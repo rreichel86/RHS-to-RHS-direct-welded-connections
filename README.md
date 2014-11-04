@@ -17,11 +17,11 @@ La APLICACIÓN WEB esta disponible en la CHROME WEB STORE.</br>Haz click sobre e
 APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembros con perfiles tubulares rectangulares (**RHS**). Esta aplicación web diseña las siguientes tipos de conexiones planas, no reforzadas, soldadas directamente entre miembros de perfiles tubulares rectangulares, solicitadas a cargas estáticas de tensión, compresión, flexión en el plano y flexión fuera del plano. 
 
 1. **Conexiones en Y**
-1. **Conexiones en X**
-1. **Conexiones en K** (balanceadas)
-  1. *con espaciamiento*
-  2. *con traslape*
-1. **Conexiones en N** (balanceadas)
+2. **Conexiones en X**
+3. **Conexiones en K** (balanceadas)
+    1. *con espaciamiento*
+    2. *con traslape*
+4. **Conexiones en N** (balanceadas)
   1. *con espaciamiento*
   2. *con traslape*
 
