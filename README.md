@@ -11,13 +11,14 @@ APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembr
 3. [DESCRIPCIÓN](#DESCRIPCION)
 4. [ALCANCES Y LIMITACIONES](#ALCANCES-LIMITACIONES)
 
-### <a name="INSTALACION"></a>INSTALACION
-La APLICACIÓN WEB esta disponible en la **CHROME WEB STORE**. 
-Haz click sobre el siguiente logo para descargarla de la CHROME WEB STORE
+### <a name="INSTALACION"></a>INSTALACIÓN
+La APLICACIÓN WEB esta disponible en la CHROME WEB STORE.
+
+Haz click sobre el siguiente logo para descargarla de la CHROME WEB STORE.
 
 <a target="_blank" href="https://chrome.google.com/webstore/detail/rhs-to-rhs-direct-welded/ckefmoilgkjmgmecdekedggknlocldlg">![Try it now in the Chrome web store](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/ChromeWebStore_340x96.png "HAZ CLICK PARA DESCARGARLA")</a>
 
-### <a name="DESCRIPCION"></a>DESCRIPCION
+### <a name="DESCRIPCION"></a>DESCRIPCIÓN
 APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembros con perfiles tubulares rectangulares (**RHS**).
 Esta aplicación web diseña las siguientes tipos de conexiones planas, no reforzadas, soldadas directamente entre miembros de perfiles tubulares rectangulares, solicitadas a cargas estáticas de tensión, compresión, flexion en el plano y flexion fuera del plano. 
 
