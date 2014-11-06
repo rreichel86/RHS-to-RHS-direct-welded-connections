@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Menu Desplegable</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        #header {
+            margin: auto;
+            width: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        ul,
+        ol {
+            list-style: none;
+        }
+        .menu {
+            list-style-type: none;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0;
+            width: 564px;
+            height: 102px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            background-color: transparent;
+            transform-origin: top center;
+            /* transform: scale(0.90); */
+        }
+        .menu > li {
+            float: left;
+            height: 100%;
+            border: 2px solid transparent;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .menu li p {
+            width: 90px;
+            height: 100px;
+            display: block;
+            background-color: #9FC4e7;
+            margin: auto;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .menu li p:hover {
+            background-color: #434343;
+        }
+        . .menu li[id^="CONEXION"] p.ocultar {
+            background-image: url(../imagenes/conexiones.png);
+            border-radius: 7px;
+            background-origin: border-box;
+        }
+        .menu li[id="CONEXION_EN_Y"] p.ocultar {
+            background-position: -1px -506px;
+        }
+        .menu li[id="CONEXION_EN_T"] p.ocultar {
+            background-position: -1px -632px;
+        }
+        .menu li[id="CONEXION_EN_X1"] p.ocultar {
+            background-position: -1px -758px;
+        }
+        .menu li[id="CONEXION_EN_X2"] p.ocultar {
+            background-position: -1px -884px;
+        }
+        .menu li[id="CONEXION_EN_K"] p.ocultar {
+            background-position: -1px -2px;
+        }
+        .menu li[id="CONEXION_EN_N"] p.ocultar {
+            background-position: -1px -254px;
+        }
+       /* .menu li ul {
+            display: none;
+            position: absolute;
+            min-width: 140px;
+        }*/
+        
+        .menu li ul {
+         display: none;
+         position: absolute;
+         list-style-type: none;
+         width: 94px;
+         margin: 0;
+         margin-top: 0px;
+         margin-left: -2px;
+         padding: 0;
+        border-top: 2px solid white;    
+         overflow-y: hidden;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+     }
+     .menu li ul li {
+         clear: both;
+         margin: 0;
+         padding: 0;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+     }
+    
+     .menu li ul li p {
+         display: block;
+         width: 90px;
+         height: 24px;
+         line-height: 24px;
+         font-size: 10px;
+         text-align: center;
+         cursor: default;
+         -webkit-box-sizing: border-box;
+         box-sizing: border-box;
+     }
+        .menu li:hover > ul {
+            display: block;
+        }
+        .menu li ul li {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <nav>
+            <ul class="menu">
+                <li id="CONEXION_EN_Y">
+                    <p name="CONEXION_EN_Y" class="ocultar normal">CONEXIÓN EN Y</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="CONEXION_EN_T">
+                    <p name="CONEXION_EN_T" class="ocultar normal">CONEXIÓN EN T</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="CONEXION_EN_X1">
+                    <p name="CONEXION_EN_X1" class="ocultar normal">CONEXIÓN EN X</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+                        </li>
+                        <li>
+                            <p name="RAMA-2">RAMA 2</p>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="CONEXION_EN_X2">
+                    <p name="CONEXION_EN_X2" class="ocultar normal">CONEXIÓN EN X</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+                        </li>
+                        <li>
+                            <p name="RAMA-2">RAMA 2</p>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="CONEXION_EN_K">
+                    <p name="CONEXION_EN_K" class="ocultar normal">CONEXIÓN EN K</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+                        </li>
+                        <li>
+                            <p name="RAMA-2">RAMA 2</p>
+
+                        </li>
+                        <li>
+                            <p name="ESPACIAMIENTO-TRASLAPE" class="eot">ESPACIAMIENTO/
+                                <br>TRASLAPE</p>
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="CONEXION_EN_N">
+                    <p name="CONEXION_EN_N" class="ocultar normal">CONEXIÓN EN N</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+                        </li>
+                        <li>
+                            <p name="RAMA-2">RAMA 2</p>
+
+                        </li>
+                        <li>
+                            <p name="ESPACIAMIENTO-TRASLAPE" class="eot">ESPACIAMIENTO/
+                                <br>TRASLAPE</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- Aqui estamos cerrando la nueva etiqueta nav -->
+    </div>
+</body>
+
+</html>

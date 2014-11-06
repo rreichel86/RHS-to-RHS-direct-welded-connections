@@ -772,11 +772,11 @@ var Control = {
         evento: function () {
             "use strict";
             
-            $("[id^=CONEXION]").bind("click", function (event) {
+            $("[id^=CONEXION]").bind("click mouseenter mouseleave", function (event) {
                 var evento = event.type,
                     nombre = $(this).prop("id");
                     
-                if (!($(this).children("p").hasClass("seleccionado"))) {
+                if (evento === "click" && !($(this).children("p").hasClass("seleccionado"))) {
                     
                     $(".seleccionado").removeClass("seleccionado").addClass("normal");
                     $(".opaco").removeClass("opaco").addClass("normal");
@@ -784,7 +784,6 @@ var Control = {
                     $(this).children("p").removeClass("normal").addClass("seleccionado");
                     $(".normal").removeClass("normal").addClass("opaco");
                     
-                   
                     Control.conexion = {};
 					Control.conexion.tipo = nombre;
                     
@@ -795,7 +794,19 @@ var Control = {
                     $("div[id^=detalles]").addClass(nombre);
                     $("#detalles").show();
                     $("#DIAGRAMA").show();
-                        
+                    
+                    
+                    
+                } else if (evento === "mouseenter" &&
+                           ($(this).children("p").hasClass("seleccionado") || $(this).children("p").hasClass("normal"))) {
+                    
+                    $(this).children("ul").show();
+                    
+                } else if (evento === "mouseleave" &&
+                           ($(this).children("p").hasClass("seleccionado") || $(this).children("p").hasClass("normal"))) {
+                    
+                    $(this).children("ul").hide();
+                    
                 }
                 
             });
@@ -813,7 +824,8 @@ var Control = {
                     $(".visible").removeClass("visible").addClass("novisible");
                     $("#" + nombre).removeClass("novisible").addClass("visible");
                 
-                        
+                    $(this).parents("ul:first").hide(); 
+                    
                     $("div[id^=detalles]").hide();
                     $("#detalles_" + nombre).show();
                     

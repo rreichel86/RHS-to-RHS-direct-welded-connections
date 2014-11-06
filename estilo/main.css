@@ -100,10 +100,7 @@
          box-sizing: border-box;
      }
      
-    #MENU li:hover p.normal+ul,
-    #MENU li:hover p.seleccionado+ul {
-         display: block;
-     }
+    
      .normal {
          border: 1px solid #9FC4e7;
      }
@@ -154,20 +151,21 @@
      .novisible {
          display: none;
      }
-     #MENU ul {
+     #MENU li ul {
          position: absolute;
          display: none;
          list-style-type: none;
          width: 94px;
          margin: 0;
-         margin-top: 2px;
+/*         margin-top: 2px;*/
+         border-top: solid 2px white;
          margin-left: -2px;
          padding: 0;
          overflow-y: hidden;
          -webkit-box-sizing: border-box;
          box-sizing: border-box;
      }
-     #MENU ul li {
+     #MENU li ul li {
          clear: both;
          margin: 0;
          padding: 0;
@@ -175,7 +173,7 @@
          box-sizing: border-box;
      }
     
-     #MENU ul li p {
+     #MENU li ul li p {
          display: block;
          width: 90px;
          height: 24px;
@@ -186,11 +184,11 @@
          -webkit-box-sizing: border-box;
          box-sizing: border-box;
      }
-     #MENU ul li p:hover {
+     #MENU li ul li p:hover {
         font-weight: bolder;
          
      }
-     #MENU ul li p.eot {
+     #MENU li ul li p.eot {
          height: 25px;
          line-height: 12px;
          font-size: 9px;
