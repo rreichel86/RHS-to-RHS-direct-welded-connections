@@ -1,4 +1,4 @@
-![logo](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/icono-128.png "RHS-RHS CONNECTIONS")
+![logo](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/imagenes/icono-128.png "RHS-RHS CONNECTIONS")
 ##RHS-to-RHS-direct-welded-connections
 APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembros con perfiles tubulares rectangulares, basada en el capitulo K del **ANSI/AISC 360-10**.
 
