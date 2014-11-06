@@ -9,12 +9,11 @@
   "offline_enabled": true,
   "app": {
     "background": {
-      "scripts": ["main.js"]
+      "scripts": ["principal/portada.js"]
     }
   },
   "icons": {
-    
-    "128": "icono-128.png"
+    "128": "imagenes/icono-128.png"
   }
 
 }

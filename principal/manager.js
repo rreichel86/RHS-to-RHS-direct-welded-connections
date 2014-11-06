@@ -824,7 +824,7 @@ var Control = {
                     $(".visible").removeClass("visible").addClass("novisible");
                     $("#" + nombre).removeClass("novisible").addClass("visible");
                 
-                    $(this).parents("ul:first").hide(); 
+                    $(this).parents("ul:first").hide();
                     
                     $("div[id^=detalles]").hide();
                     $("#detalles_" + nombre).show();
@@ -848,6 +848,7 @@ var Control = {
     },
     iniciar: function () {
         "use strict";
+        Control.configuracion();
         
         $("#CORDON").change(function () {
 
@@ -1025,7 +1026,7 @@ var Control = {
                 $("div[id^=detalles]").removeClass();
                 $("div[id^=detalles]").addClass(tipo);
                 $("#DIAGRAMA").show();
-                $("#detalles").show();
+                //$("#detalles").show();
                 conexiones[tipo]();
             }
         });
@@ -1176,8 +1177,6 @@ var Control = {
                     Conexion_X.apply(Control, [1, 2, 0]);
                 }
             };
-            console.log(objetivo)
-            console.log(tipo)
             $("div[id^=detalles]").addClass(tipo);
             $("div[id^=detalles]").removeClass();
             $("div[id^=detalles]").addClass(tipo);
@@ -1193,3 +1192,5 @@ var Control = {
 
     }
 };
+
+Control.iniciar();
