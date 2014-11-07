@@ -4,8 +4,8 @@
   "description": "Aplicacion para el diseño de conexiones directamente soldadas entre RHS, basada en el capitulo K del AISC360-10",
   "author": "Rainer Ernst Reichel",
   "manifest_version": 2,
-  "minimum_chrome_version": "23",
-  "version": "0.6.0.5",
+  "minimum_chrome_version": "26",
+  "version": "0.6.0.6",
   "offline_enabled": true,
   "app": {
     "background": {
