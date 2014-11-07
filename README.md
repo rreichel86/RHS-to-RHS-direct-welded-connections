@@ -2,11 +2,15 @@
 |-------------------------------------------------------------|:-----------------------:|
 APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembros con perfiles tubulares rectangulares, basada en el capitulo K del **ANSI/AISC 360-10**.
 
+
+
 ##TABLA DE CONTENIDO
 
 2. [INSTALACIÓN](#INSTALACION)
 3. [DESCRIPCIÓN](#DESCRIPCION)
 4. [ALCANCES Y LIMITACIONES](#ALCANCES-LIMITACIONES)
+
+
 
 ##<a name="INSTALACION"></a>INSTALACIÓN
 La APLICACIÓN WEB esta disponible en la CHROME WEB STORE.</br>Haz click sobre el siguiente logo para descargarla de la CHROME WEB STORE.
@@ -28,6 +32,7 @@ APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembr
 La aplicación web esta basada en el método *LRFD* (Load and Resistance Factor Design) de la especificación [**ANSI/AISC 360-10:** *Specification for Structural Steel Buildings*](https://www.aisc.org/WorkArea/showcontent.aspx?id=26516) - **CAPITULO K** 
 
 ![conexiones](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/conexiones.png "Figura 1")
+
 
 
 ##<a name="ALCANCES-LIMITACIONES"></a>ALCANCES Y LIMITACIONES
