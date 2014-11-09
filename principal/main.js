@@ -7,13 +7,14 @@ window.onclick = function () {
         id: 'RhsConex',
         frame: 'chrome',
         bounds: {
+            "left": 0,
+            "top": 0,
             'width': 624,
             'height': 735
         },
-        maxWidth: 1070,
+        maxWidth: 624,
         minWidth: 624
     });
-
     window.close();
 
 };
