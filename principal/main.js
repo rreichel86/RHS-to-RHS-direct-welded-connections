@@ -10,7 +10,7 @@ window.onclick = function () {
             "left": 0,
             "top": 0,
             'width': 624,
-            'height': 735
+            'height': 734
         },
         maxWidth: 624,
         minWidth: 624

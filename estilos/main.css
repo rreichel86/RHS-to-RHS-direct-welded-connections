@@ -4,7 +4,7 @@
  }
  html {
      min-width: 600px;
-     height: auto;
+     height: 100%;
      margin: 0;
      margin-left: auto;
      margin-right: auto;
@@ -14,15 +14,15 @@
  body {
      width: 100%;
      min-width: 600px;
-     height: auto;
+     height: 100%;
      margin: 0;
      padding: 0;
-     border: 1px solid blue;
      -webkit-user-select: none;
      user-select: none;
      cursor: default;
      overflow-y: auto;
      background-color: snow;
+     border: 1px solid blue;
  }
  @media screen and (min-width: 320px) {
      header {
@@ -48,11 +48,16 @@
          clear: both;
          color: white;
          height: 35px;
-         z-index: -1;
+         width: 100%;
+         margin: 0px;
+         padding: 0px;
+         border-top: 1px solid #198afc;
+         border-bottom: 1px solid #198afc;
          box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.2);
      }
      footer div {
          margin: 0px;
+         padding: 0px;
          overflow: hidden;
          background-image: linear-gradient(to bottom, #198afc 0%, #0f5499 12%, #0f5499 88%, #198afc 100%);
      }
@@ -60,7 +65,8 @@
          margin: 0;
          margin-left: auto;
          margin-right: auto;
-         height: 35px;
+         padding: 0px;
+         height: 34px;
          width: 400px;
          text-align: center;
          line-height: 1.25em;
@@ -75,7 +81,7 @@
          margin-right: auto;
          padding: 0;
          width: 564px;
-         height: 102px;
+         height: 104px;
          -webkit-box-sizing: border-box;
          box-sizing: border-box;
          background-color: transparent;
@@ -83,6 +89,7 @@
          /* transform: scale(0.90); */
      }
      #MENU li {
+         position: relative;
          float: left;
          height: 100%;
          border: 2px solid transparent;
@@ -156,7 +163,7 @@
          list-style-type: none;
          width: 94px;
          margin: 0;
-/*         margin-top: 2px;*/
+         margin-top: 0px;
          border-top: solid 2px white;
          margin-left: -2px;
          padding: 0;
@@ -509,9 +516,13 @@
          filter: alpha(opacity=70);
      }
      #all {
+         position: relative;
+         width: 100%;
+         min-height: calc(100% - 40px);
          margin: 0px;
          padding: 0px;
      }
+    
      #inner {
          position: relative;
          width: 100%;
