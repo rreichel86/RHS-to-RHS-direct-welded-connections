@@ -81,7 +81,7 @@
          margin-right: auto;
          padding: 0;
          width: 564px;
-         height: 104px;
+         height: 79px;
          -webkit-box-sizing: border-box;
          box-sizing: border-box;
          background-color: transparent;
@@ -98,9 +98,10 @@
      }
      #MENU li p {
          width: 90px;
-         height: 100px;
+         height: 80px;
          display: block;
-         background-color: #9FC4e7;
+/*         background-color: #9FC4e7;*/
+         background-color: #F0F8FF;
          margin: auto;
          -webkit-box-sizing: border-box;
          box-sizing: border-box;
@@ -114,38 +115,39 @@
          opacity: 0.5;
      }
      .seleccionado {
-         border: 2px inset #198afc;
+         border: 1px inset #198afc;
          font-weight: bolder;
      }
      #MENU li p.ocultar {
-         background-image: url(../imagenes/conexiones.png);
+         background-image: url(../imagenes/conexiones.svg);
          border-radius: 7px;
          background-origin: border-box;
      }
      #MENU li:nth-child(1) p.ocultar {
-         background-position: -1px -506px;
+         background-position: 0px -318px;
      }
      #MENU li:nth-child(2) p.ocultar {
-         background-position: -1px -632px;
+         background-position: 0px -398px;
      }
      #MENU li:nth-child(3) p.ocultar {
-         background-position: -1px -758px;
+         background-position: 0px -480px;
      }
      #MENU li:nth-child(4) p.ocultar {
-         background-position: -1px -884px;
+         background-position: 0px -558px;
      }
      #MENU li:nth-child(5) p.ocultar {
-         background-position: -1px -2px;
+         background-position: 0px 2px;
      }
      #MENU li:nth-child(6) p.ocultar {
-         background-position: -1px -254px;
+         background-position: 0px -158px;
      }
      .ocultar {
          white-space: nowrap;
-         font-size: 10px;
+         font-size: 9px;
+         color:grey;
          font-family: arial;
          text-align: center;
-         padding-top: 83px;
+         padding-top: 63px;
          margin-left: auto;
          padding-left: 1px;
          padding-right: 1px;
@@ -170,6 +172,9 @@
          overflow-y: hidden;
          -webkit-box-sizing: border-box;
          box-sizing: border-box;
+     }
+     #MENU li ul p {
+         background-color: #9FC4e7;
      }
      #MENU li ul li {
          clear: both;
@@ -430,7 +435,7 @@
      }
      #DIAGRAMA {
          position: relative;
-         height: calc(355px*0.55);
+         height: calc(475px * 0.50);
          display: block;
          position: relative;
          padding: 0px;
@@ -533,6 +538,7 @@
          text-align: center;
          color: white;
      }
+    
      #detalles,
      #detalles_RAMA-1,
      #detalles_RAMA-2,
@@ -540,55 +546,56 @@
      #detalles_ESPACIAMIENTO-TRASLAPE {
          display: none;
          position: relative;
-         width: 495px;
-         height: 355px;
+         width: 670px;
+         height: 475px;
          margin: auto;
          z-index: 0;
          -webkit-transform-origin: top center;
-         -webkit-transform: scale(0.55);
+         -webkit-transform: scale(0.50);
          background-color: snow;
      }
+     
      #detalles, #detalles_ESPACIAMIENTO-TRASLAPE {
-         background-image: url(../imagenes/conexiones_detalles.png);
+         background-image: url(../imagenes/tipos_conexiones.svg);
      }
      #detalles_RAMA-1 {
-         background-image: url(../imagenes/conexiones_detalles_RAMA-1.png);
+         background-image: url(../imagenes/tipos_conexiones_rama-1.svg);
      }
      #detalles_RAMA-2 {
-         background-image: url(../imagenes/conexiones_detalles_RAMA-2.png);
+         background-image: url(../imagenes/tipos_conexiones_rama-2.svg);
      }
      #detalles_CORDON {
-         background-image: url(../imagenes/conexiones_detalles_CORDON.png);
+         background-image: url(../imagenes/tipos_conexiones_cordon.svg);
      }
      .CONEXION_EN_Y {
-         background-position: 0px -870px;
+         background-position: 0px 0px;
      }
      .CONEXION_EN_X1 {
-         background-position: 0px -1305px;
+         background-position: 0px -500px;
      }
      .CONEXION_EN_T {
-         background-position: 0px -1740px;
+         background-position: 0px -3009px;
      }
      .CONEXION_EN_X2 {
-         background-position: 0px -2175px;
+         background-position: 0px -3501px;
      }
      .CONEXION_EN_K {
-         background-position: 0px 0px;
+         background-position: 0px -1000px;
      }
      .CONEXION_EN_K-ESPACIAMIENTO {
-         background-position: 0px 0px;
+         background-position: 0px -1000px;
      }
      .CONEXION_EN_K-TRASLAPE {
-         background-position: 0px -436px;
+         background-position: 0px -1501px;
      }
      .CONEXION_EN_N {
-         background-position: 0px -3018px;
+         background-position: 0px -2001px;
      }
      .CONEXION_EN_N-ESPACIAMIENTO {
-         background-position: 0px -3018px;
+         background-position: 0px -2001px;
      }
      .CONEXION_EN_N-TRASLAPE {
-         background-position: 0 -2568px;
+         background-position: 0 -2501px;
      }
      select {
          height: 18px;
