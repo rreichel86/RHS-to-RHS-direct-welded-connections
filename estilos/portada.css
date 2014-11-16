@@ -10,28 +10,25 @@
          z-index: 10;
          top: calc(400px - 150px);
          left: calc((700px - 600px)/2);
-         border-top: 0.5mm solid #0f5499;
-         border-bottom: 0.5mm solid #0f5499;
+        /* border-top: 0.5mm solid #00008B;
+         border-bottom: 0.5mm solid #0f5499;*/
          width: 600px;
          height: 130px;
          border-radius: 1mm;
          -webkit-transform-origin: center center;
-         background-image: linear-gradient(to bottom, #198afc 0%, #0f5499 12%, #0f5499 88%, #198afc 100%);
+         background-image: linear-gradient(to bottom, #191970 0%, #198afc 2%, #0f5499 12%, #0f5499 88%, #198afc 98%, #191970 100%);
      }
      #R1 {
          position: absolute;
          z-index: 5;
          left: calc(700px/2 - 90px);
          top: 0px;
-         border-left: 0.5mm solid #0f5499;
-         border-right: 0.5mm solid #0f5499;
-         border-top: 0.5mm solid #0f5499;
          width: 90px;
          height: 250px;
          border-radius: 0;
          -webkit-transform-origin: bottom right;
          -webkit-transform: translateX(-30px) rotate(-45deg);
-         background-image: linear-gradient(to left, #198afc 0%, #0f5499 10%, #0f5499 90%, #198afc 100%);
+         background-image: linear-gradient(to left, #850000 0%,#ff9f9f 3%, #c70000 15%, #c70000 85%, #ff9f9f 97%, #850000 100%);
      }
 
      #R2 {
@@ -39,16 +36,13 @@
          z-index: 0;
          left: calc(700px/2);
          top: 0px;
-         border-left: 0.5mm solid #0f5499;
-         border-right: 0.5mm solid #0f5499;
-         border-top: 0.5mm solid #0f5499;
          width: 90px;
          height: 250px;
          border-radius: 1mm;
          -webkit-transform-origin: bottom left;
          -webkit-transform: translateX(30px) rotate(45deg);
          
-         background-image: linear-gradient(to left, #198afc 0%, #0f5499 10%, #0f5499 90%, #198afc 100%);
+        background-image: linear-gradient(to left, #850000 0%,#ff9f9f 3%, #c70000 15%, #c70000 85%, #ff9f9f 97%, #850000 100%);
      }
      #R3 {
          position: absolute;
@@ -98,7 +92,7 @@
          left: 0%;
          width: 100%;
          height: 100%;
-         background-color: black;
+        background-color: black;
          z-index: 1001;
          opacity: 0.70;
          margin: 0px;
@@ -134,8 +128,8 @@
     left: calc((700px - 200px)/2);
     width: 200px;
     height: 340px;    
-    border: 9px solid #0f5499;
-    border-radius: 27px;
+    border: 12px solid #A9A9A9;
+    border-radius: 36px;
     /* background-color: #dfdfdf; */
 }
 
