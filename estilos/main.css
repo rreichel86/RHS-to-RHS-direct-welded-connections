@@ -81,11 +81,12 @@
          margin-right: auto;
          padding: 0;
          width: 564px;
-         height: 79px;
+         height: 84px;
          -webkit-box-sizing: border-box;
          box-sizing: border-box;
          background-color: transparent;
          transform-origin: top center;
+         z-index: 2;
          /* transform: scale(0.90); */
      }
      #MENU li {
@@ -172,6 +173,7 @@
          overflow-y: hidden;
          -webkit-box-sizing: border-box;
          box-sizing: border-box;
+         z-index: 2;
      }
      #MENU li ul p {
          background-color: #9FC4e7;
@@ -283,34 +285,34 @@
          height: 115px;
          width: 79px;
          margin: auto;
-         background-image: url(../imagenes/cordon_posiciones.png);
+         background-image: url(../imagenes/cordon_posiciones.svg);
      }
      .Cordon-cuadrado {
-         background-position: 0px -24px;
+         background-position: 0px 0px;
      }
      .Cordon-rectangular-vertical {
-         background-position: 0px -175px;
+         background-position: 0px -115px;
      }
      .Cordon-rectangular-horizontal {
-         background-position: 0px -315px;
+         background-position: 0px -230px;
      }
      #RAMA-1_ST,
      #RAMA-2_ST,
      #RAMA-3_ST,
      #RAMA-4_ST {
-         height: 70px;
-         width: 170px;
+         height: 115px;
+         width: 185px;
          margin: auto;
-         background-image: url(../imagenes/rama_posiciones.png);
+         background-image: url(../imagenes/rama_posiciones.svg);
      }
      .Rama-cuadrado {
-         background-position: 0px -9px;
+         background-position: 0px 0px;
      }
      .Rama-rectangular-transversal {
-         background-position: 0px -93px;
+         background-position: 0px -115px;
      }
      .Rama-rectangular-paralelo {
-         background-position: 0px -179px;
+         background-position: 0px -230px;
      }
      #ESPACIAMIENTO-TRASLAPE {
          border: 3px solid #198afc;
@@ -440,8 +442,8 @@
          position: relative;
          padding: 0px;
          margin: 0px;
-         z-index: -1;
          display: none;
+         z-index: 0;
      }
     
      #MENSAJE {
@@ -553,8 +555,8 @@
          -webkit-transform-origin: top center;
          -webkit-transform: scale(0.50);
          background-color: snow;
+         overflow: hidden;
      }
-     
      #detalles, #detalles_ESPACIAMIENTO-TRASLAPE {
          background-image: url(../imagenes/tipos_conexiones.svg);
      }

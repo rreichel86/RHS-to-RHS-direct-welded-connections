@@ -794,7 +794,7 @@ var Control = {
                     $("div[id^=detalles]").addClass(nombre);
                     $("#detalles").show();
                     $("#DIAGRAMA").show();
-                    
+                  
                     
                     
                 } else if (evento === "mouseenter" &&
