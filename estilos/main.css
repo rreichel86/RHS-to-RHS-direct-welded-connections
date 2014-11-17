@@ -23,6 +23,7 @@
      overflow-y: auto;
      background-color: snow;
      border: 1px solid blue;
+     text-rendering: optimizeLegibility;
  }
  @media screen and (min-width: 320px) {
      header {
@@ -124,6 +125,10 @@
          border-radius: 7px;
          background-origin: border-box;
      }
+     #MENU li p.normal:hover, 
+     #MENU li p.seleccionado:hover {
+        font-weight: bolder;
+     }
      #MENU li:nth-child(1) p.ocultar {
          background-position: 0px -318px;
      }
@@ -145,7 +150,7 @@
      .ocultar {
          white-space: nowrap;
          font-size: 9px;
-         color:grey;
+         color:black;
          font-family: arial;
          text-align: center;
          padding-top: 63px;
@@ -604,6 +609,12 @@
          font-family: inherit;
          font-size: 11px;
          width: 138px;
+     }
+     sup {
+        margin-left: 0.5px;
+     }
+     sub {
+        margin-left: 0.5px;
      }
  }
  @media screen and (min-width: 1065px) {
