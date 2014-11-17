@@ -816,9 +816,6 @@ var Control = {
                     nombre = $(event.currentTarget).attr("name"),
                     conexion = $(this).parents("[id^=CONEXION]").prop("id");
                     
-                    
-                    
-                
                 if (evento === "click") {
                     
                     $(".visible").removeClass("visible").addClass("novisible");
@@ -838,8 +835,7 @@ var Control = {
                     
                     $("div[id^=detalles]").hide();
                     $("#detalles").show();
-                    
-                    
+                         
                 }
                 
                 
@@ -1026,7 +1022,6 @@ var Control = {
                 $("div[id^=detalles]").removeClass();
                 $("div[id^=detalles]").addClass(tipo);
                 $("#DIAGRAMA").show();
-                //$("#detalles").show();
                 conexiones[tipo]();
             }
         });
@@ -1052,7 +1047,6 @@ var Control = {
                         Control.geometria.desbloquear(2);
 
                     }
-
                     Conexion_K.apply(Control, [1, 2, 0]);
                 },
                 "CONEXION_EN_N": function () {
@@ -1066,7 +1060,6 @@ var Control = {
                         Control.geometria.desbloquear(2);
 
                     }
-
                     Conexion_K.apply(Control, [1, 2, 0]);
                 },
                 "CONEXION_EN_K-ESPACIAMIENTO": function () {
@@ -1083,7 +1076,6 @@ var Control = {
                         Control.geometria.desbloquear(2);
 
                     }
-
                     Conexion_K.apply(Control, [1, 2, 0]);
                 },
                 "CONEXION_EN_N-ESPACIAMIENTO": function () {
@@ -1097,7 +1089,6 @@ var Control = {
                         Control.geometria.desbloquear(2);
 
                     }
-
                     Conexion_K.apply(Control, [1, 2, 0]);
                 },
                 "CONEXION_EN_K-TRASLAPE": function () {
@@ -1114,7 +1105,6 @@ var Control = {
                         Control.geometria.desbloquear(2);
 
                     }
-
                     Conexion_K.apply(Control, [1, 2, 0]);
                 },
                 "CONEXION_EN_N-TRASLAPE": function () {
@@ -1128,7 +1118,6 @@ var Control = {
                         Control.geometria.desbloquear(2);
 
                     }
-
                     Conexion_K.apply(Control, [1, 2, 0]);
                 },
                 "CONEXION_EN_Y": function () {
@@ -1139,7 +1128,6 @@ var Control = {
                         Control.geometria.desbloquear(1);
 
                     }
-
                     Conexion_Y.apply(Control, [1, 0]);
                 },
                 "CONEXION_EN_T": function () {
@@ -1163,7 +1151,6 @@ var Control = {
                         Control.geometria.desbloquear(2);
 
                     }
-
                     Conexion_X.apply(Control, [1, 2, 0]);
                 },
                 "CONEXION_EN_X2": function () {
@@ -1182,11 +1169,6 @@ var Control = {
             $("div[id^=detalles]").addClass(tipo);
             $("#DIAGRAMA").show();
 
-            /*if (objetivo !== "RAMA 1" && objetivo !== "RAMA 2" && objetivo !== "CORDON") {
-                
-                $("#detalles").show();
-            
-            }*/
             conexiones[tipo]();
         });
 
