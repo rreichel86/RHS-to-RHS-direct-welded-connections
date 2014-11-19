@@ -1194,7 +1194,7 @@ var Control = {
                          "Designed and Developed by Rainer Ernst Reichel (rreichel86@gmail.com)"
                         ].join("<br>"),
 
-
+    /*editar!*/
     espaciamiento_o_traslape: {
         evento: function () {
             "use strict";
