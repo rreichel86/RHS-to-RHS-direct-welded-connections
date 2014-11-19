@@ -9,7 +9,6 @@ APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembr
 2. [INSTALACIÓN](#INSTALACION)
 3. [DESCRIPCIÓN](#DESCRIPCION)
 4. [ALCANCES Y LIMITACIONES](#ALCANCES-LIMITACIONES)
-5. [LA INTERFAZ DE USUARIO](#INTERFAZ-USUARIO)
 
 
 
@@ -47,15 +46,4 @@ Diseña (revisa) las conexiones soldadas que se muestran en la *Figura 1* con la
 - [x] Las conexiones están solicitadas a cargas predominantemente estáticas
 - [x] Las conexiones están sometidas a fuerzas axiales, a momentos de flexión en el plano y fuera del plano de la conexión
 
-
-##<a name="INTERFAZ-USURAIO"></a>INTERFAZ DE USUARIO
-Las siguientes capturas de la vetana de la APLICACIÓN WEB muestran las partes de la Interfaz de Usuario (UI).
-
-![UI_0](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/UI_0.png)
-
-![UI_1](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/UI_1.png)
-
-![UI_2](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/UI_2.png)
-
-![UI_3](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/UI_3.png)
 
