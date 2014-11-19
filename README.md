@@ -9,6 +9,8 @@ APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembr
 2. [INSTALACIÓN](#INSTALACION)
 3. [DESCRIPCIÓN](#DESCRIPCION)
 4. [ALCANCES Y LIMITACIONES](#ALCANCES-LIMITACIONES)
+5. [LA INTERFAZ DE USUARIO](#INTERFAZ-USUARIO)
+
 
 
 
@@ -53,3 +55,6 @@ Diseña (revisa) las conexiones soldadas que se muestran en la *Figura 1* con la
 
 
  
+
+##<a name="INTERFAZ-USURAIO"></a>INTERFAZ DE USUARIO
+
