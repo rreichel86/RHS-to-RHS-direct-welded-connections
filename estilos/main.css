@@ -264,9 +264,9 @@
          border-radius: 10px;
          background-color: #F0F8FF;
      }
-     #CORDON_TIPO,
-     #RAMA-1_TIPO,
-     #RAMA-2_TIPO {
+     #CORDON_SECCION_TIPO,
+     #RAMA-1_SECCION_TIPO,
+     #RAMA-2_SECCION_TIPO {
          height: 25px;
          padding: 0px;
          /* border: 0px; */
@@ -287,7 +287,7 @@
          background-position: 0px 0px;
          display: inline-table;
      }
-     #CORDON_ST {
+     #CORDON_ORIENTACION {
          height: 115px;
          width: 79px;
          margin: auto;
@@ -302,10 +302,10 @@
      .Cordon-rectangular-horizontal {
          background-position: 0px -230px;
      }
-     #RAMA-1_ST,
-     #RAMA-2_ST,
-     #RAMA-3_ST,
-     #RAMA-4_ST {
+     #RAMA-1_ORIENTACION,
+     #RAMA-2_ORIENTACION,
+     #RAMA-3_ORIENTACION,
+     #RAMA-4_ORIENTACION {
          height: 115px;
          width: 185px;
          margin: auto;

@@ -1,193 +1,241 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Type">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5">
-    <title>DISEÑO DE CONEXIONES SOLDADAS ENTRE RHS</title>
-    <style>
-        @import url("../estilos/main.css");
-    </style>
-</head>
+    <head>
+        <meta http-equiv="Content-Type">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5">
+        <title>DISEÑO DE CONEXIONES SOLDADAS ENTRE RHS</title>
+        <style>
+            @import url("../estilos/main.css");
+        </style>
+    </head>
 
-<body>
-    <div id="all">
-        <header>
-            <div>
-                <p>Diseño de conexiones soldadas entre perfiles RHS
-                    <br>Capítulo K del AISC 360-10</p>
+    <body>
+        <div id="all">
+            <header>
+                <div>
+                    <p>Diseño de conexiones soldadas entre perfiles RHS
+                        <br>Capítulo K del AISC 360-10</p>
+                </div>
+            </header>
+
+            <ul id="MENU">
+                <li id="CONEXION_EN_Y">
+                    <p name="CONEXION_EN_Y" class="ocultar normal">CONEXIÓN EN Y</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="CONEXION_EN_T">
+                    <p name="CONEXION_EN_T" class="ocultar normal">CONEXIÓN EN T</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="CONEXION_EN_X1">
+                    <p name="CONEXION_EN_X1" class="ocultar normal">CONEXIÓN EN X</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+                        </li>
+                        <li>
+                            <p name="RAMA-2">RAMA 2</p>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="CONEXION_EN_X2">
+                    <p name="CONEXION_EN_X2" class="ocultar normal">CONEXIÓN EN X</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+                        </li>
+                        <li>
+                            <p name="RAMA-2">RAMA 2</p>
+
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="CONEXION_EN_K">
+                    <p name="CONEXION_EN_K" class="ocultar normal">CONEXIÓN EN K</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+                        </li>
+                        <li>
+                            <p name="RAMA-2">RAMA 2</p>
+
+                        </li>
+                        <li>
+                            <p name="ESPACIAMIENTO-TRASLAPE" class="eot">ESPACIAMIENTO/<br>TRASLAPE</p>
+                        </li>
+                    </ul>
+                </li>
+
+                <li id="CONEXION_EN_N">
+                    <p name="CONEXION_EN_N" class="ocultar normal">CONEXIÓN EN N</p>
+                    <ul>
+                        <li>
+                            <p name="CORDON">CORDON</p>
+                        </li>
+                        <li>
+
+                            <p name="RAMA-1">RAMA 1</p>
+                        </li>
+                        <li>
+                            <p name="RAMA-2">RAMA 2</p>
+
+                        </li>
+                        <li>
+                            <p name="ESPACIAMIENTO-TRASLAPE" class="eot">ESPACIAMIENTO/<br>TRASLAPE</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div id="DIAGRAMA" >
+                <div id="detalles"></div>
+                <div id="detalles_ESPACIAMIENTO-TRASLAPE"></div>
+                <div id="detalles_RAMA-1"></div>
+                <div id="detalles_RAMA-2"></div>
+                <div id="detalles_CORDON"></div>
             </div>
-        </header>
+            <div id="MENSAJE"></div>
+            <div id="ENTRADA">       
+                <div class="novisible" id="ESPACIAMIENTO-TRASLAPE">
+                    <h2>ESPACIAMIENTO/TRASLAPE</h2>
+                    <table>
+                        <tr>
+                            <td>
+                                <label>g</label><label name="unidades">(in)</label>
+                            </td>
+                            <td>
+                                <input id="ESPACIAMIENTO" type="text">
+                            </td>
+                            <td>
+                                <label>O<sub>v</sub></label><label name="unidades">(%)</label>
+                            </td>
+                            <td>
+                                <input id="TRASLAPE" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>e</label><label name="unidades">(in)</label>
+                            </td>
+                            <td>
+                                <input id="EXCENTRICIDAD" type="text">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
 
-       <ul id="MENU">
-            <li id="CONEXION_EN_Y">
-                <p name="CONEXION_EN_Y" class="ocultar normal">CONEXIÓN EN Y</p>
-                <ul>
-                    <li>
-                        <p name="CORDON">CORDON</p>
-                    </li>
-                    <li>
-
-                        <p name="RAMA-1">RAMA 1</p>
-
-                    </li>
-                </ul>
-            </li>
-
-            <li id="CONEXION_EN_T">
-                <p name="CONEXION_EN_T" class="ocultar normal">CONEXIÓN EN T</p>
-                <ul>
-                    <li>
-                        <p name="CORDON">CORDON</p>
-                    </li>
-                    <li>
-
-                        <p name="RAMA-1">RAMA 1</p>
-
-                    </li>
-                </ul>
-            </li>
-
-            <li id="CONEXION_EN_X1">
-                <p name="CONEXION_EN_X1" class="ocultar normal">CONEXIÓN EN X</p>
-                <ul>
-                    <li>
-                        <p name="CORDON">CORDON</p>
-                    </li>
-                    <li>
-
-                        <p name="RAMA-1">RAMA 1</p>
-                    </li>
-                    <li>
-                        <p name="RAMA-2">RAMA 2</p>
-
-                    </li>
-                </ul>
-            </li>
-
-            <li id="CONEXION_EN_X2">
-                <p name="CONEXION_EN_X2" class="ocultar normal">CONEXIÓN EN X</p>
-                <ul>
-                    <li>
-                        <p name="CORDON">CORDON</p>
-                    </li>
-                    <li>
-
-                        <p name="RAMA-1">RAMA 1</p>
-                    </li>
-                    <li>
-                        <p name="RAMA-2">RAMA 2</p>
-
-                    </li>
-                </ul>
-            </li>
-
-            <li id="CONEXION_EN_K">
-                <p name="CONEXION_EN_K" class="ocultar normal">CONEXIÓN EN K</p>
-                <ul>
-                    <li>
-                        <p name="CORDON">CORDON</p>
-                    </li>
-                    <li>
-
-                        <p name="RAMA-1">RAMA 1</p>
-                    </li>
-                    <li>
-                        <p name="RAMA-2">RAMA 2</p>
-
-                    </li>
-                    <li>
-                        <p name="ESPACIAMIENTO-TRASLAPE" class="eot">ESPACIAMIENTO/<br>TRASLAPE</p>
-                    </li>
-                </ul>
-            </li>
-
-            <li id="CONEXION_EN_N">
-                <p name="CONEXION_EN_N" class="ocultar normal">CONEXIÓN EN N</p>
-                <ul>
-                    <li>
-                        <p name="CORDON">CORDON</p>
-                    </li>
-                    <li>
-
-                        <p name="RAMA-1">RAMA 1</p>
-                    </li>
-                    <li>
-                        <p name="RAMA-2">RAMA 2</p>
-
-                    </li>
-                    <li>
-                        <p name="ESPACIAMIENTO-TRASLAPE" class="eot">ESPACIAMIENTO/<br>TRASLAPE</p>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        
-        <div id="DIAGRAMA" >
-            <div id="detalles"></div>
-            <div id="detalles_ESPACIAMIENTO-TRASLAPE"></div>
-            <div id="detalles_RAMA-1"></div>
-            <div id="detalles_RAMA-2"></div>
-            <div id="detalles_CORDON"></div>
+            <div id="REPORTE"></div>
         </div>
-        <div id="MENSAJE"></div>
-        <div id="ENTRADA">
-            <div class="novisible" id="CORDON">
-                <h1>CORDÓN</h1>
-                <div id="CORDON_SECCION">
+        <footer>
+            <div>
+                <p>Diseñado y desarrollado por Rainer Ernst Reichel
+                    <br>email: rreichel86@gmail.com</p>
+            </div>
+        </footer>
+
+        <script id="MIEMBRO" type="text/x-mustache-templ">
+            <div name="MIEMBRO" id="{{nombre}}" class="novisible">
+                <h1>{{nombre}}</h1>
+                <div id="{{nombre}}_SECCION">
                     <h2>SECCIÓN TRANSVERSAL</h2>
                     <table>
                         <tr>
                             <td colspan="2">
                                 <label>Material:</label>
-                                <select id="CORDON_MATERIAL"></select>
+                                <select id="{{nombre}}_MATERIAL_NOMBRE">
+                                    <option>Designacion</option>
+                                    <option>ASTM A500 Gr. B</option>
+                                    <option>ASTM A500 Gr. C</option>
+                                    <!--<option>ASTM A501 Gr. A</option>
+                                        <option>ASTM A501 Gr. B</option>-->
+                                    <option>ASTM A1085</option>"
+                                </select>
                             </td>
                             <td>
                                 <label>F<sub>y</sub></label><label name="unidades">(ksi)</label>
                             </td>
                             <td>
-                                <input type="text" disabled="true" id="CORDON_Fy">
+                                <input type="text" disabled="true" id="{{nombre}}_MATERIAL_Fy">
                             </td>
                             <td>
                                 <label>F<sub>u</sub></label><label name="unidades">(ksi)</label>
                             </td>
                             <td>
-                                <input type="text" disabled="true" id="CORDON_Fu">
+                                <input type="text" disabled="true" id="{{nombre}}_MATERIAL_Fu">
                             </td>
                         </tr> 
                         <tr>
-                            <td colspan="2"  id="CORDON_TIPO">
+                            <td colspan="2"  id="{{nombre}}_SECCION_TIPO">
                                 <label>Tipo:</label>
-                                <input type="radio" name="CORDON_TIPO" value="cuadrado" checked>
+                                <input type="radio" name="{{nombre}}_SECCION_TIPO" value="cuadrado" checked>
                                 <div class="cuadrado"></div>
-                                <input type="radio" name="CORDON_TIPO" value="rectangular">
+                                <input type="radio" name="{{nombre}}_SECCION_TIPO" value="rectangular">
                                 <div class="rectangular"></div>
+                                <!--<input type="radio" name="{{nombre}}_SECCION_TIPO" value="circular">
+<div class="circular"></div>-->
                             </td>
-                            
+
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <label>Tamaño:</label>
-                                <select id="CORDON_TAMAÑO">
+                                <select id="{{nombre}}_SECCION_NOMBRE">
                                     <option>Designacion</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2" rowspan="4">
-                                <div id="CORDON_ST" class="Cordon-rectangular-vertical novisible"></div>
+                                <div id="{{nombre}}_ORIENTACION" class="Cordon-rectangular-vertical novisible"></div>
                             </td>
                             <td name="altura">
                                 <label>H</label><label name="unidades">(in)</label>
                             </td>
                             <td name="altura">
-                                <input type="text" disabled="true" id="CORDON_H">
+                                <input type="text" disabled="true" id="{{nombre}}_SECCION_H">
                             </td>
                             <td name="modulo_elastico">
                                 <label>S<sub>x</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
+                            </td>
                             <td name="modulo_elastico">
-                                <input type="text" disabled="true" id="CORDON_Sx">
+                                <input type="text" disabled="true" id="{{nombre}}_SECCION_Sx">
                             </td>
                         </tr>
                         <tr>
@@ -195,13 +243,13 @@
                                 <label>B</label><label name="unidades">(in)</label>
                             </td>
                             <td name="ancho">
-                                <input type="text" disabled="true" id="CORDON_B">
+                                <input type="text" disabled="true" id="{{nombre}}_SECCION_B">
                             </td>
                             <td name="modulo_elastico">
                                 <label>S<sub>y</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
+                            </td>
                             <td name="modulo_elastico">
-                                <input type="text" disabled="true" id="CORDON_Sy">
+                                <input type="text" disabled="true" id="{{nombre}}_SECCION_Sy">
                             </td>
                         </tr>
                         <tr>
@@ -209,399 +257,127 @@
                                 <label>t</label><label name="unidades">(in)</label>
                             </td>
                             <td name="espesor">
-                                <input type="text" disabled="true" id="CORDON_tdes">
+                                <input type="text" disabled="true" id="{{nombre}}_SECCION_tdes">
                             </td>
                             <td name="modulo_plastico">
                                 <label>Z<sub>x</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
+                            </td>
                             <td name="modulo_plastico">
-                                <input type="text" disabled="true" id="CORDON_Zx">
+                                <input type="text" disabled="true" id="{{nombre}}_SECCION_Zx">
                             </td>
                         </tr>
                         <tr>
                             <td name="area">
                                 <label>A</label><label name="unidades">(in<sup>2</sup>)</label>
-							</td>
+                            </td>
                             <td name="area">
-                                <input type="text" disabled="true" id="CORDON_Ag">
+                                <input type="text" disabled="true" id="{{nombre}}_SECCION_Ag">
                             </td>
                             <td name="modulo_plastico">
                                 <label>Z<sub>y</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
+                            </td>
                             <td name="modulo_plastico">
-                                <input type="text" disabled="true" id="CORDON_Zy">
+                                <input type="text" disabled="true" id="{{nombre}}_SECCION_Zy">
                             </td>
                         </tr>
                     </table>
                 </div>
-                
-                <div id="CORDON_CARGAS">
+
+                {{#isRama}}
+                <div id="{{nombre}}_GEOMETRIA">
+                    <h2>GEOMETRÍA</h2>
+                    <table>
+                        <tr>
+                            <td name="angulo">
+                                <label>Ángulo de la Rama &#952;</label><label name="unidades">(deg)</label>
+                            </td>
+                            <td name="angulo">
+                                <input type="text" id="{{nombre}}_theta" value="30">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {{/isRama}}
+
+                {{#isCordon}}
+                <div id="{{nombre}}_CARGAS">
                     <h2>CARGAS FACTORADAS </h2>  
-                        <p>- Axial: Tensión (+) Compresión (-), <br> 
+                    <p>- Axial: Tensión (+) Compresión (-), <br> 
                         - Momento: Horario (+) Anti-Horario (-)</p>
                     <table>
                         <tr>
                             <td>
                                 <label>P<sup>i</sup><sub>r</sub></label><label name="unidades">(kip)</label>
-							</td>
-                            <td>
-                                <input type="text" id="CORDON_Pi" value="0">
                             </td>
-                             <td>
-                                <label>M<sup>i</sup><sub>r-ip</sub></label><label name="unidades">(kip-in)</label>
-							</td>
                             <td>
-                                <input type="text" id="CORDON_Mi" value="0">
+                                <input type="text" id="{{nombre}}_CARGAS_Pi" value="0">
+                            </td>
+                            <td>
+                                <label>M<sup>i</sup><sub>r-ip</sub></label><label name="unidades">(kip-in)</label>
+                            </td>
+                            <td>
+                                <input type="text" id="{{nombre}}_CARGAS_Mi" value="0">
                             </td> 
                         </tr>
                         <tr>
-                           <td>
-                               <label>P<sup>d</sup><sub>r</sub></label><label name="unidades">(kip)</label>
-							</td>
                             <td>
-                                <input type="text" id="CORDON_Pd" value="0">
+                                <label>P<sup>d</sup><sub>r</sub></label><label name="unidades">(kip)</label>
+                            </td>
+                            <td>
+                                <input type="text" id="{{nombre}}_CARGAS_Pd" value="0">
                             </td>
                             <td>
                                 <label>M<sup>d</sup><sub>r-ip</sub></label><label name="unidades">(kip-in)</label>
-							</td>
+                            </td>
                             <td>
-                                <input type="text" id="CORDON_Md" value="0">
+                                <input type="text" id="{{nombre}}_CARGAS_Md" value="0">
                             </td>
                         </tr>
-                        
+
                     </table>
                 </div>
-			</div>
-            <div class="novisible" id="RAMA-1">
-                <h1>RAMA 1</h1>
-                <div id="RAMA-1_SECCION">
-                    <h2>SECCIÓN TRANSVERSAL</h2>
-                    <table>
-                        <tr>
-                            <td colspan="2">
-                                <label>Material:</label>
-                                <select id="RAMA-1_MATERIAL"></select>
-                            </td>
-                            <td>
-                                <label>F<sub>y</sub></label><label name="unidades">(ksi)</label>
-                            </td>
-                            <td>
-                                <input type="text" disabled="true" id="RAMA-1_Fy">
-                            </td>
-                            <td>
-                                <label>F<sub>u</sub></label><label name="unidades">(ksi)</label>
-                            </td>
-                            <td>
-                                <input type="text" disabled="true" id="RAMA-1_Fu">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" id="RAMA-1_TIPO">
-                                <label>Tipo:</label>
-                                <input type="radio" name="RAMA-1_TIPO" value="cuadrado" checked>
-                                <div class="cuadrado"></div>
-                                <input type="radio" name="RAMA-1_TIPO" value="rectangular">
-                                <div class="rectangular"></div>
-                            </td>
-                        </tr> 
-                        <tr>
-                            <td colspan="2 ">
-                                <label>Tamaño:</label>
-                                <select id="RAMA-1_TAMAÑO">
-                                    <option>Designacion</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" rowspan="4">
-                                <div id="RAMA-1_ST" class="Rama-rectangular-transversal novisible"></div>
-                            </td>
-                            <td name="altura">
-                                <label>H</label><label name="unidades">(in)</label>
-                            </td>
-                            <td name="altura">
-                                <input type="text" disabled="true" id="RAMA-1_H">
-                            </td>
-                            <td name="modulo_elastico">
-                                <label>S<sub>x</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
-                            <td name="modulo_elastico">
-                                <input type="text" disabled="true" id="RAMA-1_Sx">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td name="ancho">
-                                <label>B</label><label name="unidades">(in)</label>
-                            </td>
-                            <td name="ancho">
-                                <input type="text" disabled="true" id="RAMA-1_B">
-                            </td>
-                            <td name="modulo_elastico">
-                                <label>S<sub>y</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
-                            <td name="modulo_elastico">
-                                <input type="text" disabled="true" id="RAMA-1_Sy">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td name="espesor">
-                                <label>t</label><label name="unidades">(in)</label>
-                            </td>
-                            <td name="espesor">
-                                <input type="text" disabled="true" id="RAMA-1_tdes">
-                            </td>
-                            <td name="modulo_plastico">
-                                <label>Z<sub>x</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
-                            <td name="modulo_plastico">
-                                <input type="text" disabled="true" id="RAMA-1_Zx">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td name="area">
-                                <label>A</label><label name="unidades">(in<sup>2</sup>)</label>
-							</td>
-                            <td name="area">
-                                <input type="text" disabled="true" id="RAMA-1_Ag">
-                            </td>
-                            <td name="modulo_plastico">
-                                <label>Z<sub>y</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
-                            <td name="modulo_plastico">
-                                <input type="text" disabled="true" id="RAMA-1_Zy">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="RAMA-1_GEOMETRIA">
-                    <h2>GEOMETRÍA</h2>
-                    <table>
-                        <tr>
-                            <td name="angulo">
-                                <label>Ángulo de la Rama &#952;</label><label name="unidades">(deg)</label>
-							</td>
-                            <td name="angulo">
-                                <input type="text" id="RAMA-1_theta" value="30">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="RAMA-1_CARGAS">
+                {{/isCordon}}
+
+                {{#isRama}}
+                <div id="{{nombre}}_CARGAS">
                     <h2>CARGAS FACTORADAS </h2>  
-                        <p>- Axial: Tensión (+) Compresión (-), <br> 
+                    <p>- Axial: Tensión (+) Compresión (-), <br> 
                         - Momento: Horario (+) Anti-Horario (-)</p>
                     <table>
                         <tr>
                             <td>
                                 <label>P<sub>r</sub></label><label name="unidades">(kip)</label>
-							</td>
+                            </td>
                             <td>
-                                <input type="text" id="RAMA-1_P" value="0">
+                                <input type="text" id="{{nombre}}_CARGAS_P" value="0">
                             </td>
                             <td>
                                 <label>M<sub>r-ip</sub></label><label name="unidades">(kip-in)</label>
-							</td>
+                            </td>
                             <td>
-                                <input type="text" disabled="true" id="RAMA-1_Mip" value="0">
+                                <input type="text" disabled="true" id="{{nombre}}_CARGAS_Mip" value="0">
                             </td>
                             <td>
                                 <label>M<sub>r-op</sub></label><label name="unidades">(kip-in)</label>
-							</td>
+                            </td>
                             <td>
-                                <input type="text" disabled="true" id="RAMA-1_Mop" value="0">
+                                <input type="text" disabled="true" id="{{nombre}}_CARGAS_Mop" value="0">
                             </td>
                         </tr>
                     </table>
                 </div>
-            </div>
-            <div class="novisible" id="RAMA-2">
-                <h1>RAMA 2</h1>
-                <div id="RAMA-2_SECCION">
-                    <h2>SECCIÓN TRANSVERSAL</h2>
-                    <table>
-                        <tr>
-                            <td colspan="2">
-                                <label>Material:</label>
-                                <select id="RAMA-2_MATERIAL"></select>
-                            </td>
-                            <td>
-                                <label>F<sub>y</sub></label><label name="unidades">(ksi)</label>
-                            </td>
-                            <td>
-                                <input type="text" disabled="true" id="RAMA-2_Fy">
-                            </td>
-                            <td>
-                                <label>F<sub>u</sub></label><label name="unidades">(ksi)</label>
-                            </td>
-                            <td>
-                                <input type="text" disabled="true" id="RAMA-2_Fu">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" id="RAMA-2_TIPO">
-                                <label>Tipo:</label>
-                                <input type="radio" name="RAMA-2_TIPO" value="cuadrado" checked>
-                                <div class="cuadrado"></div>
-                                <input type="radio" name="RAMA-2_TIPO" value="rectangular">
-                                <div class="rectangular"></div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <label>Tamaño:</label>
-                                <select id="RAMA-2_TAMAÑO">
-                                    <option>Designacion</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" rowspan="4">
-                                <div id="RAMA-2_ST" class="Rama-rectangular-transversal novisible"></div>
-                            </td>
-                           <td name="altura">
-                                <label>H</label><label name="unidades">(in)</label>
-                            </td>
-                            <td name="altura">
-                                <input type="text" disabled="true" id="RAMA-2_H">
-                            </td>
-                            <td name="modulo_elastico">
-                                <label>S<sub>x</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
-                            <td name="modulo_elastico">
-                                <input type="text" disabled="true" id="RAMA-2_Sx">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td name="ancho">
-                                <label>B</label><label name="unidades">(in)</label>
-                            </td>
-                            <td name="ancho">
-                                <input type="text" disabled="true" id="RAMA-2_B">
-                            </td>
-                            <td name="modulo_elastico">
-                                <label>S<sub>y</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
-                            <td name="modulo_elastico">
-                                <input type="text" disabled="true" id="RAMA-2_Sy">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td name="espesor">
-                                <label>t</label><label name="unidades">(in)</label>
-                            </td>
-                            <td name="espesor">
-                                <input type="text" disabled="true" id="RAMA-2_tdes">
-                            </td>
-                            <td name="modulo_plastico">
-                                <label>Z<sub>x</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
-                            <td name="modulo_plastico">
-                                <input type="text" disabled="true" id="RAMA-2_Zx">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td name="area">
-                                <label>A</label><label name="unidades">(in<sup>2</sup>)</label>
-							</td>
-                            <td name="area">
-                                <input type="text" disabled="true" id="RAMA-2_Ag">
-                            </td>
-                            <td name="modulo_plastico">
-                                <label>Z<sub>y</sub></label><label name="unidades">(in<sup>3</sup>)</label>
-							</td>
-                            <td name="modulo_plastico">
-                                <input type="text" disabled="true" id="RAMA-2_Zy">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="RAMA-2_GEOMETRIA">
-                    <h2>GEOMETRÍA</h2>
-                    <table>
-                        <tr>
-                            <td name="angulo">
-                                <label>Ángulo de la Rama &#952;</label><label name="unidades">(deg)</label>
-							</td>
-                            <td name="angulo">
-                                <input type="text" id="RAMA-2_theta" value="30">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="RAMA-2_CARGAS">
-                    <h2>CARGAS FACTORADAS </h2>  
-                        <p>- Axial: Tensión (+) Compresión (-), <br> 
-                        - Momento: Horario (+) Anti-Horario (-)</p>
-                    <table>
-                        <tr>
-                            <td>
-                                <label>P<sub>r</sub></label><label name="unidades">(kip)</label>
-							</td>
-                            <td>
-                                <input type="text" id="RAMA-2_P" value="0">
-                            </td>
-                            <td>
-                                <label>M<sub>r-ip</sub></label><label name="unidades">(kip-in)</label>
-							</td>
-                            <td>
-                                <input type="text" disabled="true" id="RAMA-2_Mip" value="0">
-                            </td>
-                            <td>
-                               <label>M<sub>r-op</sub></label><label name="unidades">(kip-in)</label>
-							</td>
-                            <td>
-                                <input type="text" disabled="true" id="RAMA-2_Mop" value="0">
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>  
-            <div class="novisible" id="ESPACIAMIENTO-TRASLAPE">
-                <h2>ESPACIAMIENTO/TRASLAPE</h2>
-                <table>
-                    <tr>
-                        <td>
-                            <label>g</label><label name="unidades">(in)</label>
-                        </td>
-                        <td>
-                            <input id="ESPACIAMIENTO" type="text">
-                        </td>
-                        <td>
-                            <label>O<sub>v</sub></label><label name="unidades">(%)</label>
-						</td>
-                        <td>
-                            <input id="TRASLAPE" type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>e</label><label name="unidades">(in)</label>
-                        </td>
-                        <td>
-                            <input id="EXCENTRICIDAD" type="text">
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+                {{/isRama}}
 
-        <div id="REPORTE"></div>
-    </div>
-    <footer>
-        <div>
-            <p>Diseñado y desarrollado por Rainer Ernst Reichel
-                <br>email: rreichel86@gmail.com</p>
-        </div>
-    </footer>
-   
-    <script src="../librerias/jquery.min.js"></script>
-    <script src="../librerias/mustache.js"></script>
-    <script src="../librerias/ordenar.js"></script>
-    <script src="../librerias/capitulo_K.js"></script>
-    <script src="../perfiles/materiales.js"></script>
-    <script src="../perfiles/perfiles.js"></script>
-    <script src="../principal/manager.js"></script>
-    
-    
-</body>
+            </div>
+        </script>
+        <script src="../librerias/jquery.min.js"></script>
+        <script src="../librerias/mustache.js"></script>
+        <script src="../librerias/ordenar.js"></script>
+        <script src="../librerias/capitulo_K.js"></script>
+        <script src="../perfiles/materiales.js"></script>
+        <script src="../perfiles/perfiles.js"></script>
+        <script src="../principal/manager.js"></script>
+
+
+    </body>
 </html>
