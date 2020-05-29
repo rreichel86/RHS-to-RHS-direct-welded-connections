@@ -32,7 +32,7 @@ APLICACIÓN WEB para el diseño de conexiones soldadas directamente entre miembr
   1. *con espaciamiento*
   2. *con traslape*
 
-La aplicación web esta basada en el método *LRFD* (Load and Resistance Factor Design) de la especificación [**ANSI/AISC 360-10:** *Specification for Structural Steel Buildings*](https://www.aisc.org/WorkArea/showcontent.aspx?id=26516) - **CAPITULO K** 
+La aplicación web esta basada en el método *LRFD* (Load and Resistance Factor Design) de la especificación **ANSI/AISC 360-10:** *Specification for Structural Steel Buildings* - **CAPITULO K** 
 
 ![conexiones](https://raw.githubusercontent.com/rreichel86/RHS-to-RHS-direct-welded-connections/master/capturas/conexiones.png "Figura 1")
 
